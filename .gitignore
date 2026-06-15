@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+
+.streamlit/
+
+src/*.db
+src/*.db-journal
+src/*.db-shm
+src/*.db-wal
+src/models/
+models/*
+!models/.gitkeep
+
+*.log
+tests/.tmp/
+
+#local folders
+code/
+skills/
+agents.md

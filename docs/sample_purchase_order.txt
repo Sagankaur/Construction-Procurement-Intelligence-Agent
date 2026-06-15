@@ -1,0 +1,14 @@
+SiteSage Demo Purchase Order Register
+
+Project: Kaya IIT Construction Tower
+Reporting month: June 2026
+
+PO-1001 covers Structural Steel from ABC Metals. The promised delivery date is 2026-06-20 and the expected ROJ date for structural steel is 2026-06-24. The order is marked At Risk because mill dispatch confirmation is pending and ABC Metals has missed two prior milestone updates. This critical material may affect the Superstructure schedule.
+
+PO-1004 covers MEP Copper Cables from ElectroPro Systems. The promised delivery date is 2026-06-18 and the expected ROJ date is 2026-06-19. The order needs follow-up because factory acceptance testing is not complete and the vendor communication score is low.
+
+PO-1006 covers Fire Rated Doors from SafeEntry Doors. The promised delivery date was 2026-06-10 and the expected ROJ date is 2026-06-14. The order needs follow-up because the delivery is not confirmed.
+
+PO-1012 covers a Diesel Generator from PowerCore Equipments. The promised delivery date is 2026-06-25 and the expected ROJ date is 2026-07-02. The item is At Risk because alternator inspection is pending. This critical material may affect commissioning.
+
+Materials delayed in the current procurement register include TMT Rebar from NorthSpan Steel and Waterproofing Membrane from AquaShield Materials. Both deliveries arrived after their promised dates.

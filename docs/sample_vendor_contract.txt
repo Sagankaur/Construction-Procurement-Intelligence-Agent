@@ -1,0 +1,11 @@
+SiteSage Demo Vendor Risk Notes
+
+ABC Metals supplies structural steel and has a current on-time rate of 68 percent. The vendor is considered high risk for June 2026 because critical steel delivery depends on pending mill dispatch documents and unresolved logistics confirmation.
+
+ElectroPro Systems supplies MEP copper cables and has a current on-time rate of 64 percent. The vendor is considered high risk because factory acceptance testing is incomplete, communication cadence is weak, and the cable order supports MEP rough-in.
+
+PowerCore Equipments supplies the diesel generator package and has a current on-time rate of 66 percent. The generator order is critical for commissioning and should be escalated if inspection evidence is not received.
+
+BuildMix Concrete is a reliable vendor with a 91 percent on-time rate. Routine tracking is enough for current concrete and cement orders.
+
+Follow-up priority should be ABC Metals for PO-1001, ElectroPro Systems for PO-1004, SafeEntry Doors for PO-1006, and PowerCore Equipments for PO-1012.

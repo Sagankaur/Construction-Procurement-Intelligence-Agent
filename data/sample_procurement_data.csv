@@ -1,0 +1,13 @@
+po_number,material_name,category,vendor_name,order_date,promised_delivery_date,expected_roj_date,actual_delivery_date,quantity,unit,contract_value,priority,project_phase,criticality,current_status,quality_issues,communication_score,historical_on_time_rate
+PO-1001,Structural Steel,Steel,ABC Metals,2026-05-18,2026-06-20,2026-06-24,,120,ton,8400000,Critical,Superstructure,High,At Risk,2,6.4,0.68
+PO-1002,Ready Mix Concrete,Concrete,BuildMix Concrete,2026-06-01,2026-06-15,2026-06-15,,450,cubic_meter,3150000,High,Foundation,High,On Track,0,8.6,0.91
+PO-1003,TMT Rebar,Steel,NorthSpan Steel,2026-05-05,2026-06-03,2026-06-06,2026-06-12,75,ton,3900000,High,Foundation,High,Delayed,1,7.2,0.76
+PO-1004,MEP Copper Cables,Electrical,ElectroPro Systems,2026-05-27,2026-06-18,2026-06-19,,18,km,2550000,Critical,MEP Rough-In,High,At Risk,3,5.9,0.64
+PO-1005,HVAC Ducting,MEP,AirFlow Fabricators,2026-05-22,2026-06-28,2026-06-30,,2100,sq_m,1760000,Medium,MEP Rough-In,Medium,On Track,0,8.1,0.86
+PO-1006,Fire Rated Doors,Finishes,SafeEntry Doors,2026-05-14,2026-06-10,2026-06-14,,95,each,1180000,Medium,Finishes,Medium,At Risk,1,6.8,0.72
+PO-1007,Elevator Package,Equipment,UrbanLift India,2026-04-12,2026-07-06,2026-07-14,,4,set,9800000,Critical,Vertical Transport,High,On Track,0,8.0,0.83
+PO-1008,Waterproofing Membrane,Waterproofing,AquaShield Materials,2026-05-02,2026-05-26,2026-05-29,2026-05-31,8200,sq_m,1420000,High,Basement,Medium,Delayed,2,6.6,0.74
+PO-1009,Cement Bags,Cement,BuildMix Concrete,2026-05-10,2026-05-30,2026-05-30,2026-05-29,6500,bag,975000,Medium,Foundation,Medium,Delivered,0,8.6,0.91
+PO-1010,Facade Glass,Facade,CrystalView Facades,2026-05-30,2026-07-02,2026-07-04,,1400,sq_m,6650000,High,Envelope,High,On Track,1,7.8,0.82
+PO-1011,Plumbing Valves,Plumbing,FlowRight Supply,2026-06-03,2026-06-22,2026-06-23,,320,each,640000,Medium,MEP Rough-In,Medium,On Track,0,8.4,0.88
+PO-1012,Diesel Generator,Equipment,PowerCore Equipments,2026-04-30,2026-06-25,2026-07-02,,2,set,5400000,Critical,Commissioning,High,At Risk,2,6.1,0.66
