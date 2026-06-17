@@ -7,10 +7,11 @@ Use these files to explain SiteSage AI to teammates, mentors, judges, and hackat
 1. `brief.md` - short project summary and current scope.
 2. `team_onboarding.md` - how team members should run, test, and navigate the project.
 3. `team_work_division.md` - ownership split for the three-person hackathon team.
-4. `technical_architecture.md` - how frontend, RAG, ML, SQLite, and alerts fit together.
-5. `demo_script.md` - exact demo flow and questions to use.
-6. `hackathon_pitch.md` - problem, solution, differentiators, and judging story.
-7. `roadmap_risks.md` - known limitations, risks, and next build priorities.
+4. `hackathon_winning_plan.md` - highest-impact improvements to make the app competitive.
+5. `technical_architecture.md` - how frontend, RAG, ML, SQLite, and alerts fit together.
+6. `demo_script.md` - exact demo flow and questions to use.
+7. `hackathon_pitch.md` - problem, solution, differentiators, and judging story.
+8. `roadmap_risks.md` - known limitations, risks, and next build priorities.
 
 ## Current Source Layout
 
