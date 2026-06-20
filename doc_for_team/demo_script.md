@@ -9,8 +9,8 @@ Show that SiteSage AI is a construction procurement copilot, not a generic chatb
 Run:
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
-..\.venv\Scripts\python.exe -B -m streamlit run app.py
+cd "C:\sagan ASUS\IIT\kaya"
+.\.venv\Scripts\python.exe -B -m streamlit run app.py
 ```
 
 Open:

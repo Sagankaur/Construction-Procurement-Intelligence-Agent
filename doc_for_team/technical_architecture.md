@@ -21,7 +21,7 @@ Framework: Streamlit
 Entry point:
 
 ```text
-code/app.py
+app.py
 ```
 
 Pages:
@@ -38,7 +38,7 @@ Pages:
 SQLite database:
 
 ```text
-code/src/site_sage.db
+src/site_sage.db
 ```
 
 This is generated locally and ignored by Git.
@@ -56,7 +56,7 @@ SQLite uses memory journal mode in the helper to avoid local Windows sandbox wri
 Source file:
 
 ```text
-code/src/document_loader.py
+src/document_loader.py
 ```
 
 Flow:
@@ -79,7 +79,7 @@ Why hashed vectors:
 Source file:
 
 ```text
-code/src/rag_engine.py
+src/rag_engine.py
 ```
 
 Flow:
@@ -103,7 +103,7 @@ This means chunk `0` from `sample_purchase_order.txt`.
 Source file:
 
 ```text
-code/src/delay_model.py
+src/delay_model.py
 ```
 
 Model type:
@@ -114,7 +114,7 @@ Model type:
 Training data:
 
 ```text
-code/data/sample_procurement_data.csv
+data/sample_procurement_data.csv
 ```
 
 Features:
@@ -146,7 +146,7 @@ Output:
 Source file:
 
 ```text
-code/src/vendor_risk.py
+src/vendor_risk.py
 ```
 
 Scoring signals:
@@ -169,7 +169,7 @@ Output:
 Source file:
 
 ```text
-code/src/alerts.py
+src/alerts.py
 ```
 
 Alert types:
@@ -193,7 +193,7 @@ Alerts are generated from delay risk, vendor risk, and critical delayed material
 Tests are in:
 
 ```text
-code/tests/test_backend.py
+tests/test_backend.py
 ```
 
 Covered:

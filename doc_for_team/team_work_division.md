@@ -31,10 +31,10 @@ This member owns the working demo experience.
 ### Primary Files
 
 ```text
-code/app.py
-code/pages/
-code/src/database.py
-code/README.md
+app.py
+pages/
+src/database.py
+README.md
 ```
 
 ### Demo Ownership
@@ -63,9 +63,9 @@ This member can use an electronics background well by focusing on structured dat
 ### Primary Files
 
 ```text
-code/data/sample_procurement_data.csv
-code/docs/sample_purchase_order.txt
-code/docs/sample_vendor_contract.txt
+data/sample_procurement_data.csv
+docs/sample_purchase_order.txt
+docs/sample_vendor_contract.txt
 doc_for_team/demo_script.md
 doc_for_team/hackathon_pitch.md
 ```
@@ -96,12 +96,12 @@ This member owns the AI and analytics behavior.
 ### Primary Files
 
 ```text
-code/src/document_loader.py
-code/src/rag_engine.py
-code/src/delay_model.py
-code/src/vendor_risk.py
-code/src/alerts.py
-code/models/
+src/document_loader.py
+src/rag_engine.py
+src/delay_model.py
+src/vendor_risk.py
+src/alerts.py
+models/
 ```
 
 ### Demo Ownership

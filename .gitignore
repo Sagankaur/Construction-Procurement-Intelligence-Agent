@@ -17,7 +17,6 @@ models/*
 *.log
 tests/.tmp/
 
-#local folders
-code/
+# Local-only folders
 skills/
 agents.md

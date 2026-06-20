@@ -35,8 +35,6 @@ The app is not just a generic chatbot. It is shaped around construction procurem
 
 ## Current Prototype Scope
 
-Implemented in `code/`:
-
 - Streamlit frontend with six pages.
 - SQLite storage for uploaded document text and chunks.
 - FAISS retrieval over stored chunks.
@@ -57,7 +55,7 @@ The prototype includes synthetic procurement data for a construction project:
 - Diesel Generator from PowerCore Equipments.
 - Other concrete, facade, plumbing, elevator, waterproofing, and cement orders.
 
-Sample documents are in `code/docs/`, and sample structured procurement history is in `code/data/sample_procurement_data.csv`.
+Sample documents are in `docs/`, and sample structured procurement history is in `data/sample_procurement_data.csv`.
 
 ## Why This Fits Kaya AI
 

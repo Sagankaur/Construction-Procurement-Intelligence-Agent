@@ -18,20 +18,19 @@ Use these files to explain SiteSage AI to teammates, mentors, judges, and hackat
 The working app is in:
 
 ```text
-code/
-  app.py
-  pages/
-  src/
-  data/
-  docs/
-  tests/
-  README.md
+app.py
+pages/
+src/
+data/
+docs/
+tests/
+README.md
 ```
 
 The documentation pack is in:
 
 ```text
-doc/
+doc_for_team/
 ```
 
 ## Quick Commands
@@ -39,16 +38,16 @@ doc/
 Run tests:
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
+cd "C:\sagan ASUS\IIT\kaya"
 $env:PYTHONDONTWRITEBYTECODE="1"
-..\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
 ```
 
 Run app:
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
-..\.venv\Scripts\python.exe -B -m streamlit run app.py
+cd "C:\sagan ASUS\IIT\kaya"
+.\.venv\Scripts\python.exe -B -m streamlit run app.py
 ```
 
 Open:

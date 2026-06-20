@@ -9,13 +9,13 @@ The app should show that an AI system can understand procurement context, foreca
 ## What Each Folder Does
 
 ```text
-code/app.py
+app.py
 ```
 
 Streamlit entry point. It loads the sidebar navigation and routes to each page.
 
 ```text
-code/pages/
+pages/
 ```
 
 Streamlit pages:
@@ -28,7 +28,7 @@ Streamlit pages:
 - `06_Alerts.py`: procurement alerts and actions.
 
 ```text
-code/src/
+src/
 ```
 
 Backend logic:
@@ -41,19 +41,19 @@ Backend logic:
 - `alerts.py`: alert generation.
 
 ```text
-code/data/
+data/
 ```
 
 Synthetic procurement table used for demo analytics and ML.
 
 ```text
-code/docs/
+docs/
 ```
 
 Sample procurement documents that can be indexed from the app.
 
 ```text
-code/tests/
+tests/
 ```
 
 Backend tests for the important prototype behavior.
@@ -63,25 +63,25 @@ Backend tests for the important prototype behavior.
 From PowerShell:
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
-..\.venv\Scripts\Activate.ps1
+cd "C:\sagan ASUS\IIT\kaya"
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
 If the virtual environment is missing:
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
-python -m venv ..\.venv
-..\.venv\Scripts\Activate.ps1
+cd "C:\sagan ASUS\IIT\kaya"
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
 ## Run The App
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
-..\.venv\Scripts\python.exe -B -m streamlit run app.py
+cd "C:\sagan ASUS\IIT\kaya"
+.\.venv\Scripts\python.exe -B -m streamlit run app.py
 ```
 
 Open:
@@ -93,9 +93,9 @@ http://localhost:8501
 ## Run Tests
 
 ```powershell
-cd "C:\sagan ASUS\IIT\kaya\code"
+cd "C:\sagan ASUS\IIT\kaya"
 $env:PYTHONDONTWRITEBYTECODE="1"
-..\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
+.\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
 ```
 
 Expected result:
@@ -117,6 +117,16 @@ $env:SITESAGE_USE_OLLAMA="1"
 
 If Ollama is unavailable, the AI Agent page still answers from retrieved document chunks and cites sources.
 
+## Current Build Workflow
+
+- Use the repository root as the app root. Do not work from a nested `code/` copy.
+- Keep `data/sample_procurement_data.csv` as the stable demo fallback.
+- Put raw external datasets under `data/raw/` and cleaned app-ready tables under `data/processed/`.
+- Keep large downloaded datasets out of Git unless they are curated demo samples.
+- After code changes, run backend tests before committing.
+- After app-facing changes, run Streamlit locally and check the affected page.
+- Commit each logical change separately with a descriptive message.
+
 ## Team Roles For Demo Prep
 
 - Presenter: owns the narrative, problem, solution, and demo flow.
@@ -127,8 +137,8 @@ If Ollama is unavailable, the AI Agent page still answers from retrieved documen
 
 ## Do Not Break Before Demo
 
-- Do not remove `code/data/sample_procurement_data.csv`.
-- Do not remove sample docs in `code/docs/`.
+- Do not remove `data/sample_procurement_data.csv`.
+- Do not remove sample docs in `docs/`.
 - Do not rename Streamlit page files unless updating `app.py`.
 - Do not claim Ollama is required; it is optional.
 - Do not claim the ML model is production-trained; it is a prototype trained on synthetic data.
