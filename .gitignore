@@ -20,3 +20,15 @@ tests/.tmp/
 # Local-only folders
 skills/
 agents.md
+
+# Raw Datasets (Exclude large downloaded Kaggle files)
+data/raw/
+kaggle data/
+data archive/
+
+# Local SQLite Database (Generated locally, avoid sandboxing issues)
+src/site_sage.db
+
+# OS generated files
+.DS_Store
+Thumbs.db
