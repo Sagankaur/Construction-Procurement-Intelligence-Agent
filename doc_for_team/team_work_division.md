@@ -167,9 +167,6 @@ Expected output should be a list of actionable procurement alerts.
 
 ## Demo Question Ownership
 
-- Member 1 verifies that each question works in the UI.
-- Member 2 verifies that the expected answer makes procurement sense.
-- Member 3 verifies that the answer is grounded in RAG or model outputs.
 
 Use these demo questions:
 
