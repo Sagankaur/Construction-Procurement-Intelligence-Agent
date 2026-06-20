@@ -40,6 +40,14 @@ Use Kaggle datasets for fast training, then enrich with official context:
 - India WPI/PPI material price signals: [Office of Economic Adviser](https://eaindustry.nic.in/)
 - World Bank commodity prices: [World Bank Commodity Markets](https://www.worldbank.org/en/research/commodity-markets)
 
+DONE->
+data/processed/procurement_master.csv (Enriched with construction logic)
+data/processed/vendor_master.csv (Aggregated reliability profiles)
+data/processed/material_price_signals.csv (Macro market indicators)
+models/delay_risk_classifier.joblib (Trained risk engine)
+models/delay_risk_regressor.joblib (Trained duration engine)
+models/model_report.md (Performance report)
+
 **Sprint 3: Model Upgrade**
 Do not start with deep learning. Use strong tabular baselines:
 

@@ -1,0 +1,518 @@
+material,category,vendor,quantity,contract_value,priority,project_phase,criticality,historical_on_time_rate,communication_score,lead_time,days_until_promised_delivery,actual_delay_days,risk_level
+Cement,Electrical,Granite Valley Mfg,4,32623.64,Critical,Superstructure,Critical,0.0,0.0,79,35,7,High
+Formwork,Optical,Pacific Alloy Works,7,226364.11,Medium,MEP Fitouts,Medium,0.0,0.0,28,14,6,Medium
+Formwork,Mechanical,Alpine Fabrications Inc,38,133683.16,Medium,Finishes,Medium,0.0,0.0,14,44,7,High
+Formwork,Optical,Dusk Manufacturing Co,25,211891.75,Medium,Foundation,Medium,0.0,0.0,44,27,8,High
+Formwork,Mechanical,Horizon Mech Solutions,24,89740.56,Medium,Finishes,Medium,0.0,0.0,63,32,4,Medium
+Cement,Structural,Zenith Alloy Solutions,8,10193.76,Medium,Superstructure,Medium,0.0,0.0,42,12,4,Medium
+Formwork,Mechanical,Cascade Tooling Solutions,15,35832.3,Critical,MEP Fitouts,Critical,0.0,0.0,79,16,9,High
+Cement,Structural,Ironclad Assemblies,28,52712.8,Medium,Foundation,Medium,0.0,0.0,18,34,6,Medium
+Cement,Electrical,Badlands Components LLC,49,330689.73000000004,Critical,Superstructure,Critical,0.0,0.0,47,6,7,High
+Cement,Hydraulic,Dusk Manufacturing Co,12,27804.120000000003,Medium,Finishes,Medium,0.0,0.0,87,18,5,Medium
+Cement,Hydraulic,Coastal Precision Parts,3,18262.71,Critical,Superstructure,Critical,0.0,0.0,38,37,6,Medium
+Formwork,Mechanical,Zenith Alloy Solutions,9,36488.34,Medium,Foundation,Medium,0.0,0.0,57,37,4,Medium
+Cement,Electrical,Badlands Components LLC,8,119214.56,Critical,Superstructure,Critical,0.0,0.0,14,15,8,High
+Formwork,Mechanical,Riverton Manufacturing,6,8674.44,Critical,Superstructure,Critical,0.0,0.0,74,7,4,Medium
+Cement,Thermal Management,Apex Precision Components,11,15383.5,Medium,Finishes,Medium,0.0,0.0,34,29,2,Low
+Formwork,Mechanical,Ironclad Assemblies,40,8413.6,Critical,Superstructure,Critical,0.0,0.0,74,36,6,Medium
+Cement,Thermal Management,Silverado Machining,5,18996.65,Medium,MEP Fitouts,Medium,0.0,0.0,28,22,3,Medium
+Formwork,Optical,Vega Electronics Ltd,74,736398.42,Critical,Superstructure,Critical,0.0,0.0,28,12,8,High
+Formwork,Optical,Trident Industrial Parts,3,146289.99,Critical,Superstructure,Critical,0.0,0.0,33,40,7,High
+Cement,Thermal Management,Granite Valley Mfg,23,13561.26,Medium,Foundation,Medium,0.0,0.0,47,36,2,Low
+Formwork,Optical,Ironclad Assemblies,50,388272.0,Medium,Superstructure,Medium,0.0,0.0,58,31,8,High
+Formwork,Mechanical,Trident Industrial Parts,48,76192.31999999999,Medium,MEP Fitouts,Medium,0.0,0.0,20,33,4,Medium
+Cement,Structural,Trident Industrial Parts,41,51238.11,Medium,Superstructure,Medium,0.0,0.0,84,38,5,Medium
+Cement,Thermal Management,Dusk Manufacturing Co,13,49982.4,Critical,Superstructure,Critical,0.0,0.0,36,22,4,Medium
+Cement,Electrical,Polaris Metals Group,3,11124.36,Critical,Finishes,Critical,0.0,0.0,57,31,6,Medium
+Cement,Structural,Pacific Alloy Works,12,16047.6,Critical,Foundation,Critical,0.0,0.0,73,43,7,High
+Cement,Thermal Management,Granite Valley Mfg,1,1182.2,Medium,Foundation,Medium,0.0,0.0,57,37,3,Medium
+Formwork,Optical,Lakewood Electro Systems,12,596869.2,Medium,Finishes,Medium,0.0,0.0,69,23,7,High
+Cement,Hydraulic,Mesa Components Corp,12,65521.8,Critical,Superstructure,Critical,0.0,0.0,32,20,6,Medium
+Cement,Electrical,Eagle Ridge Components,12,44347.32,Medium,Foundation,Medium,0.0,0.0,87,23,4,Medium
+Cement,Electrical,Riverton Manufacturing,42,484829.1,Medium,Superstructure,Medium,0.0,0.0,70,30,5,Medium
+Formwork,Optical,Stratos Machined Parts,26,776306.7000000001,Medium,Foundation,Medium,0.0,0.0,24,9,9,High
+Cement,Structural,Hollowpoint Alloys Inc,16,25295.2,Medium,Foundation,Medium,0.0,0.0,45,7,4,Medium
+Cement,Thermal Management,Foxridge Assemblies,1,849.06,Critical,Superstructure,Critical,0.0,0.0,88,17,5,Medium
+Formwork,Optical,Ironclad Assemblies,1,49051.22,Medium,Foundation,Medium,0.0,0.0,25,27,6,Medium
+Cement,Thermal Management,Granite Valley Mfg,6,27156.840000000004,Critical,Superstructure,Critical,0.0,0.0,66,27,5,Medium
+Formwork,Mechanical,Granite Valley Mfg,28,91861.28,Critical,Foundation,Critical,0.0,0.0,29,10,7,High
+Cement,Hydraulic,Ironclad Assemblies,29,200116.24,Medium,Foundation,Medium,0.0,0.0,60,5,3,Medium
+Cement,Electrical,Badlands Components LLC,39,474652.62,Critical,Finishes,Critical,0.0,0.0,16,43,6,Medium
+Formwork,Mechanical,Coastal Precision Parts,8,33415.6,Medium,Finishes,Medium,0.0,0.0,60,42,5,Medium
+Cement,Electrical,Tri-State Fabricators Inc,18,32128.38,Medium,Foundation,Medium,0.0,0.0,53,24,6,Medium
+Cement,Structural,Badlands Components LLC,16,17442.4,Critical,Foundation,Critical,0.0,0.0,68,35,7,High
+Cement,Hydraulic,Keystone Bearing Systems,73,195773.59,Medium,Foundation,Medium,0.0,0.0,64,11,6,Medium
+Cement,Hydraulic,Granite Valley Mfg,2,3345.86,Medium,MEP Fitouts,Medium,0.0,0.0,35,10,4,Medium
+Cement,Thermal Management,Zenith Alloy Solutions,8,39877.2,Medium,Foundation,Medium,0.0,0.0,14,30,2,Low
+Cement,Thermal Management,Crestfall Components,4,15149.44,Medium,Foundation,Medium,0.0,0.0,25,22,3,Medium
+Formwork,Mechanical,Trident Industrial Parts,11,30388.16,Medium,Superstructure,Medium,0.0,0.0,43,29,4,Medium
+Cement,Hydraulic,Western Alloy Fab,66,68495.45999999999,Medium,Superstructure,Medium,0.0,0.0,17,25,6,Medium
+Formwork,Mechanical,Coastal Precision Parts,11,53777.79,Critical,Superstructure,Critical,0.0,0.0,78,7,7,High
+Cement,Hydraulic,Cornerstone Electro-Mech,6,4349.58,Critical,Superstructure,Critical,0.0,0.0,56,44,4,Medium
+Formwork,Optical,Badlands Components LLC,22,422559.94,Medium,Finishes,Medium,0.0,0.0,53,32,6,Medium
+Formwork,Optical,Lowland Metal Works,3,104150.76,Medium,Foundation,Medium,0.0,0.0,90,15,5,Medium
+Formwork,Optical,Dusk Manufacturing Co,13,22961.9,Medium,Foundation,Medium,0.0,0.0,48,7,3,Medium
+Cement,Electrical,Cascade Tooling Solutions,36,349689.60000000003,Medium,Superstructure,Medium,0.0,0.0,85,40,7,High
+Cement,Hydraulic,Redwood Stampings Inc,7,1510.39,Critical,Foundation,Critical,0.0,0.0,86,25,8,High
+Formwork,Mechanical,BlueSky Structural Inc,12,42350.76,Medium,Finishes,Medium,0.0,0.0,54,19,6,Medium
+Cement,Thermal Management,Horizon Mech Solutions,27,115551.09,Medium,Foundation,Medium,0.0,0.0,52,16,5,Medium
+Cement,Thermal Management,Cascade Tooling Solutions,12,30223.68,Medium,Superstructure,Medium,0.0,0.0,27,21,4,Medium
+Formwork,Mechanical,Coastal Precision Parts,3,8103.0,Critical,Foundation,Critical,0.0,0.0,67,39,7,High
+Formwork,Mechanical,Ironclad Assemblies,12,11109.96,Medium,Superstructure,Medium,0.0,0.0,56,20,6,Medium
+Formwork,Optical,Dusk Manufacturing Co,14,40090.26,Medium,Foundation,Medium,0.0,0.0,29,34,4,Medium
+Cement,Structural,Alpine Fabrications Inc,7,71875.02,Medium,Superstructure,Medium,0.0,0.0,15,5,4,Medium
+Cement,Electrical,Pacific Alloy Works,20,108064.8,Critical,MEP Fitouts,Critical,0.0,0.0,70,5,6,Medium
+Cement,Hydraulic,Helix Precision Mfg,4,25095.36,Medium,MEP Fitouts,Medium,0.0,0.0,28,35,3,Medium
+Formwork,Optical,Redwood Stampings Inc,2,91307.48,Critical,Superstructure,Critical,0.0,0.0,89,16,8,High
+Formwork,Mechanical,Granite Valley Mfg,19,63985.53999999999,Critical,Finishes,Critical,0.0,0.0,25,16,9,High
+Cement,Structural,Keystone Bearing Systems,6,7974.960000000001,Medium,MEP Fitouts,Medium,0.0,0.0,19,5,4,Medium
+Cement,Hydraulic,Dusk Manufacturing Co,10,31103.800000000003,Medium,MEP Fitouts,Medium,0.0,0.0,21,6,6,Medium
+Cement,Structural,Foxridge Assemblies,85,64788.7,Medium,MEP Fitouts,Medium,0.0,0.0,40,6,5,Medium
+Cement,Electrical,Alpine Fabrications Inc,30,181151.61,Medium,Finishes,Medium,0.0,0.0,56,37,5,Medium
+Cement,Thermal Management,Granite Valley Mfg,10,24511.8,Medium,Foundation,Medium,0.0,0.0,86,7,5,Medium
+Formwork,Mechanical,Zenith Alloy Solutions,18,86785.2,Medium,Superstructure,Medium,0.0,0.0,17,24,7,High
+Cement,Hydraulic,Granite Valley Mfg,8,53268.8,Critical,Foundation,Critical,0.0,0.0,37,12,6,Medium
+Formwork,Optical,Crestfall Components,21,639339.96,Medium,MEP Fitouts,Medium,0.0,0.0,62,36,8,High
+Cement,Electrical,Zenith Alloy Solutions,58,548833.7,Medium,Foundation,Medium,0.0,0.0,44,35,2,Low
+Cement,Hydraulic,Dusk Manufacturing Co,9,4059.99,Medium,Superstructure,Medium,0.0,0.0,43,10,6,Medium
+Formwork,Optical,Riverton Manufacturing,14,560047.04,Medium,Foundation,Medium,0.0,0.0,28,37,6,Medium
+Cement,Thermal Management,Zenith Alloy Solutions,26,56048.98,Medium,Finishes,Medium,0.0,0.0,85,26,4,Medium
+Cement,Thermal Management,Crestfall Components,5,10707.05,Medium,MEP Fitouts,Medium,0.0,0.0,35,20,5,Medium
+Cement,Thermal Management,Pacific Alloy Works,66,344899.5,Medium,Finishes,Medium,0.0,0.0,54,39,3,Medium
+Formwork,Optical,Granite Valley Mfg,17,682552.38,Medium,Foundation,Medium,0.0,0.0,73,17,6,Medium
+Formwork,Mechanical,Coastal Precision Parts,3,5037.87,Medium,Superstructure,Medium,0.0,0.0,24,42,5,Medium
+Cement,Thermal Management,Badlands Components LLC,71,221067.02,Medium,Finishes,Medium,0.0,0.0,19,10,8,High
+Cement,Structural,Zenith Alloy Solutions,64,92215.04,Medium,Finishes,Medium,0.0,0.0,89,40,4,Medium
+Cement,Electrical,Dusk Manufacturing Co,20,214474.2,Medium,Finishes,Medium,0.0,0.0,58,17,5,Medium
+Formwork,Mechanical,Dusk Manufacturing Co,63,9868.95,Critical,Finishes,Critical,0.0,0.0,18,17,6,Medium
+Cement,Hydraulic,Badlands Components LLC,53,397510.6,Medium,Finishes,Medium,0.0,0.0,16,22,7,High
+Formwork,Mechanical,Badlands Components LLC,1,3409.96,Medium,Foundation,Medium,0.0,0.0,40,44,5,Medium
+Cement,Thermal Management,Badlands Components LLC,16,35595.84,Medium,Finishes,Medium,0.0,0.0,69,25,4,Medium
+Formwork,Optical,Granite Valley Mfg,41,464629.22,Medium,Superstructure,Medium,0.0,0.0,27,13,7,High
+Cement,Electrical,Ironclad Assemblies,13,34259.55,Medium,Foundation,Medium,0.0,0.0,81,16,5,Medium
+Cement,Thermal Management,Badlands Components LLC,21,50675.52,Medium,Foundation,Medium,0.0,0.0,45,23,6,Medium
+Cement,Hydraulic,Badlands Components LLC,13,38245.87,Medium,Finishes,Medium,0.0,0.0,84,37,3,Medium
+Cement,Thermal Management,Canyon Fabricators LLC,3,13131.6,Medium,Superstructure,Medium,0.0,0.0,67,9,4,Medium
+Cement,Hydraulic,Ironclad Assemblies,12,77516.28,Medium,Foundation,Medium,0.0,0.0,39,21,4,Medium
+Formwork,Mechanical,Eagle Ridge Components,11,11218.79,Medium,Finishes,Medium,0.0,0.0,90,34,2,Low
+Formwork,Mechanical,Lakeview Thermal Systems,3,8195.01,Medium,Foundation,Medium,0.0,0.0,24,20,5,Medium
+Formwork,Mechanical,Dusk Manufacturing Co,31,54120.73,Medium,Superstructure,Medium,0.0,0.0,46,33,5,Medium
+Cement,Structural,Pacific Alloy Works,7,1379.28,Medium,Finishes,Medium,0.0,0.0,62,30,5,Medium
+Cement,Structural,Dusk Manufacturing Co,12,11128.8,Medium,Superstructure,Medium,0.0,0.0,89,37,4,Medium
+Formwork,Mechanical,Ironclad Assemblies,10,43662.8,Medium,Superstructure,Medium,0.0,0.0,89,20,2,Low
+Cement,Hydraulic,Lakewood Electro Systems,4,24863.36,Critical,Superstructure,Critical,0.0,0.0,48,35,6,Medium
+Cement,Structural,Pacific Alloy Works,4,1788.48,Medium,Foundation,Medium,0.0,0.0,31,38,4,Medium
+Cement,Hydraulic,Bayside Precision LLC,20,29899.6,Critical,Superstructure,Critical,0.0,0.0,51,38,5,Medium
+Cement,Structural,Alpine Fabrications Inc,9,5920.55,Medium,Finishes,Medium,0.0,0.0,16,38,4,Medium
+Cement,Structural,Dusk Manufacturing Co,15,15190.2,Critical,Foundation,Critical,0.0,0.0,52,37,7,High
+Cement,Structural,Zenith Alloy Solutions,23,29783.160000000003,Medium,Superstructure,Medium,0.0,0.0,18,40,7,High
+Cement,Structural,Mesa Components Corp,1,911.06,Medium,Finishes,Medium,0.0,0.0,18,24,5,Medium
+Cement,Structural,Stratos Machined Parts,3,4983.09,Medium,Foundation,Medium,0.0,0.0,83,5,5,Medium
+Cement,Structural,Riverton Manufacturing,5,1222.8,Critical,Finishes,Critical,0.0,0.0,17,17,6,Medium
+Cement,Thermal Management,Riverton Manufacturing,42,21502.32,Medium,Foundation,Medium,0.0,0.0,80,12,2,Low
+Cement,Electrical,Stratos Machined Parts,24,28650.0,Medium,MEP Fitouts,Medium,0.0,0.0,81,38,4,Medium
+Formwork,Mechanical,Helix Precision Mfg,68,118024.2,Medium,Foundation,Medium,0.0,0.0,34,42,6,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,23,35846.84,Critical,Finishes,Critical,0.0,0.0,42,37,10,High
+Cement,Electrical,Badlands Components LLC,3,9649.71,Critical,Superstructure,Critical,0.0,0.0,70,32,6,Medium
+Cement,Electrical,Zenith Alloy Solutions,26,321798.88,Critical,Foundation,Critical,0.0,0.0,42,19,8,High
+Formwork,Mechanical,Cascade Tooling Solutions,31,82623.99,Critical,Foundation,Critical,0.0,0.0,51,10,6,Medium
+Cement,Structural,Helix Precision Mfg,52,71373.12,Medium,Superstructure,Medium,0.0,0.0,46,41,3,Medium
+Cement,Structural,Alpine Fabrications Inc,5,29159.84,Medium,Foundation,Medium,0.0,0.0,49,36,6,Medium
+Cement,Electrical,Hollowpoint Alloys Inc,34,387428.3000000001,Medium,Superstructure,Medium,0.0,0.0,74,13,7,High
+Formwork,Optical,Coastal Precision Parts,12,563485.08,Medium,MEP Fitouts,Medium,0.0,0.0,66,31,7,High
+Formwork,Optical,Ridgeline Hydraulics,16,431799.04,Medium,Superstructure,Medium,0.0,0.0,44,27,5,Medium
+Formwork,Optical,Zenith Alloy Solutions,12,505003.92,Medium,Foundation,Medium,0.0,0.0,90,40,8,High
+Cement,Thermal Management,Crestline Tooling Co,2,1598.24,Critical,Foundation,Critical,0.0,0.0,76,44,4,Medium
+Cement,Electrical,Trident Industrial Parts,3,6469.41,Critical,Foundation,Critical,0.0,0.0,67,31,7,High
+Formwork,Mechanical,Lowland Metal Works,36,47512.44,Medium,Superstructure,Medium,0.0,0.0,26,5,8,High
+Cement,Structural,Horizon Mech Solutions,7,9650.06,Medium,MEP Fitouts,Medium,0.0,0.0,46,15,3,Medium
+Cement,Thermal Management,Badlands Components LLC,7,34135.64,Medium,Foundation,Medium,0.0,0.0,37,7,4,Medium
+Cement,Thermal Management,Zenith Alloy Solutions,1,4175.02,Medium,Superstructure,Medium,0.0,0.0,32,36,5,Medium
+Cement,Hydraulic,Trident Industrial Parts,8,42600.88,Medium,Foundation,Medium,0.0,0.0,82,5,4,Medium
+Cement,Thermal Management,Zenith Alloy Solutions,2,10699.36,Critical,Superstructure,Critical,0.0,0.0,86,34,4,Medium
+Formwork,Mechanical,Dusk Manufacturing Co,29,50608.77,Medium,Foundation,Medium,0.0,0.0,20,39,5,Medium
+Formwork,Optical,Dusk Manufacturing Co,20,683419.0,Medium,Foundation,Medium,0.0,0.0,69,15,4,Medium
+Cement,Structural,Badlands Components LLC,67,104105.94,Critical,Foundation,Critical,0.0,0.0,17,5,9,High
+Formwork,Optical,Granite Valley Mfg,10,235594.5,Critical,Finishes,Critical,0.0,0.0,33,43,7,High
+Cement,Hydraulic,Dusk Manufacturing Co,28,187784.52,Critical,Superstructure,Critical,0.0,0.0,87,30,10,High
+Cement,Electrical,Redwood Stampings Inc,11,160936.93,Critical,Superstructure,Critical,0.0,0.0,79,40,7,High
+Formwork,Mechanical,Ironclad Assemblies,43,70698.45,Medium,Superstructure,Medium,0.0,0.0,31,17,4,Medium
+Cement,Structural,Redwood Stampings Inc,12,13386.0,Critical,Finishes,Critical,0.0,0.0,16,31,8,High
+Formwork,Mechanical,Greystone Fabrications,28,40162.36,Medium,Finishes,Medium,0.0,0.0,78,5,3,Medium
+Formwork,Optical,Redwood Stampings Inc,15,595556.7,Medium,Foundation,Medium,0.0,0.0,17,41,6,Medium
+Cement,Hydraulic,Pacific Alloy Works,15,111654.75,Medium,Finishes,Medium,0.0,0.0,73,31,8,High
+Cement,Electrical,Dusk Manufacturing Co,35,375559.1,Medium,Superstructure,Medium,0.0,0.0,29,23,4,Medium
+Cement,Electrical,Zenith Alloy Solutions,28,412866.44,Medium,Foundation,Medium,0.0,0.0,17,29,6,Medium
+Cement,Thermal Management,Stratos Machined Parts,27,160605.18,Medium,Finishes,Medium,0.0,0.0,49,31,6,Medium
+Cement,Structural,Ironwood Tooling Group,31,54685.24,Medium,Foundation,Medium,0.0,0.0,80,34,6,Medium
+Formwork,Optical,Foxridge Assemblies,37,964272.91,Critical,Finishes,Critical,0.0,0.0,23,29,6,Medium
+Cement,Structural,Timberline Fasteners,7,5166.0,Medium,Foundation,Medium,0.0,0.0,52,43,3,Medium
+Cement,Thermal Management,Coastal Precision Parts,7,26498.29,Medium,Foundation,Medium,0.0,0.0,89,23,5,Medium
+Cement,Hydraulic,Zenith Alloy Solutions,22,84286.18000000001,Medium,Finishes,Medium,0.0,0.0,43,29,5,Medium
+Formwork,Mechanical,Granite Valley Mfg,15,56232.0,Medium,Foundation,Medium,0.0,0.0,49,17,5,Medium
+Cement,Hydraulic,Cornerstone Electro-Mech,1,5730.38,Medium,Superstructure,Medium,0.0,0.0,54,39,5,Medium
+Cement,Structural,Granite Valley Mfg,66,102470.94,Critical,Foundation,Critical,0.0,0.0,81,30,7,High
+Cement,Hydraulic,Dusk Manufacturing Co,10,56770.3,Medium,Superstructure,Medium,0.0,0.0,69,43,5,Medium
+Cement,Hydraulic,Horizon Mech Solutions,25,58725.5,Medium,Foundation,Medium,0.0,0.0,25,32,5,Medium
+Cement,Hydraulic,Zenith Alloy Solutions,7,52125.43,Medium,Foundation,Medium,0.0,0.0,59,7,3,Medium
+Cement,Electrical,Granite Valley Mfg,1,4597.83,Medium,Superstructure,Medium,0.0,0.0,82,33,7,High
+Cement,Thermal Management,Hollowpoint Alloys Inc,10,18960.9,Medium,Foundation,Medium,0.0,0.0,49,43,5,Medium
+Cement,Hydraulic,Stratos Machined Parts,26,103197.38,Medium,Foundation,Medium,0.0,0.0,80,15,4,Medium
+Cement,Hydraulic,Tri-State Fabricators Inc,8,54034.0,Medium,Superstructure,Medium,0.0,0.0,73,16,5,Medium
+Cement,Electrical,BlueSky Structural Inc,16,177812.48,Medium,Superstructure,Medium,0.0,0.0,85,35,5,Medium
+Formwork,Optical,Zenith Alloy Solutions,55,1487819.85,Critical,Foundation,Critical,0.0,0.0,66,43,9,High
+Cement,Thermal Management,Western Alloy Fab,3,13520.7,Medium,Superstructure,Medium,0.0,0.0,27,36,6,Medium
+Cement,Electrical,Granite Valley Mfg,21,182542.92,Medium,Superstructure,Medium,0.0,0.0,69,30,5,Medium
+Cement,Electrical,Granite Valley Mfg,2,19795.26,Medium,Finishes,Medium,0.0,0.0,63,20,6,Medium
+Cement,Electrical,Dusk Manufacturing Co,4,31119.84,Critical,Foundation,Critical,0.0,0.0,77,37,7,High
+Cement,Thermal Management,Cornerstone Electro-Mech,15,65838.75,Medium,MEP Fitouts,Medium,0.0,0.0,64,10,6,Medium
+Formwork,Mechanical,Stratos Machined Parts,27,60495.93000000001,Medium,Superstructure,Medium,0.0,0.0,38,19,7,High
+Cement,Structural,Zenith Alloy Solutions,63,94152.24,Medium,Superstructure,Medium,0.0,0.0,88,9,4,Medium
+Cement,Hydraulic,NorthStar Electro-Mech,22,82582.72,Critical,Superstructure,Critical,0.0,0.0,47,39,5,Medium
+Formwork,Mechanical,Ironclad Assemblies,44,72895.68000000001,Medium,MEP Fitouts,Medium,0.0,0.0,72,5,3,Medium
+Cement,Thermal Management,Polaris Metals Group,4,12663.2,Medium,Finishes,Medium,0.0,0.0,42,44,3,Medium
+Cement,Electrical,Greystone Fabrications,13,119146.82,Critical,Foundation,Critical,0.0,0.0,15,20,8,High
+Cement,Structural,Ironclad Assemblies,30,31077.6,Critical,MEP Fitouts,Critical,0.0,0.0,65,10,7,High
+Cement,Thermal Management,Coastal Precision Parts,23,12949.69,Medium,Finishes,Medium,0.0,0.0,83,31,5,Medium
+Cement,Electrical,Ironclad Assemblies,101,854326.68,Critical,Superstructure,Critical,0.0,0.0,14,15,9,High
+Formwork,Optical,Redwood Stampings Inc,4,106383.0,Critical,MEP Fitouts,Critical,0.0,0.0,78,41,8,High
+Formwork,Optical,Bayside Precision LLC,7,320906.18,Medium,Finishes,Medium,0.0,0.0,34,7,8,High
+Cement,Electrical,Badlands Components LLC,15,141328.34999999998,Medium,Finishes,Medium,0.0,0.0,25,15,6,Medium
+Cement,Thermal Management,Eagle Ridge Components,9,40271.04,Critical,Superstructure,Critical,0.0,0.0,61,5,11,High
+Cement,Electrical,Prairie Industrial Supply,21,126529.2,Medium,Foundation,Medium,0.0,0.0,31,31,7,High
+Cement,Structural,Crestfall Components,3,4978.11,Medium,Superstructure,Medium,0.0,0.0,43,34,3,Medium
+Formwork,Optical,BlueSky Structural Inc,32,435288.0,Medium,Foundation,Medium,0.0,0.0,67,43,4,Medium
+Formwork,Optical,Crestfall Components,6,41613.18,Medium,Superstructure,Medium,0.0,0.0,31,35,5,Medium
+Formwork,Mechanical,Zenith Alloy Solutions,5,20507.95,Medium,Foundation,Medium,0.0,0.0,56,13,4,Medium
+Cement,Thermal Management,Zenith Alloy Solutions,21,122081.4,Critical,Foundation,Critical,0.0,0.0,36,30,9,High
+Cement,Electrical,Lowland Metal Works,12,72003.84,Medium,Finishes,Medium,0.0,0.0,72,38,5,Medium
+Cement,Hydraulic,Ironclad Assemblies,34,98863.5,Critical,Superstructure,Critical,0.0,0.0,51,22,6,Medium
+Formwork,Optical,Summit Hydraulics LLC,33,334165.59,Medium,Foundation,Medium,0.0,0.0,31,20,5,Medium
+Cement,Structural,Greystone Fabrications,5,9143.95,Critical,Foundation,Critical,0.0,0.0,36,13,4,Medium
+Cement,Thermal Management,Western Alloy Fab,41,206238.61,Medium,Foundation,Medium,0.0,0.0,20,42,5,Medium
+Cement,Electrical,Dusk Manufacturing Co,45,6439.950000000001,Medium,MEP Fitouts,Medium,0.0,0.0,89,32,6,Medium
+Formwork,Mechanical,Redwood Stampings Inc,68,135610.36,Medium,MEP Fitouts,Medium,0.0,0.0,16,17,6,Medium
+Cement,Structural,Hollowpoint Alloys Inc,9,17522.190000000002,Medium,MEP Fitouts,Medium,0.0,0.0,41,19,3,Medium
+Cement,Structural,Polaris Metals Group,23,11494.25,Medium,Finishes,Medium,0.0,0.0,40,11,5,Medium
+Cement,Hydraulic,Zenith Alloy Solutions,10,21034.6,Medium,MEP Fitouts,Medium,0.0,0.0,82,30,5,Medium
+Cement,Electrical,Ironclad Assemblies,3,31483.29,Medium,Foundation,Medium,0.0,0.0,16,41,3,Medium
+Cement,Hydraulic,Granite Valley Mfg,21,49750.47,Critical,Superstructure,Critical,0.0,0.0,30,10,7,High
+Cement,Hydraulic,Horizon Mech Solutions,22,115173.96,Medium,Superstructure,Medium,0.0,0.0,15,23,6,Medium
+Cement,Thermal Management,Eagle Ridge Components,3,9565.62,Critical,Foundation,Critical,0.0,0.0,75,31,5,Medium
+Cement,Thermal Management,Ironclad Assemblies,8,31968.96,Medium,Foundation,Medium,0.0,0.0,59,32,5,Medium
+Cement,Hydraulic,Badlands Components LLC,11,78121.67,Medium,Finishes,Medium,0.0,0.0,15,10,5,Medium
+Formwork,Mechanical,Stratos Machined Parts,20,47240.4,Medium,Foundation,Medium,0.0,0.0,86,29,6,Medium
+Cement,Hydraulic,Hollowpoint Alloys Inc,36,72023.04000000001,Medium,Superstructure,Medium,0.0,0.0,56,7,6,Medium
+Cement,Thermal Management,Badlands Components LLC,32,58283.52,Critical,MEP Fitouts,Critical,0.0,0.0,23,11,4,Medium
+Cement,Hydraulic,Stratos Machined Parts,24,183079.2,Medium,Foundation,Medium,0.0,0.0,85,18,5,Medium
+Cement,Electrical,Ironclad Assemblies,14,83734.84000000001,Medium,Superstructure,Medium,0.0,0.0,35,9,5,Medium
+Formwork,Mechanical,Dusk Manufacturing Co,1,1512.76,Medium,Superstructure,Medium,0.0,0.0,71,37,5,Medium
+Cement,Thermal Management,Badlands Components LLC,26,35887.8,Medium,Superstructure,Medium,0.0,0.0,53,16,5,Medium
+Formwork,Optical,Eagle Ridge Components,2,79007.52,Critical,Foundation,Critical,0.0,0.0,16,38,12,High
+Cement,Thermal Management,NorthStar Electro-Mech,49,144913.58000000002,Medium,Foundation,Medium,0.0,0.0,75,20,7,High
+Cement,Structural,Foxridge Assemblies,7,3928.89,Critical,Finishes,Critical,0.0,0.0,59,7,8,High
+Cement,Structural,Foxridge Assemblies,28,21192.64,Medium,Superstructure,Medium,0.0,0.0,34,25,6,Medium
+Cement,Structural,Alpine Fabrications Inc,35,102432.09,Critical,MEP Fitouts,Critical,0.0,0.0,31,15,9,High
+Cement,Structural,Stratos Machined Parts,32,12505.6,Critical,Superstructure,Critical,0.0,0.0,22,36,6,Medium
+Cement,Thermal Management,Hollowpoint Alloys Inc,9,28073.07,Medium,Superstructure,Medium,0.0,0.0,71,11,6,Medium
+Cement,Thermal Management,Coastal Precision Parts,13,32133.01,Medium,MEP Fitouts,Medium,0.0,0.0,32,44,3,Medium
+Formwork,Optical,Greystone Fabrications,5,164176.95,Medium,Superstructure,Medium,0.0,0.0,90,39,6,Medium
+Cement,Structural,Helix Precision Mfg,3,2067.18,Critical,MEP Fitouts,Critical,0.0,0.0,90,15,6,Medium
+Cement,Structural,Summit Hydraulics LLC,2,3030.78,Medium,Finishes,Medium,0.0,0.0,25,19,5,Medium
+Cement,Thermal Management,Ironclad Assemblies,36,92793.96,Medium,Superstructure,Medium,0.0,0.0,60,37,8,High
+Cement,Thermal Management,Ironclad Assemblies,35,122510.5,Critical,Superstructure,Critical,0.0,0.0,77,42,5,Medium
+Formwork,Mechanical,Hollowpoint Alloys Inc,10,20073.3,Critical,Superstructure,Critical,0.0,0.0,64,37,8,High
+Formwork,Mechanical,Ironwood Tooling Group,50,221539.5,Critical,Foundation,Critical,0.0,0.0,23,24,6,Medium
+Cement,Thermal Management,Crestline Tooling Co,17,90715.06,Medium,Foundation,Medium,0.0,0.0,32,14,4,Medium
+Formwork,Mechanical,Apex Precision Components,6,29525.16,Medium,MEP Fitouts,Medium,0.0,0.0,43,19,6,Medium
+Formwork,Mechanical,Crestfall Components,12,10634.64,Medium,Finishes,Medium,0.0,0.0,49,29,5,Medium
+Cement,Electrical,Alpine Fabrications Inc,2,29641.65,Medium,Superstructure,Medium,0.0,0.0,23,15,3,Medium
+Cement,Structural,Lowland Metal Works,5,559.6,Medium,Foundation,Medium,0.0,0.0,31,38,3,Medium
+Formwork,Optical,Lakeview Thermal Systems,62,262703.3,Medium,Superstructure,Medium,0.0,0.0,49,20,7,High
+Cement,Thermal Management,Granite Valley Mfg,34,50650.48,Medium,Finishes,Medium,0.0,0.0,31,8,3,Medium
+Cement,Structural,Ironclad Assemblies,15,16058.55,Medium,Finishes,Medium,0.0,0.0,86,7,5,Medium
+Formwork,Optical,Lakeview Thermal Systems,31,1255110.64,Critical,Foundation,Critical,0.0,0.0,33,35,8,High
+Cement,Electrical,Greystone Fabrications,47,701408.26,Medium,Foundation,Medium,0.0,0.0,24,44,5,Medium
+Formwork,Optical,Granite Valley Mfg,17,131827.18,Critical,Foundation,Critical,0.0,0.0,15,36,11,High
+Cement,Structural,Zenith Alloy Solutions,10,13394.6,Medium,Foundation,Medium,0.0,0.0,26,20,5,Medium
+Cement,Structural,Dusk Manufacturing Co,20,4869.0,Medium,Superstructure,Medium,0.0,0.0,66,29,1,Low
+Cement,Structural,Dusk Manufacturing Co,2,3756.22,Critical,Foundation,Critical,0.0,0.0,40,38,7,High
+Cement,Electrical,Zenith Alloy Solutions,11,163708.82,Critical,Foundation,Critical,0.0,0.0,74,9,7,High
+Cement,Electrical,Hollowpoint Alloys Inc,13,10931.44,Medium,Finishes,Medium,0.0,0.0,31,33,6,Medium
+Cement,Hydraulic,Dusk Manufacturing Co,47,99052.97000000002,Critical,Foundation,Critical,0.0,0.0,84,21,5,Medium
+Cement,Thermal Management,Dusk Manufacturing Co,9,49689.63,Critical,Foundation,Critical,0.0,0.0,50,19,6,Medium
+Cement,Hydraulic,Western Alloy Fab,7,22515.710000000003,Medium,Finishes,Medium,0.0,0.0,29,24,5,Medium
+Cement,Hydraulic,Trident Industrial Parts,19,37755.85,Medium,Superstructure,Medium,0.0,0.0,40,18,6,Medium
+Cement,Electrical,Foxridge Assemblies,14,60073.16,Medium,MEP Fitouts,Medium,0.0,0.0,15,8,3,Medium
+Formwork,Optical,Alpine Fabrications Inc,5,21713.04,Medium,MEP Fitouts,Medium,0.0,0.0,19,44,4,Medium
+Cement,Structural,Zenith Alloy Solutions,47,20969.05,Critical,MEP Fitouts,Critical,0.0,0.0,40,13,6,Medium
+Formwork,Mechanical,Greystone Fabrications,12,8631.36,Medium,Superstructure,Medium,0.0,0.0,86,12,4,Medium
+Cement,Electrical,Dusk Manufacturing Co,11,33229.240000000005,Medium,MEP Fitouts,Medium,0.0,0.0,25,27,7,High
+Cement,Thermal Management,Crestline Tooling Co,1,4902.68,Critical,Superstructure,Critical,0.0,0.0,55,35,7,High
+Cement,Thermal Management,Bayside Precision LLC,7,6588.610000000001,Critical,Finishes,Critical,0.0,0.0,78,21,5,Medium
+Cement,Electrical,Granite Valley Mfg,71,458407.95,Medium,Superstructure,Medium,0.0,0.0,39,6,7,High
+Formwork,Optical,Silverado Machining,47,907895.71,Medium,Finishes,Medium,0.0,0.0,73,10,9,High
+Cement,Hydraulic,Dusk Manufacturing Co,1,6431.97,Critical,Finishes,Critical,0.0,0.0,51,40,8,High
+Cement,Structural,Granite Valley Mfg,12,12231.12,Medium,Foundation,Medium,0.0,0.0,89,19,2,Low
+Formwork,Optical,Coastal Precision Parts,4,22507.28,Medium,Finishes,Medium,0.0,0.0,72,30,4,Medium
+Formwork,Optical,Prairie Industrial Supply,2,74832.7,Medium,Foundation,Medium,0.0,0.0,55,38,6,Medium
+Cement,Thermal Management,Crestfall Components,10,20392.3,Critical,Superstructure,Critical,0.0,0.0,18,20,5,Medium
+Cement,Electrical,Timberline Fasteners,19,164112.31,Medium,MEP Fitouts,Medium,0.0,0.0,76,17,7,High
+Formwork,Mechanical,NorthStar Electro-Mech,20,77673.0,Critical,Foundation,Critical,0.0,0.0,87,31,8,High
+Cement,Electrical,Dusk Manufacturing Co,30,401229.9,Medium,Superstructure,Medium,0.0,0.0,22,39,5,Medium
+Cement,Electrical,Alpine Fabrications Inc,24,32931.66,Medium,Superstructure,Medium,0.0,0.0,48,8,4,Medium
+Cement,Hydraulic,Badlands Components LLC,30,53138.7,Medium,Finishes,Medium,0.0,0.0,15,39,0,Low
+Cement,Electrical,Granite Valley Mfg,5,22379.95,Medium,Superstructure,Medium,0.0,0.0,61,40,3,Medium
+Cement,Thermal Management,Timberline Fasteners,27,138120.38999999998,Medium,Superstructure,Medium,0.0,0.0,76,13,6,Medium
+Cement,Structural,Granite Valley Mfg,33,58402.08,Medium,Foundation,Medium,0.0,0.0,69,30,3,Medium
+Cement,Thermal Management,BlueSky Structural Inc,23,100464.23,Medium,Superstructure,Medium,0.0,0.0,70,24,8,High
+Cement,Structural,Trident Industrial Parts,20,18441.4,Medium,MEP Fitouts,Medium,0.0,0.0,79,9,2,Low
+Cement,Structural,Granite Valley Mfg,22,19924.52,Medium,Foundation,Medium,0.0,0.0,18,20,4,Medium
+Cement,Electrical,Horizon Mech Solutions,11,40288.27,Medium,MEP Fitouts,Medium,0.0,0.0,85,39,5,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,11,28775.82,Medium,Superstructure,Medium,0.0,0.0,31,41,7,High
+Formwork,Optical,Tri-State Fabricators Inc,15,251898.75,Medium,Superstructure,Medium,0.0,0.0,64,42,4,Medium
+Cement,Structural,Greystone Fabrications,28,3729.6,Critical,Foundation,Critical,0.0,0.0,75,41,8,High
+Cement,Structural,Ironclad Assemblies,13,22239.23,Medium,Foundation,Medium,0.0,0.0,77,16,5,Medium
+Cement,Structural,Crestfall Components,7,2779.98,Medium,Superstructure,Medium,0.0,0.0,80,18,3,Medium
+Cement,Hydraulic,Stratos Machined Parts,24,184297.92,Medium,Foundation,Medium,0.0,0.0,55,7,7,High
+Cement,Thermal Management,Lakewood Electro Systems,19,66487.46,Medium,Foundation,Medium,0.0,0.0,44,5,5,Medium
+Formwork,Mechanical,Lowland Metal Works,25,90007.0,Medium,Finishes,Medium,0.0,0.0,75,35,4,Medium
+Formwork,Optical,Granite Valley Mfg,1,47565.44,Critical,Superstructure,Critical,0.0,0.0,18,18,7,High
+Cement,Electrical,Zenith Alloy Solutions,15,172776.6,Medium,MEP Fitouts,Medium,0.0,0.0,64,19,5,Medium
+Cement,Hydraulic,Prairie Industrial Supply,40,232700.0,Medium,Finishes,Medium,0.0,0.0,16,6,6,Medium
+Cement,Thermal Management,Pacific Alloy Works,13,66113.84,Critical,Foundation,Critical,0.0,0.0,26,23,7,High
+Formwork,Mechanical,Trident Industrial Parts,10,47454.0,Medium,Superstructure,Medium,0.0,0.0,67,28,7,High
+Cement,Thermal Management,Dusk Manufacturing Co,12,21712.08,Critical,Foundation,Critical,0.0,0.0,64,7,5,Medium
+Formwork,Mechanical,Bayside Precision LLC,24,29464.56,Medium,MEP Fitouts,Medium,0.0,0.0,24,37,8,High
+Formwork,Mechanical,Meridian Fastener Corp,6,5979.18,Critical,MEP Fitouts,Critical,0.0,0.0,42,7,4,Medium
+Cement,Structural,NorthStar Electro-Mech,7,12650.54,Medium,Foundation,Medium,0.0,0.0,70,22,4,Medium
+Cement,Electrical,Zenith Alloy Solutions,5,63959.5,Medium,Superstructure,Medium,0.0,0.0,64,15,5,Medium
+Formwork,Optical,Ironclad Assemblies,8,101779.76,Critical,Finishes,Critical,0.0,0.0,20,28,8,High
+Cement,Electrical,Horizon Mech Solutions,19,104236.85,Critical,Superstructure,Critical,0.0,0.0,89,26,7,High
+Cement,Electrical,Harbor Castings LLC,6,54841.08,Medium,Superstructure,Medium,0.0,0.0,25,35,4,Medium
+Cement,Hydraulic,Granite Valley Mfg,17,33786.82,Critical,Finishes,Critical,0.0,0.0,54,37,6,Medium
+Cement,Hydraulic,Crestfall Components,11,14405.6,Critical,Foundation,Critical,0.0,0.0,62,10,6,Medium
+Formwork,Mechanical,Foxridge Assemblies,56,128516.64,Critical,Foundation,Critical,0.0,0.0,48,11,9,High
+Formwork,Mechanical,Foxridge Assemblies,9,34998.75,Medium,Superstructure,Medium,0.0,0.0,24,16,5,Medium
+Formwork,Mechanical,Trident Industrial Parts,12,45211.8,Critical,Foundation,Critical,0.0,0.0,56,33,5,Medium
+Formwork,Optical,Summit Hydraulics LLC,12,245782.32,Medium,Superstructure,Medium,0.0,0.0,36,11,7,High
+Cement,Hydraulic,Tri-State Fabricators Inc,27,93939.21,Medium,Foundation,Medium,0.0,0.0,40,44,5,Medium
+Formwork,Optical,Zenith Alloy Solutions,1,4117.75,Medium,Superstructure,Medium,0.0,0.0,24,14,6,Medium
+Formwork,Optical,Badlands Components LLC,23,806352.6299999999,Medium,Finishes,Medium,0.0,0.0,84,32,7,High
+Formwork,Mechanical,Coastal Precision Parts,1,661.94,Critical,Superstructure,Critical,0.0,0.0,40,7,5,Medium
+Cement,Electrical,Stratos Machined Parts,12,134979.36000000002,Medium,Superstructure,Medium,0.0,0.0,71,12,5,Medium
+Cement,Hydraulic,Riverton Manufacturing,23,174533.66,Critical,Foundation,Critical,0.0,0.0,70,19,9,High
+Formwork,Optical,Coastal Precision Parts,22,26356.22,Medium,Superstructure,Medium,0.0,0.0,74,39,5,Medium
+Formwork,Optical,Crestline Tooling Co,7,90002.78,Medium,MEP Fitouts,Medium,0.0,0.0,38,33,4,Medium
+Cement,Structural,Pacific Alloy Works,3,3253.17,Medium,Foundation,Medium,0.0,0.0,60,22,5,Medium
+Formwork,Optical,Coastal Precision Parts,16,12059.52,Medium,Foundation,Medium,0.0,0.0,74,26,6,Medium
+Cement,Hydraulic,Horizon Mech Solutions,11,28992.7,Medium,Foundation,Medium,0.0,0.0,62,34,4,Medium
+Cement,Electrical,Dusk Manufacturing Co,2,5394.4,Critical,MEP Fitouts,Critical,0.0,0.0,21,10,7,High
+Cement,Hydraulic,Dusk Manufacturing Co,31,83344.12,Medium,Superstructure,Medium,0.0,0.0,68,27,4,Medium
+Formwork,Mechanical,Crestfall Components,13,62165.61,Medium,Foundation,Medium,0.0,0.0,72,24,4,Medium
+Formwork,Mechanical,Alpine Fabrications Inc,30,97024.38,Critical,MEP Fitouts,Critical,0.0,0.0,22,42,8,High
+Cement,Hydraulic,Coastal Precision Parts,6,38746.74,Critical,Finishes,Critical,0.0,0.0,87,26,8,High
+Cement,Electrical,Cascade Tooling Solutions,4,43335.04,Medium,Foundation,Medium,0.0,0.0,21,43,6,Medium
+Cement,Thermal Management,Granite Valley Mfg,8,12615.12,Medium,MEP Fitouts,Medium,0.0,0.0,68,21,6,Medium
+Cement,Thermal Management,Keystone Bearing Systems,27,47431.17,Medium,Superstructure,Medium,0.0,0.0,59,23,5,Medium
+Cement,Thermal Management,Ironclad Assemblies,47,36034.43,Medium,Superstructure,Medium,0.0,0.0,21,44,6,Medium
+Cement,Structural,Granite Valley Mfg,26,27973.4,Critical,Foundation,Critical,0.0,0.0,76,17,6,Medium
+Cement,Structural,Cornerstone Electro-Mech,23,12734.87,Medium,Finishes,Medium,0.0,0.0,45,16,5,Medium
+Cement,Electrical,Ironclad Assemblies,18,161134.38,Medium,MEP Fitouts,Medium,0.0,0.0,61,26,6,Medium
+Cement,Hydraulic,Riverton Manufacturing,26,198864.12,Critical,Foundation,Critical,0.0,0.0,41,8,8,High
+Cement,Structural,Zenith Alloy Solutions,13,20934.42,Critical,MEP Fitouts,Critical,0.0,0.0,22,34,7,High
+Formwork,Mechanical,Dusk Manufacturing Co,1,1540.77,Medium,Foundation,Medium,0.0,0.0,34,25,3,Medium
+Cement,Electrical,Harbor Castings LLC,47,625179.9,Medium,Finishes,Medium,0.0,0.0,81,21,9,High
+Formwork,Optical,Ridgeline Hydraulics,8,319680.56,Medium,Finishes,Medium,0.0,0.0,39,34,4,Medium
+Formwork,Optical,Ironclad Assemblies,13,364692.64,Medium,Superstructure,Medium,0.0,0.0,30,42,4,Medium
+Formwork,Optical,Hollowpoint Alloys Inc,1,24620.45,Critical,Superstructure,Critical,0.0,0.0,15,27,8,High
+Cement,Hydraulic,Horizon Mech Solutions,19,88874.78,Medium,Foundation,Medium,0.0,0.0,70,11,6,Medium
+Cement,Thermal Management,NorthStar Electro-Mech,34,50937.78,Medium,Foundation,Medium,0.0,0.0,19,29,5,Medium
+Cement,Electrical,Helix Precision Mfg,37,431468.84,Critical,MEP Fitouts,Critical,0.0,0.0,36,17,9,High
+Cement,Structural,Granite Valley Mfg,54,35540.1,Medium,Foundation,Medium,0.0,0.0,14,31,4,Medium
+Cement,Electrical,Granite Valley Mfg,10,76364.2,Medium,Foundation,Medium,0.0,0.0,51,40,3,Medium
+Formwork,Optical,Zenith Alloy Solutions,13,410320.04,Medium,Foundation,Medium,0.0,0.0,35,33,6,Medium
+Formwork,Optical,Pacific Alloy Works,28,77894.59999999999,Critical,Superstructure,Critical,0.0,0.0,30,29,5,Medium
+Cement,Thermal Management,Badlands Components LLC,12,25535.28,Critical,Finishes,Critical,0.0,0.0,32,16,8,High
+Formwork,Optical,Bayside Precision LLC,2,25560.04,Medium,Finishes,Medium,0.0,0.0,66,18,4,Medium
+Cement,Thermal Management,Lowland Metal Works,3,3014.46,Critical,Foundation,Critical,0.0,0.0,86,8,5,Medium
+Cement,Structural,Crestline Tooling Co,50,43486.5,Medium,MEP Fitouts,Medium,0.0,0.0,72,12,4,Medium
+Formwork,Mechanical,Alpine Fabrications Inc,5,47655.81,Medium,MEP Fitouts,Medium,0.0,0.0,44,28,5,Medium
+Formwork,Mechanical,Redwood Stampings Inc,1,3863.03,Medium,Superstructure,Medium,0.0,0.0,88,25,4,Medium
+Formwork,Optical,Redwood Stampings Inc,2,11221.16,Critical,Foundation,Critical,0.0,0.0,50,41,5,Medium
+Cement,Electrical,Cascade Tooling Solutions,4,7294.52,Critical,Finishes,Critical,0.0,0.0,28,6,7,High
+Cement,Electrical,Zenith Alloy Solutions,139,1131382.16,Medium,MEP Fitouts,Medium,0.0,0.0,78,23,6,Medium
+Cement,Structural,Granite Valley Mfg,27,48409.65,Medium,MEP Fitouts,Medium,0.0,0.0,56,25,4,Medium
+Formwork,Mechanical,Eagle Ridge Components,24,83547.36,Critical,Foundation,Critical,0.0,0.0,38,44,6,Medium
+Cement,Thermal Management,Riverton Manufacturing,2,10795.28,Medium,Superstructure,Medium,0.0,0.0,51,8,5,Medium
+Formwork,Mechanical,Zenith Alloy Solutions,55,181430.7,Critical,Finishes,Critical,0.0,0.0,27,21,6,Medium
+Cement,Hydraulic,Western Alloy Fab,15,64680.45,Medium,Superstructure,Medium,0.0,0.0,46,28,2,Low
+Cement,Structural,Polaris Metals Group,11,3433.1000000000004,Medium,Foundation,Medium,0.0,0.0,35,19,3,Medium
+Formwork,Mechanical,Ironclad Assemblies,2,1164.36,Critical,Superstructure,Critical,0.0,0.0,48,32,6,Medium
+Cement,Thermal Management,Coastal Precision Parts,16,85559.68,Critical,Foundation,Critical,0.0,0.0,69,33,7,High
+Cement,Thermal Management,Zenith Alloy Solutions,3,5563.74,Medium,Superstructure,Medium,0.0,0.0,36,9,7,High
+Cement,Structural,Zenith Alloy Solutions,32,2944.96,Medium,MEP Fitouts,Medium,0.0,0.0,30,27,6,Medium
+Formwork,Optical,Badlands Components LLC,1,8445.23,Medium,Foundation,Medium,0.0,0.0,45,31,4,Medium
+Cement,Electrical,Meridian Fastener Corp,10,87539.79999999999,Medium,Finishes,Medium,0.0,0.0,89,5,4,Medium
+Cement,Hydraulic,Ironclad Assemblies,16,119583.68,Medium,MEP Fitouts,Medium,0.0,0.0,28,10,4,Medium
+Cement,Structural,Dusk Manufacturing Co,15,6866.85,Medium,Finishes,Medium,0.0,0.0,24,37,4,Medium
+Cement,Thermal Management,Ironclad Assemblies,17,30882.88,Medium,Superstructure,Medium,0.0,0.0,26,39,4,Medium
+Cement,Hydraulic,Granite Valley Mfg,19,107521.19,Critical,Foundation,Critical,0.0,0.0,44,22,8,High
+Cement,Structural,Stratos Machined Parts,18,22094.1,Critical,Foundation,Critical,0.0,0.0,51,6,5,Medium
+Cement,Hydraulic,Dusk Manufacturing Co,8,22641.12,Medium,Foundation,Medium,0.0,0.0,72,43,5,Medium
+Cement,Electrical,Ironclad Assemblies,23,100061.27,Medium,Superstructure,Medium,0.0,0.0,85,26,8,High
+Formwork,Mechanical,Hollowpoint Alloys Inc,7,20775.65,Critical,MEP Fitouts,Critical,0.0,0.0,38,15,6,Medium
+Cement,Structural,Badlands Components LLC,72,9859.68,Medium,Finishes,Medium,0.0,0.0,29,10,5,Medium
+Cement,Electrical,Zenith Alloy Solutions,63,764843.31,Medium,Superstructure,Medium,0.0,0.0,84,25,7,High
+Cement,Electrical,Riverton Manufacturing,23,248099.62,Critical,Foundation,Critical,0.0,0.0,67,24,7,High
+Formwork,Mechanical,Ironclad Assemblies,17,53689.91,Critical,Superstructure,Critical,0.0,0.0,36,25,7,High
+Cement,Structural,Eagle Ridge Components,1,757.75,Medium,MEP Fitouts,Medium,0.0,0.0,79,9,5,Medium
+Cement,Hydraulic,Coastal Precision Parts,49,346511.83,Critical,Foundation,Critical,0.0,0.0,20,38,8,High
+Cement,Thermal Management,Granite Valley Mfg,17,44210.54,Medium,Superstructure,Medium,0.0,0.0,50,6,3,Medium
+Cement,Hydraulic,Summit Hydraulics LLC,5,24445.85,Critical,Superstructure,Critical,0.0,0.0,39,42,7,High
+Cement,Structural,Crestline Tooling Co,1,1812.48,Medium,Foundation,Medium,0.0,0.0,66,23,5,Medium
+Cement,Thermal Management,Eagle Ridge Components,20,6885.0,Medium,Foundation,Medium,0.0,0.0,73,28,7,High
+Cement,Electrical,Ironclad Assemblies,20,76922.2,Medium,Superstructure,Medium,0.0,0.0,64,28,6,Medium
+Cement,Structural,Zenith Alloy Solutions,24,8507.039999999999,Medium,Superstructure,Medium,0.0,0.0,63,43,8,High
+Cement,Thermal Management,Trident Industrial Parts,7,7829.5,Medium,Superstructure,Medium,0.0,0.0,59,8,3,Medium
+Cement,Electrical,Dusk Manufacturing Co,6,19318.5,Critical,MEP Fitouts,Critical,0.0,0.0,78,42,8,High
+Cement,Hydraulic,Meridian Fastener Corp,25,75375.0,Critical,Superstructure,Critical,0.0,0.0,14,30,7,High
+Cement,Electrical,Greystone Fabrications,17,11500.5,Medium,Superstructure,Medium,0.0,0.0,29,10,8,High
+Formwork,Optical,Alpine Fabrications Inc,38,227092.54,Medium,Foundation,Medium,0.0,0.0,14,43,5,Medium
+Cement,Structural,Bayside Precision LLC,26,2926.56,Medium,MEP Fitouts,Medium,0.0,0.0,70,34,3,Medium
+Cement,Hydraulic,BlueSky Structural Inc,14,48779.78,Critical,Finishes,Critical,0.0,0.0,86,20,6,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,29,36311.99,Medium,Superstructure,Medium,0.0,0.0,39,29,1,Low
+Cement,Hydraulic,Granite Valley Mfg,29,100682.2,Medium,Finishes,Medium,0.0,0.0,30,7,5,Medium
+Cement,Structural,Ironclad Assemblies,34,50753.84,Critical,Foundation,Critical,0.0,0.0,31,8,5,Medium
+Cement,Electrical,Zenith Alloy Solutions,32,296677.76,Medium,Foundation,Medium,0.0,0.0,32,21,6,Medium
+Formwork,Mechanical,Dusk Manufacturing Co,12,1784.4,Medium,MEP Fitouts,Medium,0.0,0.0,23,36,5,Medium
+Formwork,Mechanical,Coastal Precision Parts,9,15579.09,Critical,Finishes,Critical,0.0,0.0,14,34,9,High
+Cement,Structural,Greystone Fabrications,9,11435.13,Medium,Superstructure,Medium,0.0,0.0,46,25,6,Medium
+Cement,Electrical,Tri-State Fabricators Inc,10,8500.800000000001,Medium,Foundation,Medium,0.0,0.0,75,16,4,Medium
+Cement,Hydraulic,Badlands Components LLC,3,14688.66,Critical,Superstructure,Critical,0.0,0.0,83,21,5,Medium
+Formwork,Optical,Zenith Alloy Solutions,3,20201.550000000003,Critical,Superstructure,Critical,0.0,0.0,84,21,7,High
+Formwork,Mechanical,Pacific Alloy Works,8,940.0,Critical,Superstructure,Critical,0.0,0.0,35,44,5,Medium
+Formwork,Optical,Pacific Alloy Works,2,8271.32,Critical,Superstructure,Critical,0.0,0.0,85,9,9,High
+Cement,Hydraulic,Alpine Fabrications Inc,14,23998.62,Medium,Finishes,Medium,0.0,0.0,25,6,6,Medium
+Formwork,Optical,Ironclad Assemblies,7,266939.19,Critical,Foundation,Critical,0.0,0.0,25,33,7,High
+Formwork,Optical,Lowland Metal Works,4,19117.68,Medium,Superstructure,Medium,0.0,0.0,66,8,2,Low
+Cement,Structural,Granite Valley Mfg,19,22976.51,Medium,Foundation,Medium,0.0,0.0,58,8,7,High
+Cement,Thermal Management,Summit Hydraulics LLC,22,6640.92,Medium,Foundation,Medium,0.0,0.0,46,39,4,Medium
+Formwork,Mechanical,Stratos Machined Parts,19,88416.5,Medium,MEP Fitouts,Medium,0.0,0.0,85,21,6,Medium
+Cement,Thermal Management,Badlands Components LLC,30,159884.4,Medium,MEP Fitouts,Medium,0.0,0.0,86,19,4,Medium
+Cement,Thermal Management,Eagle Ridge Components,19,33615.75,Medium,Foundation,Medium,0.0,0.0,77,32,4,Medium
+Formwork,Mechanical,Badlands Components LLC,27,74676.87,Critical,MEP Fitouts,Critical,0.0,0.0,44,22,7,High
+Cement,Structural,Zenith Alloy Solutions,12,10921.44,Medium,Foundation,Medium,0.0,0.0,32,29,5,Medium
+Cement,Structural,Greystone Fabrications,85,147602.5,Critical,MEP Fitouts,Critical,0.0,0.0,87,17,7,High
+Cement,Structural,Harbor Castings LLC,26,18633.68,Critical,MEP Fitouts,Critical,0.0,0.0,49,17,7,High
+Cement,Electrical,Ironwood Tooling Group,3,25112.43,Medium,Finishes,Medium,0.0,0.0,76,24,3,Medium
+Formwork,Optical,Greystone Fabrications,18,473992.02,Critical,Finishes,Critical,0.0,0.0,14,42,8,High
+Cement,Thermal Management,Riverton Manufacturing,44,251163.88,Medium,Foundation,Medium,0.0,0.0,28,6,6,Medium
+Formwork,Mechanical,Cornerstone Electro-Mech,5,21579.55,Medium,Superstructure,Medium,0.0,0.0,54,17,5,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,28,46357.75,Medium,Foundation,Medium,0.0,0.0,45,24,6,Medium
+Formwork,Optical,Dusk Manufacturing Co,7,198302.86,Medium,Finishes,Medium,0.0,0.0,25,34,4,Medium
+Cement,Thermal Management,Hollowpoint Alloys Inc,13,74334.65000000001,Critical,MEP Fitouts,Critical,0.0,0.0,62,27,4,Medium
+Formwork,Mechanical,Ironclad Assemblies,27,115336.71,Medium,MEP Fitouts,Medium,0.0,0.0,59,5,8,High
+Formwork,Optical,Alpine Fabrications Inc,8,17777.83,Medium,Foundation,Medium,0.0,0.0,50,27,5,Medium
+Cement,Hydraulic,Coastal Precision Parts,7,20779.01,Medium,Superstructure,Medium,0.0,0.0,37,10,3,Medium
+Cement,Structural,Horizon Mech Solutions,17,19324.92,Critical,Superstructure,Critical,0.0,0.0,33,27,9,High
+Cement,Hydraulic,Ironwood Tooling Group,38,143070.76,Medium,Finishes,Medium,0.0,0.0,75,43,6,Medium
+Formwork,Optical,Silverado Machining,39,517332.66,Medium,Superstructure,Medium,0.0,0.0,51,38,8,High
+Cement,Hydraulic,Granite Valley Mfg,2,13711.74,Medium,Superstructure,Medium,0.0,0.0,18,21,5,Medium
+Formwork,Mechanical,Polaris Metals Group,12,34538.04,Medium,Superstructure,Medium,0.0,0.0,38,33,8,High
+Cement,Thermal Management,Granite Valley Mfg,36,47050.56,Medium,MEP Fitouts,Medium,0.0,0.0,84,41,7,High
+Cement,Electrical,Mesa Components Corp,24,341262.24,Medium,Foundation,Medium,0.0,0.0,21,9,6,Medium
+Formwork,Optical,Coastal Precision Parts,11,13498.1,Medium,Superstructure,Medium,0.0,0.0,40,5,6,Medium
+Cement,Structural,Alpine Fabrications Inc,3,40815.28,Medium,Foundation,Medium,0.0,0.0,25,25,5,Medium
+Cement,Hydraulic,Stratos Machined Parts,1,7125.78,Critical,Foundation,Critical,0.0,0.0,64,27,9,High
+Formwork,Optical,Vega Electronics Ltd,5,28975.050000000003,Medium,Finishes,Medium,0.0,0.0,47,24,3,Medium
+Cement,Structural,Mesa Components Corp,24,4902.0,Medium,Foundation,Medium,0.0,0.0,66,19,6,Medium
+Cement,Thermal Management,Greystone Fabrications,31,62388.74,Medium,Foundation,Medium,0.0,0.0,44,8,6,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,29,45996.74,Medium,Finishes,Medium,0.0,0.0,17,33,2,Low
+Formwork,Optical,Harbor Castings LLC,20,543038.3999999999,Medium,Foundation,Medium,0.0,0.0,52,21,4,Medium
+Cement,Structural,Eagle Ridge Components,12,15680.52,Medium,Superstructure,Medium,0.0,0.0,59,17,1,Low
+Cement,Thermal Management,Coastal Precision Parts,19,50759.45,Critical,MEP Fitouts,Critical,0.0,0.0,63,21,6,Medium
+Cement,Hydraulic,Ironclad Assemblies,15,80794.95,Critical,MEP Fitouts,Critical,0.0,0.0,50,38,8,High
+Cement,Hydraulic,Zenith Alloy Solutions,4,24093.04,Medium,Foundation,Medium,0.0,0.0,51,9,7,High
+Formwork,Mechanical,Greystone Fabrications,12,42557.04,Medium,Finishes,Medium,0.0,0.0,58,11,5,Medium
+Cement,Electrical,Zenith Alloy Solutions,11,86062.24,Medium,Finishes,Medium,0.0,0.0,38,33,7,High
+Cement,Thermal Management,Prairie Industrial Supply,41,112968.53,Medium,Superstructure,Medium,0.0,0.0,82,25,4,Medium
+Cement,Electrical,Lowland Metal Works,34,177584.04,Medium,Superstructure,Medium,0.0,0.0,78,38,3,Medium
+Cement,Structural,Stratos Machined Parts,19,17432.69,Medium,Superstructure,Medium,0.0,0.0,74,27,4,Medium
+Cement,Hydraulic,Silverado Machining,3,6243.63,Medium,Superstructure,Medium,0.0,0.0,81,15,5,Medium
+Cement,Structural,Western Alloy Fab,76,97172.84,Medium,Superstructure,Medium,0.0,0.0,69,11,4,Medium
+Formwork,Optical,Granite Valley Mfg,7,174030.92,Medium,Finishes,Medium,0.0,0.0,59,17,3,Medium
+Cement,Electrical,NorthStar Electro-Mech,26,170425.32,Critical,Superstructure,Critical,0.0,0.0,43,36,8,High
+Formwork,Optical,Ironclad Assemblies,11,55224.62,Critical,MEP Fitouts,Critical,0.0,0.0,62,14,5,Medium
+Formwork,Optical,Greystone Fabrications,12,243241.8,Medium,Superstructure,Medium,0.0,0.0,80,11,7,High
+Formwork,Mechanical,Riverton Manufacturing,55,73538.3,Critical,Superstructure,Critical,0.0,0.0,24,12,7,High
+Cement,Hydraulic,Badlands Components LLC,20,73932.6,Medium,Superstructure,Medium,0.0,0.0,71,31,3,Medium
+Cement,Electrical,Western Alloy Fab,43,525332.29,Medium,Foundation,Medium,0.0,0.0,26,40,5,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,32,188581.64,Critical,Foundation,Critical,0.0,0.0,21,7,6,Medium
+Cement,Thermal Management,Polaris Metals Group,15,78204.15,Medium,Foundation,Medium,0.0,0.0,83,23,4,Medium
+Cement,Thermal Management,Stratos Machined Parts,5,18563.65,Medium,Foundation,Medium,0.0,0.0,79,10,6,Medium
+Formwork,Mechanical,Granite Valley Mfg,9,9590.13,Medium,Superstructure,Medium,0.0,0.0,44,39,3,Medium
+Cement,Electrical,Granite Valley Mfg,26,147761.64,Medium,Superstructure,Medium,0.0,0.0,50,31,7,High
+Formwork,Mechanical,NorthStar Electro-Mech,52,88648.56,Medium,Finishes,Medium,0.0,0.0,52,18,4,Medium
+Cement,Thermal Management,Ironclad Assemblies,51,170275.74,Critical,Foundation,Critical,0.0,0.0,68,31,7,High
+Cement,Electrical,Greystone Fabrications,8,33259.28,Medium,MEP Fitouts,Medium,0.0,0.0,50,11,4,Medium
+Cement,Structural,Dusk Manufacturing Co,6,6477.539999999999,Critical,Foundation,Critical,0.0,0.0,69,34,5,Medium
+Cement,Hydraulic,Stratos Machined Parts,6,2920.38,Medium,Foundation,Medium,0.0,0.0,67,36,4,Medium
+Cement,Structural,Lakewood Electro Systems,31,8755.33,Medium,Superstructure,Medium,0.0,0.0,85,32,3,Medium
+Cement,Thermal Management,Horizon Mech Solutions,16,63500.0,Critical,Foundation,Critical,0.0,0.0,37,9,9,High
+Cement,Electrical,Lakewood Electro Systems,23,4498.8,Medium,MEP Fitouts,Medium,0.0,0.0,22,41,5,Medium
+Cement,Hydraulic,Coastal Precision Parts,10,23043.7,Medium,Superstructure,Medium,0.0,0.0,59,43,3,Medium
+Cement,Electrical,Dusk Manufacturing Co,11,62184.65,Medium,Finishes,Medium,0.0,0.0,59,41,5,Medium
+Cement,Structural,Cascade Tooling Solutions,9,6832.62,Medium,Superstructure,Medium,0.0,0.0,37,15,4,Medium
+Cement,Hydraulic,Badlands Components LLC,17,72337.89,Medium,MEP Fitouts,Medium,0.0,0.0,38,25,4,Medium
+Formwork,Optical,Zenith Alloy Solutions,2,22120.2,Medium,Foundation,Medium,0.0,0.0,47,32,5,Medium
+Cement,Hydraulic,Crestfall Components,21,82891.62,Medium,Foundation,Medium,0.0,0.0,71,11,6,Medium
+Cement,Hydraulic,Crestline Tooling Co,52,298077.52,Medium,Superstructure,Medium,0.0,0.0,55,40,5,Medium
+Cement,Hydraulic,Cascade Tooling Solutions,16,22290.88,Medium,Superstructure,Medium,0.0,0.0,30,14,4,Medium
+Formwork,Mechanical,Zenith Alloy Solutions,16,61295.68,Medium,Foundation,Medium,0.0,0.0,63,24,4,Medium
+Cement,Hydraulic,Badlands Components LLC,12,66465.24,Critical,Superstructure,Critical,0.0,0.0,55,8,3,Medium
+Cement,Thermal Management,Crestfall Components,4,4041.84,Medium,Finishes,Medium,0.0,0.0,49,39,2,Low
+Formwork,Optical,Badlands Components LLC,45,1373411.25,Critical,Foundation,Critical,0.0,0.0,65,9,10,High
+Cement,Electrical,Lakeview Thermal Systems,13,114380.89,Critical,Foundation,Critical,0.0,0.0,80,29,10,High
+Cement,Thermal Management,Badlands Components LLC,1,5102.65,Medium,MEP Fitouts,Medium,0.0,0.0,31,39,4,Medium
+Cement,Thermal Management,Western Alloy Fab,8,30456.4,Medium,Foundation,Medium,0.0,0.0,69,40,5,Medium
+Cement,Hydraulic,Zenith Alloy Solutions,67,238215.82,Medium,Superstructure,Medium,0.0,0.0,65,28,6,Medium
+Cement,Structural,Ironclad Assemblies,12,1671.0,Critical,Superstructure,Critical,0.0,0.0,18,32,11,High
+Formwork,Optical,Greystone Fabrications,7,162496.94999999998,Medium,Foundation,Medium,0.0,0.0,18,28,8,High
+Cement,Electrical,Trident Industrial Parts,3,20849.37,Medium,Superstructure,Medium,0.0,0.0,40,21,4,Medium
+Cement,Hydraulic,Summit Hydraulics LLC,4,14185.16,Medium,Foundation,Medium,0.0,0.0,43,27,3,Medium
+Cement,Electrical,Hollowpoint Alloys Inc,5,28145.8,Critical,Superstructure,Critical,0.0,0.0,49,43,4,Medium
+Formwork,Optical,Pacific Alloy Works,24,485530.08,Critical,Finishes,Critical,0.0,0.0,68,26,8,High
+Formwork,Mechanical,Apex Precision Components,4,15105.04,Medium,Superstructure,Medium,0.0,0.0,28,7,3,Medium
+Cement,Hydraulic,Greystone Fabrications,20,29083.2,Medium,MEP Fitouts,Medium,0.0,0.0,62,28,2,Low
+Cement,Electrical,Ironclad Assemblies,11,103744.08,Medium,Foundation,Medium,0.0,0.0,77,34,5,Medium
+Cement,Thermal Management,Granite Valley Mfg,1,2948.0,Medium,Superstructure,Medium,0.0,0.0,62,13,3,Medium
+Cement,Structural,Coastal Precision Parts,57,34792.23,Critical,Foundation,Critical,0.0,0.0,75,5,9,High
+Formwork,Optical,NorthStar Electro-Mech,71,1221726.8199999998,Medium,Finishes,Medium,0.0,0.0,70,15,7,High
+Cement,Hydraulic,Zenith Alloy Solutions,2,8185.64,Critical,Superstructure,Critical,0.0,0.0,38,37,6,Medium
+Formwork,Mechanical,Foxridge Assemblies,7,20865.18,Medium,Foundation,Medium,0.0,0.0,21,33,7,High
+Cement,Electrical,Riverton Manufacturing,5,64073.55,Medium,Superstructure,Medium,0.0,0.0,45,20,5,Medium
+Formwork,Optical,Vega Electronics Ltd,6,89231.16,Medium,Foundation,Medium,0.0,0.0,43,39,3,Medium
+Formwork,Optical,Coastal Precision Parts,9,357535.26,Medium,Foundation,Medium,0.0,0.0,82,32,8,High
+Cement,Hydraulic,Stratos Machined Parts,10,76401.40000000001,Critical,Finishes,Critical,0.0,0.0,79,41,7,High
+Cement,Electrical,Apex Precision Components,21,35055.93,Medium,Foundation,Medium,0.0,0.0,17,38,3,Medium
+Formwork,Optical,Zenith Alloy Solutions,3,6212.16,Critical,Finishes,Critical,0.0,0.0,57,13,6,Medium
+Cement,Thermal Management,Western Alloy Fab,3,7720.289999999999,Medium,Foundation,Medium,0.0,0.0,50,35,3,Medium
+Cement,Hydraulic,Alpine Fabrications Inc,37,6371.28,Medium,Finishes,Medium,0.0,0.0,23,34,2,Low
+Cement,Hydraulic,Canyon Fabricators LLC,38,99515.92,Medium,Finishes,Medium,0.0,0.0,36,41,6,Medium
+Cement,Structural,Tri-State Fabricators Inc,41,60888.69,Medium,MEP Fitouts,Medium,0.0,0.0,74,10,7,High
+Cement,Structural,NorthStar Electro-Mech,3,2952.78,Medium,Foundation,Medium,0.0,0.0,60,42,2,Low
+Cement,Structural,Crestfall Components,22,20208.1,Medium,Finishes,Medium,0.0,0.0,34,36,5,Medium
+Formwork,Mechanical,Alpine Fabrications Inc,9,47482.91,Medium,MEP Fitouts,Medium,0.0,0.0,36,20,4,Medium
+Formwork,Optical,Helix Precision Mfg,3,74298.20999999999,Medium,MEP Fitouts,Medium,0.0,0.0,69,19,4,Medium
+Formwork,Optical,Riverton Manufacturing,25,529907.25,Medium,Superstructure,Medium,0.0,0.0,59,31,5,Medium
+Cement,Hydraulic,Zenith Alloy Solutions,58,57054.600000000006,Critical,Foundation,Critical,0.0,0.0,33,22,5,Medium
+Cement,Hydraulic,Bayside Precision LLC,1,3385.99,Critical,Foundation,Critical,0.0,0.0,87,21,7,High
+Cement,Thermal Management,Dusk Manufacturing Co,6,27223.26,Critical,Foundation,Critical,0.0,0.0,38,36,5,Medium
+Cement,Thermal Management,Granite Valley Mfg,1,213.25,Medium,Superstructure,Medium,0.0,0.0,44,29,5,Medium
+Cement,Structural,Crestline Tooling Co,33,43482.780000000006,Medium,Finishes,Medium,0.0,0.0,60,7,4,Medium
+Cement,Electrical,Ironwood Tooling Group,21,145381.11,Critical,Finishes,Critical,0.0,0.0,46,44,8,High
+Cement,Thermal Management,NorthStar Electro-Mech,17,58129.46,Critical,MEP Fitouts,Critical,0.0,0.0,68,28,5,Medium
+Cement,Electrical,Polaris Metals Group,56,124986.4,Medium,Foundation,Medium,0.0,0.0,56,14,5,Medium
+Cement,Hydraulic,Horizon Mech Solutions,15,87268.95000000001,Medium,Finishes,Medium,0.0,0.0,24,39,6,Medium
+Formwork,Mechanical,Keystone Bearing Systems,4,13872.88,Medium,Foundation,Medium,0.0,0.0,62,7,5,Medium
