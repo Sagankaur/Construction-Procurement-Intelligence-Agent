@@ -2,7 +2,12 @@ import plotly.express as px
 import streamlit as st
 
 from src.database import save_prediction
-from src.delay_model import get_delivery_risk_table, load_procurement_data, predict_delay_risk
+from src.delay_model import (
+    get_delivery_risk_table,
+    load_procurement_data,
+    predict_delay_risk,
+    _joblib_models_available,
+)
 
 
 def main():
@@ -13,21 +18,36 @@ def main():
     materials = sorted(data["material_name"].unique())
     phases = sorted(data["project_phase"].unique())
 
+    # Safely pick default indices
+    default_material_idx = 0
+    for i, m in enumerate(materials):
+        if "steel" in m.lower() or "cement" in m.lower():
+            default_material_idx = i
+            break
+
+    default_vendor_idx = 0
+
+    # Model source indicator
+    if _joblib_models_available():
+        st.success("🧠 Using trained ML models (joblib artifacts) for inference")
+    else:
+        st.info("⚙️ Using on-the-fly trained pipeline (joblib models not found)")
+
     with st.form("delay_prediction_form"):
         col1, col2, col3 = st.columns(3)
-        material = col1.selectbox("Material", materials, index=materials.index("Structural Steel"))
-        vendor = col2.selectbox("Vendor", vendors, index=vendors.index("ABC Metals"))
+        material = col1.selectbox("Material", materials, index=default_material_idx)
+        vendor = col2.selectbox("Vendor", vendors, index=default_vendor_idx)
         quantity = col3.number_input("Quantity", min_value=1.0, value=120.0, step=5.0)
 
         col4, col5, col6 = st.columns(3)
-        order_date = col4.date_input("Order Date", value=data["order_date"].min().date())
-        promised_date = col5.date_input("Promised Delivery", value=data["promised_delivery_date"].max().date())
+        order_date = col4.date_input("Order Date")
+        promised_date = col5.date_input("Promised Delivery")
         priority = col6.selectbox("Priority", ["Critical", "High", "Medium", "Low"], index=0)
 
         project_phase = st.selectbox(
             "Project Phase",
             phases,
-            index=phases.index("Superstructure"),
+            index=0,
         )
         submitted = st.form_submit_button("Predict Delay Risk")
 
@@ -42,6 +62,32 @@ def main():
             project_phase=project_phase,
         )
         save_prediction(prediction)
+
+        # --- Styled result display ---
+        risk_color = {
+            "High": "#b91c1c",
+            "Medium": "#b45309",
+            "Low": "#0f766e",
+        }.get(prediction["risk_level"], "#64748b")
+
+        st.markdown(
+            f"""
+            <div style="
+                background: linear-gradient(135deg, {risk_color}22, {risk_color}08);
+                border-left: 4px solid {risk_color};
+                border-radius: 8px;
+                padding: 1rem 1.5rem;
+                margin: 1rem 0;
+            ">
+                <h3 style="color: {risk_color}; margin: 0 0 0.5rem 0;">
+                    {'🔴' if prediction['risk_level'] == 'High' else '🟡' if prediction['risk_level'] == 'Medium' else '🟢'}
+                    {prediction['risk_level']} Risk Detected
+                </h3>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
         col1, col2, col3 = st.columns(3)
         col1.metric("Risk Level", prediction["risk_level"])
         col2.metric("Risk Score", f"{prediction['risk_score']}%")

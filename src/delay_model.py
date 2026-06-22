@@ -1,13 +1,14 @@
 from functools import lru_cache
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Tuple
 
+import joblib
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder, StandardScaler
 
 from .database import get_project_root
 
@@ -196,8 +197,113 @@ def load_procurement_data(path: Optional[Path] = None) -> pd.DataFrame:
     return df
 
 
+# ---------------------------------------------------------------------------
+# Joblib model paths
+# ---------------------------------------------------------------------------
+
+def _joblib_classifier_path() -> Path:
+    return get_project_root() / "models" / "delay_risk_classifier.joblib"
+
+
+def _joblib_regressor_path() -> Path:
+    return get_project_root() / "models" / "delay_risk_regressor.joblib"
+
+
+def _joblib_encoders_path() -> Path:
+    return get_project_root() / "models" / "feature_encoders.joblib"
+
+
+def _joblib_models_available() -> bool:
+    return (
+        _joblib_classifier_path().exists()
+        and _joblib_regressor_path().exists()
+        and _joblib_encoders_path().exists()
+    )
+
+
+@lru_cache(maxsize=1)
+def _load_joblib_models() -> Tuple[Any, Any, Dict[str, LabelEncoder]]:
+    """Load serialized joblib models and label encoders."""
+    classifier = joblib.load(_joblib_classifier_path())
+    regressor = joblib.load(_joblib_regressor_path())
+    encoders = joblib.load(_joblib_encoders_path())
+    return classifier, regressor, encoders
+
+
+# Joblib model feature order (must match scripts/process.py training)
+JOBLIB_NUMERIC = [
+    "quantity",
+    "contract_value",
+    "historical_on_time_rate",
+    "communication_score",
+    "lead_time",
+    "days_until_promised_delivery",
+]
+JOBLIB_CATEGORICAL = ["material", "category", "priority", "project_phase", "criticality"]
+
+
+def _build_joblib_row(
+    material_name: str,
+    vendor_name: str,
+    order_date: str,
+    promised_delivery_date: str,
+    quantity: float,
+    priority: str,
+    project_phase: str,
+    category: Optional[str] = None,
+    criticality: Optional[str] = None,
+    contract_value: Optional[float] = None,
+    historical_on_time_rate: Optional[float] = None,
+    communication_score: Optional[float] = None,
+) -> pd.DataFrame:
+    """Build a feature row matching the joblib model training schema."""
+    defaults = _vendor_defaults(vendor_name, material_name)
+    order_ts = pd.to_datetime(order_date)
+    promised_ts = pd.to_datetime(promised_delivery_date)
+    _, _, encoders = _load_joblib_models()
+
+    raw = {
+        "quantity": float(quantity),
+        "contract_value": float(contract_value or defaults["contract_value"]),
+        "historical_on_time_rate": float(
+            historical_on_time_rate
+            if historical_on_time_rate is not None
+            else defaults["historical_on_time_rate"]
+        ),
+        "communication_score": float(
+            communication_score
+            if communication_score is not None
+            else defaults["communication_score"]
+        ),
+        "lead_time": float((promised_ts - order_ts).days),
+        "days_until_promised_delivery": float((promised_ts - _today()).days),
+        "material": material_name,
+        "category": category or defaults["category"],
+        "priority": priority,
+        "project_phase": project_phase,
+        "criticality": criticality or defaults["criticality"],
+    }
+    row_df = pd.DataFrame([raw])
+
+    # Label-encode categoricals to match training
+    for col in JOBLIB_CATEGORICAL:
+        le = encoders.get(col)
+        if le is not None:
+            val = row_df[col].iloc[0]
+            if val in le.classes_:
+                row_df[col] = le.transform([val])[0]
+            else:
+                # Unseen category — use the most common encoded value
+                row_df[col] = 0
+        else:
+            row_df[col] = 0
+
+    return row_df[JOBLIB_NUMERIC + JOBLIB_CATEGORICAL]
+
+
 @lru_cache(maxsize=1)
 def _trained_models() -> tuple[Pipeline, Pipeline]:
+    """Fallback: train sklearn pipelines on the fly from procurement data."""
     df = load_procurement_data()
     preprocessor = ColumnTransformer(
         transformers=[
@@ -330,9 +436,23 @@ def predict_delay_risk(
         communication_score,
         quality_issues,
     )
-    classifier, regressor = _trained_models()
-    probabilities = classifier.predict_proba(row)[0]
-    class_probs = dict(zip(classifier.classes_, probabilities))
+    # Use joblib models when available for real inference
+    if _joblib_models_available():
+        jbl_clf, jbl_reg, _ = _load_joblib_models()
+        jbl_row = _build_joblib_row(
+            material_name, vendor_name, order_date, promised_delivery_date,
+            quantity, priority, project_phase, category, criticality,
+            contract_value, historical_on_time_rate, communication_score,
+        )
+        probabilities = jbl_clf.predict_proba(jbl_row)[0]
+        class_probs = dict(zip(jbl_clf.classes_, probabilities))
+        jbl_delay = float(max(0, jbl_reg.predict(jbl_row)[0]))
+    else:
+        classifier, regressor = _trained_models()
+        probabilities = classifier.predict_proba(row)[0]
+        class_probs = dict(zip(classifier.classes_, probabilities))
+        jbl_delay = None
+
     ml_score = (
         class_probs.get("High", 0) * 100
         + class_probs.get("Medium", 0) * 58
@@ -357,7 +477,11 @@ def predict_delay_risk(
         )
     )
 
-    expected_delay_days = float(max(0, regressor.predict(row)[0], risk_score / 12 - 2))
+    if jbl_delay is not None:
+        expected_delay_days = float(max(0, jbl_delay, risk_score / 12 - 2))
+    else:
+        classifier_fb, regressor_fb = _trained_models()
+        expected_delay_days = float(max(0, regressor_fb.predict(row)[0], risk_score / 12 - 2))
     expected_roj_date = (promised + pd.Timedelta(days=round(expected_delay_days))).date()
     risk_level = _risk_level(risk_score)
     recommendation = {
