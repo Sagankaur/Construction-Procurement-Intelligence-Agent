@@ -30,24 +30,27 @@ class BackendTests(unittest.TestCase):
         )
         results = search_query("expected ROJ date for steel", db_path=db_path)
         self.assertGreaterEqual(len(results), 1)
-        answer = get_answer(
+        response = get_answer(
             "What is the expected ROJ date for steel?",
             db_path=db_path,
             use_ollama=False,
         )
-        self.assertIn("2026-06-24", answer)
-        self.assertIn("[po.txt#c0]", answer)
+        self.assertIn("2026-06-24", response.answer)
+        self.assertIn("[po.txt#c0]", response.answer)
+        # Verify source cards are populated
+        self.assertGreater(len(response.sources), 0)
+        self.assertEqual(response.sources[0].filename, "po.txt")
 
     def test_rag_declines_unsupported_question(self):
         db_path = self._db_path()
         init_db(db_path)
         store_document("po.txt", b"Concrete delivery is on track.", db_path)
-        answer = get_answer(
+        response = get_answer(
             "What is the weather in Delhi?",
             db_path=db_path,
             use_ollama=False,
         )
-        self.assertIn("do not have enough information", answer)
+        self.assertIn("do not have enough information", response.answer)
 
     def test_delay_vendor_and_alerts_are_populated(self):
         data = load_procurement_data()
