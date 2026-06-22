@@ -36,6 +36,10 @@ st.markdown(
         background: #ecf1f5;
         border-right: 1px solid var(--sage-line);
     }
+    /* Hide Streamlit default native navigation */
+    div[data-testid="stSidebarNav"] {
+        display: none !important;
+    }
     .stButton > button {
         border-radius: 6px;
         border: 1px solid #0f766e;

@@ -242,9 +242,9 @@ def main():
                     "axis": {"range": [0, 100], "tickwidth": 1},
                     "bar": {"color": "#0f766e" if health >= 60 else "#b45309" if health >= 35 else "#b91c1c"},
                     "steps": [
-                        {"range": [0, 35], "color": "#b91c1c18"},
-                        {"range": [35, 60], "color": "#b4530918"},
-                        {"range": [60, 100], "color": "#0f766e18"},
+                        {"range": [0, 35], "color": "rgba(185, 28, 28, 0.15)"},
+                        {"range": [35, 60], "color": "rgba(180, 83, 9, 0.15)"},
+                        {"range": [60, 100], "color": "rgba(15, 118, 110, 0.15)"},
                     ],
                     "threshold": {
                         "line": {"color": "#1e293b", "width": 2},
@@ -270,64 +270,6 @@ def main():
             """,
             unsafe_allow_html=True,
         )
-
-    st.divider()
-
-    # ===================================================================
-    # ORIGINAL OVERVIEW SECTIONS (enhanced)
-    # ===================================================================
-    left, right = st.columns([1.35, 1])
-    with left:
-        st.subheader("Delivery Risk Pipeline")
-        if not delivery_risk.empty:
-            chart_df = delivery_risk.head(8)
-            fig = px.bar(
-                chart_df,
-                x="risk_score",
-                y="material_name",
-                color="risk_level",
-                orientation="h",
-                hover_data=["po_number", "vendor_name", "expected_roj_date"],
-                color_discrete_map={"High": "#b91c1c", "Medium": "#b45309", "Low": "#0f766e"},
-            )
-            fig.update_layout(
-                xaxis_title="Risk score",
-                yaxis_title="",
-                height=360,
-                margin=dict(l=10, r=20, t=20, b=20),
-            )
-            st.plotly_chart(fig, width="stretch")
-        else:
-            st.info("No delivery risk data.")
-
-    with right:
-        st.subheader("Top Alerts")
-        for alert in generate_alerts()[:5]:
-            st.markdown(
-                f"**{alert['severity']} - {alert['title']}**  \n"
-                f"{alert['detail']}  \n"
-                f"Action: {alert['action']}"
-            )
-
-    st.subheader("Open Orders Requiring Attention")
-    if not delivery_risk.empty:
-        st.dataframe(
-            delivery_risk[
-                [
-                    "po_number",
-                    "material_name",
-                    "vendor_name",
-                    "promised_delivery_date",
-                    "expected_roj_date",
-                    "risk_level",
-                    "risk_score",
-                ]
-            ],
-            width="stretch",
-            hide_index=True,
-        )
-    else:
-        st.info("No open orders.")
 
     st.divider()
 
