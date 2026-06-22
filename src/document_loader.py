@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import HashingVectorizer
 
-from .database import get_connection, get_project_root, init_db
+from .database import get_connection, get_project_root, init_db, save_procurement_facts
 
 CHUNK_SIZE = 700
 CHUNK_OVERLAP = 120
@@ -76,7 +76,84 @@ def embed_texts(texts: list[str]) -> np.ndarray:
     return matrix.astype(np.float32).toarray()
 
 
-def store_document(file_name: str, raw_bytes: bytes, db_path: Optional[Path] = None) -> int:
+def extract_procurement_facts(text: str) -> list[dict]:
+    """Extract structured procurement facts from document text using regex."""
+    facts: list[dict] = []
+
+    # PO / Purchase Order numbers
+    for match in re.finditer(r"\b(PO[-\s]?\d{3,6})\b", text, re.IGNORECASE):
+        facts.append({"field": "PO Number", "value": match.group(1).upper(), "confidence": "high"})
+
+    # Dates (YYYY-MM-DD, DD/MM/YYYY, Month DD YYYY, etc.)
+    date_patterns = [
+        r"\b(\d{4}[-/]\d{2}[-/]\d{2})\b",
+        r"\b(\d{2}[-/]\d{2}[-/]\d{4})\b",
+        r"\b((?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\s+\d{1,2},?\s+\d{4})\b",
+    ]
+    for pat in date_patterns:
+        for match in re.finditer(pat, text, re.IGNORECASE):
+            facts.append({"field": "Date", "value": match.group(1), "confidence": "high"})
+
+    # Monetary values
+    for match in re.finditer(
+        r"(?:INR|Rs\.?|USD|\$|₹)\s*([\d,]+(?:\.\d{1,2})?)"
+        r"|([\d,]+(?:\.\d{1,2})?)\s*(?:INR|Rs|USD|lakhs?|crores?)",
+        text, re.IGNORECASE,
+    ):
+        value = match.group(1) or match.group(2)
+        if value:
+            facts.append({"field": "Contract Value", "value": value.strip(), "confidence": "medium"})
+
+    # Quantities with units
+    for match in re.finditer(
+        r"(\d+(?:\.\d+)?)\s*(ton(?:ne)?s?|kg|m[²³]?|cubic[_ ]?met(?:er|re)s?"
+        r"|km|units?|pieces?|bags?|liters?|gallons?|sqft|sq\.?\s*ft)",
+        text, re.IGNORECASE,
+    ):
+        facts.append({
+            "field": "Quantity",
+            "value": f"{match.group(1)} {match.group(2)}",
+            "confidence": "medium",
+        })
+
+    # Construction material keywords
+    material_keywords = [
+        "structural steel", "rebar", "tmt", "concrete", "cement", "copper cable",
+        "formwork", "aggregate", "bricks", "tiles", "glass", "plywood",
+        "reinforcement", "bitumen", "pipes", "sanitary", "electrical",
+        "hvac", "generator", "elevator", "waterproofing",
+    ]
+    text_lower = text.lower()
+    seen_materials: set[str] = set()
+    for keyword in material_keywords:
+        if keyword in text_lower and keyword not in seen_materials:
+            seen_materials.add(keyword)
+            facts.append({"field": "Material", "value": keyword.title(), "confidence": "medium"})
+
+    # Vendor / company names (pattern: capitalized multi-word names near keywords)
+    vendor_patterns = [
+        r"(?:vendor|supplier|contractor|from|by)[:\s]+([A-Z][A-Za-z&]+(?:\s+[A-Z][A-Za-z&]+){0,3})",
+    ]
+    for pat in vendor_patterns:
+        for match in re.finditer(pat, text):
+            name = match.group(1).strip()
+            if len(name) > 3:
+                facts.append({"field": "Vendor", "value": name, "confidence": "medium"})
+
+    # Deduplicate
+    seen: set[tuple[str, str]] = set()
+    unique_facts: list[dict] = []
+    for fact in facts:
+        key = (fact["field"], fact["value"])
+        if key not in seen:
+            seen.add(key)
+            unique_facts.append(fact)
+
+    return unique_facts
+
+
+def store_document(file_name: str, raw_bytes: bytes, db_path: Optional[Path] = None) -> tuple[int, list[dict]]:
+    """Store a document and return (doc_id, extracted_facts)."""
     text = extract_text(file_name, raw_bytes)
     chunks = chunk_text(text)
     if not chunks:
@@ -96,7 +173,13 @@ def store_document(file_name: str, raw_bytes: bytes, db_path: Optional[Path] = N
     )
     conn.commit()
     conn.close()
-    return doc_id
+
+    # Extract and save procurement facts
+    facts = extract_procurement_facts(text)
+    if facts:
+        save_procurement_facts(doc_id, facts, db_path)
+
+    return doc_id, facts
 
 
 def _load_chunks(db_path: Optional[Path] = None) -> list[SearchResult]:
@@ -180,5 +263,6 @@ def seed_sample_documents(db_path: Optional[Path] = None) -> list[int]:
     for sample in ["sample_purchase_order.txt", "sample_vendor_contract.txt"]:
         path = docs_dir / sample
         if path.exists() and not document_exists(path.name, db_path):
-            seeded.append(store_document(path.name, path.read_bytes(), db_path))
+            doc_id, _ = store_document(path.name, path.read_bytes(), db_path)
+            seeded.append(doc_id)
     return seeded

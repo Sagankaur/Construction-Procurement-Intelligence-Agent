@@ -3,9 +3,9 @@ import uuid
 from pathlib import Path
 
 from src.alerts import generate_alerts
-from src.database import init_db
+from src.database import get_procurement_facts, init_db
 from src.delay_model import get_delivery_risk_table, load_procurement_data, predict_delay_risk
-from src.document_loader import search_query, store_document
+from src.document_loader import extract_procurement_facts, search_query, store_document
 from src.rag_engine import get_answer
 from src.vendor_risk import get_vendor_risk_table
 
@@ -23,7 +23,7 @@ class BackendTests(unittest.TestCase):
     def test_rag_answers_with_citation(self):
         db_path = self._db_path()
         init_db(db_path)
-        store_document(
+        doc_id, _ = store_document(
             "po.txt",
             b"Structural steel expected ROJ date is 2026-06-24. ABC Metals is at risk.",
             db_path,
@@ -107,6 +107,36 @@ class BackendTests(unittest.TestCase):
         ]
         for col in required:
             self.assertIn(col, table.columns, f"Missing expected column: {col}")
+
+    def test_extract_procurement_facts(self):
+        """Verify fact extraction finds PO numbers, dates, and materials."""
+        text = (
+            "Purchase Order PO-1234 for Structural Steel, 120 tonnes.\n"
+            "Vendor: ABC Metals. Delivery date: 2026-07-15.\n"
+            "Total value: INR 84,00,000."
+        )
+        facts = extract_procurement_facts(text)
+        fields = {f["field"] for f in facts}
+        self.assertIn("PO Number", fields)
+        self.assertIn("Date", fields)
+        self.assertIn("Material", fields)
+        self.assertIn("Quantity", fields)
+
+    def test_store_document_returns_facts(self):
+        """Verify store_document returns extracted facts along with doc_id."""
+        db_path = self._db_path()
+        init_db(db_path)
+        doc_id, facts = store_document(
+            "test_po.txt",
+            b"PO-5678 for 50 tonnes of TMT Rebar. Delivery: 2026-08-01. Value: Rs 39,00,000.",
+            db_path,
+        )
+        self.assertIsInstance(doc_id, int)
+        self.assertGreater(len(facts), 0)
+
+        # Verify facts are persisted in DB
+        db_facts = get_procurement_facts(doc_id, db_path)
+        self.assertGreater(len(db_facts), 0)
 
 
 if __name__ == "__main__":
