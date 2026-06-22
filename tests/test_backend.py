@@ -8,7 +8,7 @@ from src.delay_model import get_delivery_risk_table, load_procurement_data, pred
 from src.document_loader import extract_procurement_facts, search_query, store_document
 from src.rag_engine import get_answer
 from src.schedule_impact import get_schedule_impact_table, schedule_impact_summary
-from src.vendor_risk import get_vendor_risk_table
+from src.vendor_risk import compare_vendors, get_vendor_details, get_vendor_risk_table
 
 TMP_ROOT = Path(__file__).resolve().parent / ".tmp"
 
@@ -157,6 +157,25 @@ class BackendTests(unittest.TestCase):
         self.assertIn("critical_path_blocked", summary)
         self.assertIn("float_consumed", summary)
         self.assertIn("on_track", summary)
+
+    def test_vendor_360_functions(self):
+        """Verify get_vendor_details and compare_vendors functions."""
+        table = get_vendor_risk_table()
+        self.assertFalse(table.empty)
+        first_vendor = table["vendor_name"].iloc[0]
+
+        details = get_vendor_details(first_vendor)
+        self.assertIsNotNone(details)
+        self.assertIn("profile", details)
+        self.assertIn("total_spend", details)
+        self.assertIn("categories", details)
+        self.assertIn("materials", details)
+        self.assertIn("status_counts", details)
+        self.assertIn("monthly_trend", details)
+
+        comp = compare_vendors([first_vendor])
+        self.assertFalse(comp.empty)
+        self.assertEqual(comp["vendor_name"].iloc[0], first_vendor)
 
 
 if __name__ == "__main__":

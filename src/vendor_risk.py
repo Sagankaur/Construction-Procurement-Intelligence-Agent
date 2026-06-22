@@ -150,3 +150,59 @@ def get_vendor_risk_table(data: Optional[pd.DataFrame] = None) -> pd.DataFrame:
 def high_risk_vendors(limit: int = 5) -> pd.DataFrame:
     table = get_vendor_risk_table()
     return table[table["risk_level"].eq("High")].head(limit)
+
+
+def get_vendor_details(vendor_name: str) -> Optional[dict]:
+    """Retrieve detailed profile and breakdown for a single vendor."""
+    table = get_vendor_risk_table()
+    match = table[table["vendor_name"].str.lower() == vendor_name.lower()]
+    if match.empty:
+        return None
+
+    profile = match.iloc[0].to_dict()
+    df = load_procurement_data()
+    vdata = df[df["vendor_name"].str.lower() == vendor_name.lower()]
+
+    # Categories and materials breakdown
+    categories = list(vdata["category"].dropna().unique())
+    materials_list = list(vdata["material_name"].dropna().unique())
+
+    # Calculate status counts
+    status_counts = vdata["current_status"].value_counts().to_dict()
+
+    # Total spend contract value
+    total_spend = float(vdata["contract_value"].sum())
+
+    # Build monthly order trend
+    monthly_trend = []
+    if "order_date" in vdata.columns:
+        orders_ts = pd.to_datetime(vdata["order_date"], errors="coerce")
+        vdata_ts = vdata.copy()
+        vdata_ts["month"] = orders_ts.dt.to_period("M").astype(str)
+        monthly_groups = vdata_ts.groupby("month")
+        for month, grp in sorted(monthly_groups):
+            monthly_trend.append({
+                "month": month,
+                "orders": len(grp),
+                "spend": float(grp["contract_value"].sum()),
+            })
+
+    return {
+        "profile": profile,
+        "total_spend": total_spend,
+        "categories": categories,
+        "materials": materials_list,
+        "status_counts": status_counts,
+        "monthly_trend": monthly_trend,
+        "order_records": vdata.to_dict(orient="records"),
+    }
+
+
+def compare_vendors(vendor_names: list[str]) -> pd.DataFrame:
+    """Compare multiple vendors side-by-side."""
+    table = get_vendor_risk_table()
+    # Normalize comparison list
+    names_lower = [n.lower() for n in vendor_names]
+    comparison = table[table["vendor_name"].str.lower().isin(names_lower)].copy()
+    return comparison
+
