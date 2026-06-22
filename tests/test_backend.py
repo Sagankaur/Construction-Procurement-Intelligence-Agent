@@ -7,6 +7,7 @@ from src.database import get_procurement_facts, init_db
 from src.delay_model import get_delivery_risk_table, load_procurement_data, predict_delay_risk
 from src.document_loader import extract_procurement_facts, search_query, store_document
 from src.rag_engine import get_answer
+from src.schedule_impact import get_schedule_impact_table, schedule_impact_summary
 from src.vendor_risk import get_vendor_risk_table
 
 TMP_ROOT = Path(__file__).resolve().parent / ".tmp"
@@ -140,6 +141,22 @@ class BackendTests(unittest.TestCase):
         # Verify facts are persisted in DB
         db_facts = get_procurement_facts(doc_id, db_path)
         self.assertGreater(len(db_facts), 0)
+
+    def test_schedule_impact(self):
+        """Verify schedule impact mapping behaves correctly."""
+        impact_table = get_schedule_impact_table()
+        self.assertFalse(impact_table.empty)
+        required = [
+            "material_name", "vendor_name", "po_number", "project_phase",
+            "delay_days", "phase_float", "float_remaining", "impact_status"
+        ]
+        for col in required:
+            self.assertIn(col, impact_table.columns)
+
+        summary = schedule_impact_summary()
+        self.assertIn("critical_path_blocked", summary)
+        self.assertIn("float_consumed", summary)
+        self.assertIn("on_track", summary)
 
 
 if __name__ == "__main__":

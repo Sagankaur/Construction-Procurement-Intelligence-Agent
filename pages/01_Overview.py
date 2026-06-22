@@ -5,6 +5,7 @@ import streamlit as st
 from src.alerts import alert_counts, generate_alerts
 from src.database import count_rows
 from src.delay_model import get_delivery_risk_table, load_procurement_data
+from src.schedule_impact import get_schedule_impact_table, schedule_impact_summary
 from src.vendor_risk import get_vendor_risk_table
 
 
@@ -327,3 +328,62 @@ def main():
         )
     else:
         st.info("No open orders.")
+
+    st.divider()
+
+    # ===================================================================
+    # SCHEDULE IMPACT MAPPING
+    # ===================================================================
+    st.subheader("📊 Schedule Impact Mapping")
+    st.caption(
+        "Shows whether late materials consume schedule float or block the critical path."
+    )
+
+    impact_table = get_schedule_impact_table(data)
+    summary = schedule_impact_summary(data)
+
+    si1, si2, si3 = st.columns(3)
+    si1.metric(
+        "🔴 Critical Path Blocked",
+        summary["critical_path_blocked"],
+    )
+    si2.metric(
+        "🟡 Float Consumed",
+        summary["float_consumed"],
+    )
+    si3.metric(
+        "🟢 On Track",
+        summary["on_track"],
+    )
+
+    if not impact_table.empty:
+        # Color-coded display
+        st.dataframe(
+            impact_table[
+                [
+                    "material_name",
+                    "vendor_name",
+                    "po_number",
+                    "project_phase",
+                    "delay_days",
+                    "phase_float",
+                    "float_remaining",
+                    "impact_status",
+                ]
+            ].rename(
+                columns={
+                    "material_name": "Material",
+                    "vendor_name": "Vendor",
+                    "po_number": "PO #",
+                    "project_phase": "Phase",
+                    "delay_days": "Delay (days)",
+                    "phase_float": "Phase Float",
+                    "float_remaining": "Float Left",
+                    "impact_status": "Impact Status",
+                }
+            ),
+            width="stretch",
+            hide_index=True,
+        )
+    else:
+        st.info("No items with schedule impact detected.")
