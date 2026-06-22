@@ -42,6 +42,10 @@ def sample_data_path() -> Path:
     return get_project_root() / "data" / "sample_procurement_data.csv"
 
 
+def processed_procurement_path() -> Path:
+    return get_project_root() / "data" / "processed" / "procurement_master.csv"
+
+
 def _today() -> pd.Timestamp:
     return pd.Timestamp.today().normalize()
 
@@ -61,11 +65,68 @@ def _make_encoder() -> OneHotEncoder:
         return OneHotEncoder(handle_unknown="ignore", sparse=False)
 
 
-def load_procurement_data(path: Optional[Path] = None) -> pd.DataFrame:
-    source = Path(path) if path else sample_data_path()
-    df = pd.read_csv(source)
+# ---------------------------------------------------------------------------
+# Data loading – prefers processed CSV, falls back to old sample
+# ---------------------------------------------------------------------------
+
+def _load_processed_procurement() -> pd.DataFrame:
+    """Load and remap the processed procurement_master.csv so downstream code
+    sees the same column names it expects from the old sample CSV."""
+    path = processed_procurement_path()
+    df = pd.read_csv(path)
+
+    # --- Column remapping ---
+    rename_map = {
+        "material": "material_name",
+        "vendor": "vendor_name",
+        "lead_time": "lead_time_days",
+        "days_until_promised_delivery": "days_until_promised",
+    }
+    df.rename(columns=rename_map, inplace=True)
+
+    # --- Synthesise missing columns that the UI / downstream expects ---
+    # PO numbers
+    df["po_number"] = [f"PO-{2000 + i}" for i in range(len(df))]
+
+    # Date columns – derive from today and lead time / delay info
+    today = _today()
+    df["order_date"] = today - pd.to_timedelta(df["lead_time_days"].clip(lower=1), unit="D")
+    df["promised_delivery_date"] = today + pd.to_timedelta(
+        df["days_until_promised"].clip(lower=0), unit="D"
+    )
+    df["expected_roj_date"] = df["promised_delivery_date"] + pd.to_timedelta(
+        df["actual_delay_days"].clip(lower=0), unit="D"
+    )
+    # Mark ~30% of rows as delivered (those with low delay)
+    delivered_mask = df["actual_delay_days"] <= 1
+    df["actual_delivery_date"] = pd.NaT
+    df.loc[delivered_mask, "actual_delivery_date"] = (
+        df.loc[delivered_mask, "promised_delivery_date"]
+        + pd.to_timedelta(df.loc[delivered_mask, "actual_delay_days"], unit="D")
+    )
+
+    # current_status derived from risk_level
+    status_map = {"High": "At Risk", "Medium": "On Track", "Low": "On Track"}
+    df["current_status"] = df["risk_level"].map(status_map)
+    # Override items with actual_delay_days > 6 as Delayed
+    df.loc[df["actual_delay_days"] > 6, "current_status"] = "At Risk"
+
+    # unit column
+    df["unit"] = "unit"
+
+    # quality_issues (if missing, fill with 0)
+    if "quality_issues" not in df.columns:
+        df["quality_issues"] = 0
+
+    return df
+
+
+def _load_legacy_sample(path: Path) -> pd.DataFrame:
+    """Load old sample_procurement_data.csv with original enrichment logic."""
+    df = pd.read_csv(path)
     for column in DATE_COLUMNS:
-        df[column] = pd.to_datetime(df[column], errors="coerce")
+        if column in df.columns:
+            df[column] = pd.to_datetime(df[column], errors="coerce")
 
     df["lead_time_days"] = (
         df["promised_delivery_date"] - df["order_date"]
@@ -99,6 +160,39 @@ def load_procurement_data(path: Optional[Path] = None) -> pd.DataFrame:
         & df["current_status"].str.lower().isin(["at risk", "delayed"]),
         "target_risk",
     ] = "High"
+    return df
+
+
+def load_procurement_data(path: Optional[Path] = None) -> pd.DataFrame:
+    """Load procurement data, preferring the processed master CSV.
+
+    Falls back to the old sample CSV if the processed file is absent or
+    if an explicit *path* is provided.
+    """
+    if path is not None:
+        return _load_legacy_sample(Path(path))
+
+    proc_path = processed_procurement_path()
+    if proc_path.exists():
+        df = _load_processed_procurement()
+    else:
+        df = _load_legacy_sample(sample_data_path())
+
+    # Ensure derived delay columns exist for downstream consumers
+    if "observed_delay_days" not in df.columns:
+        df["open_delay_days"] = np.where(
+            df["actual_delivery_date"].isna(),
+            np.maximum((_today() - df["promised_delivery_date"]).dt.days.fillna(0), 0),
+            0,
+        )
+        df["observed_delay_days"] = (
+            df["actual_delay_days"].fillna(0).clip(lower=0) + df.get("open_delay_days", 0)
+        )
+    if "target_delay_days" not in df.columns:
+        df["target_delay_days"] = df["actual_delay_days"].fillna(0).clip(lower=0)
+    if "target_risk" not in df.columns:
+        df["target_risk"] = df.get("risk_level", "Low")
+
     return df
 
 
@@ -292,8 +386,8 @@ def get_delivery_risk_table() -> pd.DataFrame:
         prediction = predict_delay_risk(
             material_name=row["material_name"],
             vendor_name=row["vendor_name"],
-            order_date=str(row["order_date"].date()),
-            promised_delivery_date=str(row["promised_delivery_date"].date()),
+            order_date=str(row["order_date"].date()) if hasattr(row["order_date"], "date") else str(row["order_date"]),
+            promised_delivery_date=str(row["promised_delivery_date"].date()) if hasattr(row["promised_delivery_date"], "date") else str(row["promised_delivery_date"]),
             quantity=float(row["quantity"]),
             priority=row["priority"],
             project_phase=row["project_phase"],
@@ -311,7 +405,7 @@ def get_delivery_risk_table() -> pd.DataFrame:
                 "priority": row["priority"],
                 "criticality": row["criticality"],
                 "quantity": row["quantity"],
-                "unit": row["unit"],
+                "unit": row.get("unit", "unit"),
                 "contract_value": row["contract_value"],
             }
         )
