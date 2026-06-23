@@ -70,10 +70,13 @@ def get_schedule_impact_table(data: pd.DataFrame | None = None) -> pd.DataFrame:
 
     rows: List[Dict] = []
     for _, row in subset.iterrows():
-        delay = float(row.get("actual_delay_days", 0) or 0)
-        if delay <= 0:
+        delay = row.get("actual_delay_days")
+        if pd.isna(delay) or float(delay) <= 0:
             # For open items, estimate from risk
-            delay = float(row.get("observed_delay_days", 0) or 0)
+            delay = row.get("observed_delay_days", 0)
+        delay = float(delay or 0)
+        if pd.isna(delay):
+            delay = 0.0
 
         phase = str(row.get("project_phase", ""))
         phase_float = PHASE_FLOAT.get(phase, DEFAULT_FLOAT)
