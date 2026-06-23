@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 from sklearn.feature_extraction.text import HashingVectorizer
 
-from .database import get_connection, get_project_root, init_db, save_procurement_facts
+from .database import get_connection, get_project_root, save_procurement_facts
 
 CHUNK_SIZE = 700
 CHUNK_OVERLAP = 120
@@ -40,10 +40,7 @@ class SearchResult:
 def extract_text(file_name: str, raw_bytes: bytes) -> str:
     ext = Path(file_name).suffix.lower()
     if ext == ".pdf":
-        try:
-            from pypdf import PdfReader
-        except ImportError:
-            from PyPDF2 import PdfReader
+        from pypdf import PdfReader
         reader = PdfReader(io.BytesIO(raw_bytes))
         return "\n".join(page.extract_text() or "" for page in reader.pages)
     if ext in {".txt", ".md", ".csv"}:
@@ -159,7 +156,6 @@ def store_document(file_name: str, raw_bytes: bytes, db_path: Optional[Path] = N
     if not chunks:
         raise ValueError("No extractable text found in document.")
 
-    init_db(db_path)
     conn = get_connection(db_path)
     cur = conn.cursor()
     cur.execute(
@@ -183,7 +179,6 @@ def store_document(file_name: str, raw_bytes: bytes, db_path: Optional[Path] = N
 
 
 def _load_chunks(db_path: Optional[Path] = None) -> list[SearchResult]:
-    init_db(db_path)
     conn = get_connection(db_path)
     rows = conn.execute(
         """
@@ -247,7 +242,6 @@ def search_query(
 
 
 def document_exists(filename: str, db_path: Optional[Path] = None) -> bool:
-    init_db(db_path)
     conn = get_connection(db_path)
     row = conn.execute(
         "SELECT 1 FROM documents WHERE filename = ? LIMIT 1",

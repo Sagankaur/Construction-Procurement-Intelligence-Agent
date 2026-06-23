@@ -98,7 +98,6 @@ def _ensure_prediction_columns(conn: sqlite3.Connection) -> None:
 
 
 def list_documents(db_path: Optional[Path] = None) -> list[sqlite3.Row]:
-    init_db(db_path)
     conn = get_connection(db_path)
     rows = conn.execute(
         """
@@ -120,7 +119,6 @@ def list_documents(db_path: Optional[Path] = None) -> list[sqlite3.Row]:
 def count_rows(table_name: str, db_path: Optional[Path] = None) -> int:
     if table_name not in {"documents", "document_chunks", "predictions"}:
         raise ValueError(f"Unsupported table: {table_name}")
-    init_db(db_path)
     conn = get_connection(db_path)
     count = conn.execute(f"SELECT COUNT(*) FROM {table_name}").fetchone()[0]
     conn.close()
@@ -128,7 +126,6 @@ def count_rows(table_name: str, db_path: Optional[Path] = None) -> int:
 
 
 def save_prediction(prediction: Dict[str, Any], db_path: Optional[Path] = None) -> None:
-    init_db(db_path)
     conn = get_connection(db_path)
     conn.execute(
         """

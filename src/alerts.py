@@ -1,4 +1,4 @@
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import pandas as pd
 
@@ -37,9 +37,14 @@ def _follow_up_alert(row: pd.Series) -> Dict[str, object]:
     }
 
 
-def generate_alerts() -> List[Dict[str, object]]:
-    delivery_risk = get_delivery_risk_table()
-    vendor_risk = get_vendor_risk_table()
+def generate_alerts(
+    delivery_risk: Optional[pd.DataFrame] = None,
+    vendor_risk: Optional[pd.DataFrame] = None,
+) -> List[Dict[str, object]]:
+    if delivery_risk is None:
+        delivery_risk = get_delivery_risk_table()
+    if vendor_risk is None:
+        vendor_risk = get_vendor_risk_table()
     raw = load_procurement_data()
     alerts: List[Dict[str, object]] = []
 
@@ -94,9 +99,12 @@ def generate_alerts() -> List[Dict[str, object]]:
     return alerts
 
 
-def alert_counts() -> Dict[str, int]:
+def alert_counts(
+    delivery_risk: Optional[pd.DataFrame] = None,
+    vendor_risk: Optional[pd.DataFrame] = None,
+) -> Dict[str, int]:
     counts = {"Critical": 0, "High": 0, "Medium": 0, "Low": 0}
-    for alert in generate_alerts():
+    for alert in generate_alerts(delivery_risk=delivery_risk, vendor_risk=vendor_risk):
         severity = str(alert["severity"])
         counts[severity] = counts.get(severity, 0) + 1
     return counts

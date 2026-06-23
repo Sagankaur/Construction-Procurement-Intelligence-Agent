@@ -13,59 +13,12 @@ st.set_page_config(
     page_title="SiteSage AI",
     page_icon="SS",
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
 )
 
-st.markdown(
-    """
-    <style>
-    :root {
-        --sage-ink: #17202a;
-        --sage-panel: #ffffff;
-        --sage-muted: #64748b;
-        --sage-line: #d8dee7;
-        --sage-accent: #0f766e;
-        --sage-warn: #b45309;
-        --sage-danger: #b91c1c;
-    }
-    .stApp {
-        background: #f5f7fa;
-        color: var(--sage-ink);
-    }
-    section[data-testid="stSidebar"] {
-        background: #ecf1f5;
-        border-right: 1px solid var(--sage-line);
-    }
-    /* Hide Streamlit default native navigation */
-    div[data-testid="stSidebarNav"] {
-        display: none !important;
-    }
-    .stButton > button {
-        border-radius: 6px;
-        border: 1px solid #0f766e;
-        color: #ffffff;
-        background: #0f766e;
-        min-height: 2.35rem;
-    }
-    .stButton > button:hover {
-        border-color: #115e59;
-        background: #115e59;
-        color: #ffffff;
-    }
-    div[data-testid="stMetric"] {
-        background: var(--sage-panel);
-        border: 1px solid var(--sage-line);
-        border-radius: 8px;
-        padding: 0.85rem 1rem;
-    }
-    h1, h2, h3 {
-        letter-spacing: 0;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
+# ---------------------------------------------------------------------------
+# Navigation configuration
+# ---------------------------------------------------------------------------
 PAGES = {
     "Overview": "pages/01_Overview.py",
     "Upload Documents": "pages/02_Upload_Documents.py",
@@ -75,10 +28,181 @@ PAGES = {
     "Alerts": "pages/06_Alerts.py",
 }
 
-st.sidebar.title("SiteSage AI")
-selection = st.sidebar.radio("Navigate", list(PAGES.keys()))
-st.sidebar.caption("Construction Procurement Intelligence")
+# Handle query parameters for routing
+query_params = st.query_params
+if "page" in query_params:
+    selection = query_params["page"]
+    if selection not in PAGES:
+        selection = "Overview"
+else:
+    selection = "Overview"
 
+# Handle theme parameter and store in session state
+if "theme" in query_params:
+    st.session_state.theme = query_params["theme"]
+elif "theme" not in st.session_state:
+    st.session_state.theme = "light"
+
+# Define theme colors based on current state
+if st.session_state.theme == "dark":
+    bg_color = "#0F172A"       # Dark Slate background
+    text_color = "#F8FAFC"     # Off-white text
+    card_bg = "#1E293B"        # Navy-slate card background
+    border_color = "#334155"   # Dark border
+    navbar_bg = "#1E293B"      # Dark navbar background
+    navbar_text = "#94A3B8"    # Slate text for inactive links
+    navbar_border = "#334155"  # Dark navbar border
+    shadow_color = "rgba(0, 0, 0, 0.25)"
+    theme_emoji = "☀️"         # Show sun emoji to toggle to light mode
+    next_theme = "light"
+else:
+    bg_color = "#F7F9FC"       # Clean SaaS background
+    text_color = "#0F172A"     # Dark Slate primary text
+    card_bg = "#FFFFFF"        # White card background
+    border_color = "#E5EAF2"   # Light thin border
+    navbar_bg = "#FFFFFF"      # White navbar background
+    navbar_text = "#64748B"    # Grey text for inactive links
+    navbar_border = "#E5EAF2"  # Light navbar border
+    shadow_color = "rgba(0, 0, 0, 0.02)"
+    theme_emoji = "🌙"         # Show moon emoji to toggle to dark mode
+    next_theme = "dark"
+
+# ---------------------------------------------------------------------------
+# Global Design & Navbar Styling
+# ---------------------------------------------------------------------------
+st.markdown(
+    f"""
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+    :root {{
+        --primary-navy: {'#FFFFFF' if st.session_state.theme == 'dark' else '#0F172A'};
+        --primary-blue: #4F8CFF;
+        --success: #10B981;
+        --warning: #F59E0B;
+        --critical: #EF4444;
+        --text-color: {text_color};
+        --bg-color: {bg_color};
+        --card-bg: {card_bg};
+        --border-color: {border_color};
+    }}
+
+    /* Global Body and Font Settings */
+    .stApp {{
+        background-color: var(--bg-color) !important;
+        color: var(--text-color);
+        font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }}
+
+    /* Hide Streamlit default native navigation and sidebar */
+    [data-testid="stSidebar"] {{
+        display: none !important;
+    }}
+    [data-testid="stHeader"] {{
+        display: none !important;
+    }}
+
+    /* Main App View container padding-top to account for fixed header */
+    div[data-testid="stAppViewBlockContainer"] {{
+        padding-top: 6.8rem !important;
+        padding-left: 2rem !important;
+        padding-right: 2rem !important;
+        max-width: 1240px !important;
+        margin: 0 auto !important;
+    }}
+
+    /* Premium Button Styles */
+    .stButton > button {{
+        border-radius: 8px;
+        border: 1px solid var(--primary-blue);
+        color: #FFFFFF !important;
+        background: var(--primary-blue);
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        padding: 0.6rem 1.2rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        transition: all 0.2s ease-in-out;
+        width: 100%;
+    }}
+    .stButton > button:hover {{
+        background: #2563EB;
+        border-color: #2563EB;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }}
+
+    /* Typography Hierarchy styling */
+    h1, h2, h3, h4, h5, h6 {{
+        font-weight: 700 !important;
+        letter-spacing: -0.03em !important;
+        color: var(--primary-navy) !important;
+    }}
+    h1 {{ font-size: 2rem !important; margin-bottom: 0.5rem !important; }}
+    h2 {{ font-size: 1.5rem !important; margin-top: 1rem !important; margin-bottom: 0.75rem !important; }}
+    h3 {{ font-size: 1.2rem !important; }}
+
+    /* Custom scrollbars */
+    ::-webkit-scrollbar {{
+        width: 8px;
+        height: 8px;
+    }}
+    ::-webkit-scrollbar-track {{
+        background: #F1F5F9;
+    }}
+    ::-webkit-scrollbar-thumb {{
+        background: #CBD5E1;
+        border-radius: 4px;
+    }}
+    ::-webkit-scrollbar-thumb:hover {{
+        background: #94A3B8;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ---------------------------------------------------------------------------
+# Custom Top Navigation Bar HTML (Clean SVG Logo)
+# ---------------------------------------------------------------------------
+navbar_html = f"""
+<div style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: {navbar_bg};
+    border-bottom: 1px solid {navbar_border};
+    padding: 0.75rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    height: 60px;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    box-shadow: 0 1px 3px {shadow_color};
+">
+  <div style="display: flex; align-items: center; gap: 0.4rem;">
+     <svg width="22" height="22" viewBox="0 0 24 24" fill="#3B82F6" style="flex-shrink: 0;"><path d="M12 2L14.8 9.2L22 12L14.8 14.8L12 22L9.2 14.8L2 12L9.2 9.2Z"/></svg>
+     <span style="font-weight: 800; font-size: 1.15rem; color: {'#FFFFFF' if st.session_state.theme == 'dark' else '#1E3A5F'}; letter-spacing: -0.02em;">SiteSage AI</span>
+  </div>
+  <div style="display: flex; gap: 1.5rem; height: 100%; align-items: center;">
+     <a href="?page=Overview&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {'#3B82F6' if selection == 'Overview' else navbar_text}; font-weight: {'700' if selection == 'Overview' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {'#3B82F6' if selection == 'Overview' else 'transparent'}; transition: all 0.2s;">Overview</a>
+     <a href="?page=Upload Documents&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {'#3B82F6' if selection == 'Upload Documents' else navbar_text}; font-weight: {'700' if selection == 'Upload Documents' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {'#3B82F6' if selection == 'Upload Documents' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Upload Documents</a>
+     <a href="?page=Ask AI Agent&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {'#3B82F6' if selection == 'Ask AI Agent' else navbar_text}; font-weight: {'700' if selection == 'Ask AI Agent' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {'#3B82F6' if selection == 'Ask AI Agent' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Ask AI Agent</a>
+     <a href="?page=Delay Prediction&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {'#3B82F6' if selection == 'Delay Prediction' else navbar_text}; font-weight: {'700' if selection == 'Delay Prediction' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {'#3B82F6' if selection == 'Delay Prediction' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Delay Prediction</a>
+     <a href="?page=Vendor Risk&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {'#3B82F6' if selection == 'Vendor Risk' else navbar_text}; font-weight: {'700' if selection == 'Vendor Risk' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {'#3B82F6' if selection == 'Vendor Risk' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Vendor Risk</a>
+     <a href="?page=Alerts&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {'#3B82F6' if selection == 'Alerts' else navbar_text}; font-weight: {'700' if selection == 'Alerts' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {'#3B82F6' if selection == 'Alerts' else 'transparent'}; transition: all 0.2;">Alerts</a>
+  </div>
+  <div style="display: flex; align-items: center; gap: 1rem;">
+     <a href="?page={selection}&theme={next_theme}" target="_self" style="text-decoration: none; font-size: 1.1rem; cursor: pointer;">{theme_emoji}</a>
+  </div>
+</div>
+"""
+st.markdown(navbar_html, unsafe_allow_html=True)
+
+# ---------------------------------------------------------------------------
+# Module Loading & Page Execution
+# ---------------------------------------------------------------------------
 page_path = BASE_DIR / PAGES[selection]
 module_name = page_path.stem
 spec = importlib.util.spec_from_file_location(module_name, page_path)
