@@ -1165,18 +1165,10 @@ def main():
                     expected_roj = "N/A"
                     delay_risk = "0"
 
-                    if " from " in detail:
-                        parts = detail.split(" from ")
-                        po = parts[0]
-                        rest = parts[1]
-                        if " has " in rest:
-                            vendor_parts = rest.split(" has ")
-                            vendor = vendor_parts[0]
-                            rest2 = vendor_parts[1]
-                            if " delay risk and expected ROJ " in rest2:
-                                risk_parts = rest2.split(" delay risk and expected ROJ ")
-                                delay_risk = risk_parts[0].replace("%", "")
-                                expected_roj = risk_parts[1].rstrip(".")
+                    import re
+                    match = re.match(r"^([^\s]+) from (.+?) has (\d+)% delay risk and expected ROJ (.+?)\.?$", detail)
+                    if match:
+                        po, vendor, delay_risk, expected_roj = match.groups()
 
                     alert_items_html += f"""
                     <div class="alert-row-item alert-border-{severity}">
