@@ -1,6 +1,8 @@
 import unittest
 import uuid
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from src.alerts import generate_alerts
 from src.database import get_procurement_facts, init_db
@@ -52,6 +54,18 @@ class BackendTests(unittest.TestCase):
             use_ollama=False,
         )
         self.assertIn("do not have enough information", response.answer)
+
+    def test_ollama_call_uses_utf8_decoding(self):
+        from src import rag_engine
+
+        fake_result = SimpleNamespace(returncode=0, stdout="नमस्ते", stderr="")
+        with patch("src.rag_engine.subprocess.run", return_value=fake_result) as run_mock:
+            answer = rag_engine._call_ollama("test prompt")
+
+        self.assertEqual(answer, "नमस्ते")
+        run_mock.assert_called_once()
+        self.assertEqual(run_mock.call_args.kwargs["encoding"], "utf-8")
+        self.assertEqual(run_mock.call_args.kwargs["errors"], "replace")
 
     def test_delay_vendor_and_alerts_are_populated(self):
         data = load_procurement_data()

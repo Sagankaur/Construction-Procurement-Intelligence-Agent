@@ -65,15 +65,18 @@ python -m venv ..\.venv
 pip install -r requirements.txt
 ```
 
-Optional Ollama setup:
+Optional Ollama setup for local LLM inference:
 
 ```powershell
+ollama serve
 ollama pull qwen2.5:7b
 $env:OLLAMA_MODEL="qwen2.5:7b"
 $env:SITESAGE_USE_OLLAMA="1"
 ```
 
-If Ollama is not installed, SiteSage still returns cited extractive answers from indexed documents.
+If Ollama is not installed or not running, SiteSage still returns cited extractive answers from indexed documents.
+
+See [docs/ollama_setup.md](docs/ollama_setup.md) for the full local setup flow and presentation notes.
 
 ## Run Locally
 
