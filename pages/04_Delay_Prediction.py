@@ -303,55 +303,58 @@ Est. Delivery
     chart_font_color = "#94A3B8" if is_dark else "#475569"
     plotly_template = "plotly_dark" if is_dark else "plotly_white"
 
-    fig = px.scatter(
-        risk_table,
-        x="promised_delivery_date",
-        y="risk_score",
-        size="contract_value",
-        color="risk_level",
-        hover_data=["po_number", "material_name", "vendor_name", "expected_roj_date"],
-        color_discrete_map={"High": "#EF4444", "Medium": "#F59E0B", "Low": "#10B981"},
-        labels={"promised_delivery_date": "Promised Delivery Date", "risk_score": "Risk Severity Score", "risk_level": "Risk Level"},
-        title="Open Purchase Orders: Risk Profile vs. promised delivery",
-        template=plotly_template,
-    )
-    fig.update_layout(
-        yaxis_title="Risk Score", 
-        xaxis_title="Promised Delivery Date", 
-        height=320,
-        margin=dict(l=10, r=10, t=40, b=10),
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
-        xaxis=dict(showgrid=True, gridcolor=grid_color),
-        yaxis=dict(showgrid=True, gridcolor=grid_color),
-        font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
-    )
-    st.plotly_chart(fig, use_container_width=True)
-    
-    st.dataframe(
-        risk_table[[
-            "po_number", "material_name", "vendor_name", "promised_delivery_date", "expected_roj_date", "risk_level", "risk_score", "expected_delay_days", "contract_value"
-        ]].rename(
-            columns={
-                "po_number": "PO #",
-                "material_name": "Material",
-                "vendor_name": "Vendor",
-                "promised_delivery_date": "Promised Date",
-                "expected_roj_date": "Predicted Delivery",
-                "risk_level": "Risk Tier",
-                "risk_score": "Risk Score",
-                "expected_delay_days": "Delay (Days)",
-                "contract_value": "Value ($)"
-            }
-        ),
-        column_config={
-            "Risk Score": st.column_config.ProgressColumn("Risk Score", min_value=0, max_value=100, format="%d%%"),
-            "Value ($)": st.column_config.NumberColumn("Value", format="$%,.2f"),
-        },
-        width="stretch",
-        hide_index=True,
-        use_container_width=True
-    )
+    if risk_table.empty:
+        st.info("No current open orders detected.")
+    else:
+        fig = px.scatter(
+            risk_table,
+            x="promised_delivery_date",
+            y="risk_score",
+            size="contract_value",
+            color="risk_level",
+            hover_data=["po_number", "material_name", "vendor_name", "expected_roj_date"],
+            color_discrete_map={"High": "#EF4444", "Medium": "#F59E0B", "Low": "#10B981"},
+            labels={"promised_delivery_date": "Promised Delivery Date", "risk_score": "Risk Severity Score", "risk_level": "Risk Level"},
+            title="Open Purchase Orders: Risk Profile vs. promised delivery",
+            template=plotly_template,
+        )
+        fig.update_layout(
+            yaxis_title="Risk Score", 
+            xaxis_title="Promised Delivery Date", 
+            height=320,
+            margin=dict(l=10, r=10, t=40, b=10),
+            paper_bgcolor="rgba(0,0,0,0)",
+            plot_bgcolor="rgba(0,0,0,0)",
+            xaxis=dict(showgrid=True, gridcolor=grid_color),
+            yaxis=dict(showgrid=True, gridcolor=grid_color),
+            font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
+        )
+        st.plotly_chart(fig, use_container_width=True)
+        
+        st.dataframe(
+            risk_table[[
+                "po_number", "material_name", "vendor_name", "promised_delivery_date", "expected_roj_date", "risk_level", "risk_score", "expected_delay_days", "contract_value"
+            ]].rename(
+                columns={
+                    "po_number": "PO #",
+                    "material_name": "Material",
+                    "vendor_name": "Vendor",
+                    "promised_delivery_date": "Promised Date",
+                    "expected_roj_date": "Predicted Delivery",
+                    "risk_level": "Risk Tier",
+                    "risk_score": "Risk Score",
+                    "expected_delay_days": "Delay (Days)",
+                    "contract_value": "Value ($)"
+                }
+            ),
+            column_config={
+                "Risk Score": st.column_config.ProgressColumn("Risk Score", min_value=0, max_value=100, format="%d%%"),
+                "Value ($)": st.column_config.NumberColumn("Value", format="$%,.2f"),
+            },
+            width="stretch",
+            hide_index=True,
+            use_container_width=True
+        )
 
 
 if __name__ == "__main__":
