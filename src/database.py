@@ -1,6 +1,6 @@
 import sqlite3
 from pathlib import Path
-from typing import Any, Dict, Iterable, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 DB_NAME = "site_sage.db"
 
@@ -65,6 +65,19 @@ def init_db(db_path: Optional[Path] = None) -> None:
         """
     )
     _ensure_prediction_columns(conn)
+    cursor.execute(
+        """
+        CREATE TABLE IF NOT EXISTS procurement_facts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            doc_id INTEGER NOT NULL,
+            field_name TEXT NOT NULL,
+            field_value TEXT NOT NULL,
+            confidence TEXT DEFAULT 'medium',
+            extracted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(doc_id) REFERENCES documents(id) ON DELETE CASCADE
+        )
+        """
+    )
     conn.commit()
     conn.close()
 
@@ -85,7 +98,6 @@ def _ensure_prediction_columns(conn: sqlite3.Connection) -> None:
 
 
 def list_documents(db_path: Optional[Path] = None) -> list[sqlite3.Row]:
-    init_db(db_path)
     conn = get_connection(db_path)
     rows = conn.execute(
         """
@@ -107,7 +119,6 @@ def list_documents(db_path: Optional[Path] = None) -> list[sqlite3.Row]:
 def count_rows(table_name: str, db_path: Optional[Path] = None) -> int:
     if table_name not in {"documents", "document_chunks", "predictions"}:
         raise ValueError(f"Unsupported table: {table_name}")
-    init_db(db_path)
     conn = get_connection(db_path)
     count = conn.execute(f"SELECT COUNT(*) FROM {table_name}").fetchone()[0]
     conn.close()
@@ -115,7 +126,6 @@ def count_rows(table_name: str, db_path: Optional[Path] = None) -> int:
 
 
 def save_prediction(prediction: Dict[str, Any], db_path: Optional[Path] = None) -> None:
-    init_db(db_path)
     conn = get_connection(db_path)
     conn.execute(
         """
@@ -151,6 +161,65 @@ def save_prediction(prediction: Dict[str, Any], db_path: Optional[Path] = None) 
 def seed_rows(rows: Iterable[Dict[str, Any]], db_path: Optional[Path] = None) -> None:
     for row in rows:
         save_prediction(row, db_path)
+
+
+def save_procurement_facts(
+    doc_id: int,
+    facts: List[Dict[str, str]],
+    db_path: Optional[Path] = None,
+) -> None:
+    """Save extracted procurement facts for a document."""
+    init_db(db_path)
+    conn = get_connection(db_path)
+    conn.executemany(
+        """
+        INSERT INTO procurement_facts (doc_id, field_name, field_value, confidence)
+        VALUES (?, ?, ?, ?)
+        """,
+        [
+            (
+                doc_id,
+                fact.get("field", ""),
+                fact.get("value", ""),
+                fact.get("confidence", "medium"),
+            )
+            for fact in facts
+        ],
+    )
+    conn.commit()
+    conn.close()
+
+
+def get_procurement_facts(
+    doc_id: Optional[int] = None, db_path: Optional[Path] = None
+) -> list[sqlite3.Row]:
+    """Retrieve procurement facts, optionally filtered by document."""
+    init_db(db_path)
+    conn = get_connection(db_path)
+    if doc_id is not None:
+        rows = conn.execute(
+            """
+            SELECT pf.id, pf.doc_id, d.filename, pf.field_name, pf.field_value,
+                   pf.confidence, pf.extracted_at
+            FROM procurement_facts pf
+            JOIN documents d ON d.id = pf.doc_id
+            WHERE pf.doc_id = ?
+            ORDER BY pf.id
+            """,
+            (doc_id,),
+        ).fetchall()
+    else:
+        rows = conn.execute(
+            """
+            SELECT pf.id, pf.doc_id, d.filename, pf.field_name, pf.field_value,
+                   pf.confidence, pf.extracted_at
+            FROM procurement_facts pf
+            JOIN documents d ON d.id = pf.doc_id
+            ORDER BY pf.extracted_at DESC
+            """
+        ).fetchall()
+    conn.close()
+    return rows
 
 
 if __name__ == "__main__":
