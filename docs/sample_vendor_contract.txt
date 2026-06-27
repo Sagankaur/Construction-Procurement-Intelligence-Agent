@@ -1,11 +1,57 @@
 SiteSage Demo Vendor Risk Notes
 
-ABC Metals supplies structural steel and has a current on-time rate of 68 percent. The vendor is considered high risk for June 2026 because critical steel delivery depends on pending mill dispatch documents and unresolved logistics confirmation.
+Project: Kaya IIT Construction Tower
+Reporting month: June 2026
+Data source: procurement_master.csv and vendor performance aggregates
 
-ElectroPro Systems supplies MEP copper cables and has a current on-time rate of 64 percent. The vendor is considered high risk because factory acceptance testing is incomplete, communication cadence is weak, and the cable order supports MEP rough-in.
+These notes summarize vendor reliability for suppliers with active purchase orders in the processed procurement dataset. Risk levels are derived from open-order delay forecasts, criticality flags, and order volume. All vendor names below appear in procurement_master.csv.
 
-PowerCore Equipments supplies the diesel generator package and has a current on-time rate of 66 percent. The generator order is critical for commissioning and should be escalated if inspection evidence is not received.
+HIGH-RISK VENDORS (escalation recommended)
 
-BuildMix Concrete is a reliable vendor with a 91 percent on-time rate. Routine tracking is enough for current concrete and cement orders.
+Granite Valley Mfg supplies Cement and Formwork across Superstructure, Foundation, MEP Fitouts, and Finishes phases. Active orders: 43. High-risk open orders: 15. Average delay forecast: 5.3 days. Historical on-time rate: 0 percent. Communication score: 0.0. Granite Valley Mfg is considered high risk for July 2026 because multiple critical cement and formwork deliveries have High delay risk scores, including PO-2000 (Cement, Electrical, Superstructure).
 
-Follow-up priority should be ABC Metals for PO-1001, ElectroPro Systems for PO-1004, SafeEntry Doors for PO-1006, and PowerCore Equipments for PO-1012.
+Zenith Alloy Solutions supplies Cement and Formwork for Foundation, Superstructure, and MEP Fitouts. Active orders: 45. High-risk open orders: 14. Average delay forecast: 5.7 days. Historical on-time rate: 0 percent. Communication score: 0.0. Zenith Alloy Solutions requires weekly milestone reviews on all Critical-priority orders.
+
+Ironclad Assemblies supplies Cement and Formwork for Foundation and Superstructure. Active orders: 39. High-risk open orders: 12. Average delay forecast: 5.8 days. Historical on-time rate: 0 percent. Communication score: 0.0. Ironclad Assemblies is high risk due to repeated delay forecasts on structural and mechanical category materials.
+
+Badlands Components LLC supplies Cement (Electrical and Structural specifications) and Formwork (Optical specification) for Foundation and Superstructure. Active orders: 31. High-risk open orders: 10. Average delay forecast: 5.5 days. Historical on-time rate: 0 percent. Communication score: 0.0. Badlands Components LLC is the highest-priority escalation target for June-July 2026. Critical open orders include PO-2008, PO-2012, PO-2133, and PO-2473. PO-2473 is the largest single contract at INR 1,373,411.25.
+
+Dusk Manufacturing Co supplies Cement and Formwork across multiple phases. Active orders: 39. High-risk open orders: 9. Average delay forecast: 5.3 days. Historical on-time rate: 0 percent. Communication score: 0.0.
+
+Coastal Precision Parts supplies Cement and Formwork. Active orders: 23. High-risk open orders: 9. Average delay forecast: 6.0 days. Historical on-time rate: 0 percent. Communication score: 0.0.
+
+Greystone Fabrications supplies Cement and Formwork. Active orders: 17. High-risk open orders: 7. Average delay forecast: 5.8 days. Historical on-time rate: 0 percent. Communication score: 0.0.
+
+Vega Electronics Ltd supplies Formwork (Optical specification) for Superstructure. Active orders: 1 high-value order. High-risk open orders: 1. PO-2017 (INR 736,398.42, 74 units) is At Risk with an 8-day delay forecast. Factory acceptance testing for precision formwork panels is incomplete.
+
+Eagle Ridge Components supplies Cement (Thermal Management specification) for Superstructure. PO-2179 is At Risk with an 11-day delay forecast and promised delivery on 2026-07-02. Thermal insulation cementitious materials require pre-shipment inspection clearance.
+
+Cascade Tooling Solutions supplies Formwork (Mechanical specification) for MEP Fitouts. PO-2006 is Critical priority with a 9-day delay forecast. MEP rough-in sequencing depends on this vendor.
+
+Lowland Metal Works supplies Formwork (Mechanical specification) for Superstructure. PO-2125 is due 2026-07-02 with High delay risk.
+
+Riverton Manufacturing supplies Formwork (Mechanical specification) for Superstructure. PO-2013 is Medium risk with promised delivery 2026-07-04.
+
+LOW-RISK VENDORS (routine tracking sufficient)
+
+Western Alloy Fab has 9 active orders with zero High-risk flags. Continue normal vendor management cadence.
+
+Cornerstone Electro-Mech has 5 active orders with zero High-risk flags. Reliable for routine procurement tracking.
+
+Keystone Bearing Systems has 4 active orders with zero High-risk flags.
+
+FOLLOW-UP PRIORITY LIST (June 2026)
+
+1. Badlands Components LLC — PO-2133, PO-2008, PO-2012, PO-2473
+2. Eagle Ridge Components — PO-2179
+3. Lowland Metal Works — PO-2125
+4. Cascade Tooling Solutions — PO-2006
+5. Vega Electronics Ltd — PO-2017
+6. Granite Valley Mfg — PO-2000
+
+VENDOR CONTRACT TERMS (standard across active suppliers)
+
+Payment terms: 30 days from delivery acceptance.
+Inspection: Pre-dispatch quality check required for all Critical-priority Cement and Formwork orders.
+Liquidated damages: Applicable for delays exceeding 10 calendar days on Critical materials.
+Communication cadence: Weekly status update required for all High-risk vendors listed above.

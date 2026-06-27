@@ -1,0 +1,45 @@
+From: factory.qa@vega-electronics.com
+To: procurement@kaya-iit-tower.com
+Cc: mep.fitouts@kaya-iit-tower.com; sitesage-alerts@kaya-iit-tower.com
+Subject: Factory Acceptance Testing pending — PO-2017 Formwork (Optical) — High risk delivery
+Date: 2026-06-25 16:42 IST
+
+Dear Kaya IIT Procurement Team,
+
+We are writing regarding Purchase Order PO-2017 for Formwork (Optical specification) on the Superstructure package.
+
+PO details (aligned to procurement register):
+- PO Number: PO-2017
+- Material: Formwork (Optical specification)
+- Vendor: Vega Electronics Ltd
+- Project phase: Superstructure
+- Quantity: 74 units
+- Contract value: INR 736,398.42
+- Order date: 2026-05-30
+- Promised delivery date: 2026-07-09
+- Expected ROJ date: 2026-07-17
+- Priority: Critical
+- Criticality: Critical
+- Risk level: High
+- Delay forecast: 8 days
+
+Factory Acceptance Testing (FAT) status:
+
+Panel set A (levels 12–18): dimensional tolerance check PASSED on 2026-06-20.
+Panel set B (levels 19–24): optical alignment verification PENDING — laser calibration equipment unavailable until 2026-07-01.
+Panel set C (levels 25–28): not yet fabricated.
+
+The 8-day delay forecast in your procurement system reflects the FAT backlog on panel set B. We cannot issue a dispatch release note until optical alignment verification is complete.
+
+Recommended follow-up:
+- Site team to confirm whether partial dispatch of panel set A is acceptable for Superstructure sequencing.
+- Procurement to schedule joint FAT witness test on 2026-07-02.
+- Update SiteSage register if promised delivery date revision is approved.
+
+This order is flagged as a critical material that may affect the project schedule. Please respond by 2026-06-27.
+
+Regards,
+Marcus Chen
+Factory QA Manager
+Vega Electronics Ltd
+factory.qa@vega-electronics.com

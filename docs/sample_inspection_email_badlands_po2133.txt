@@ -1,0 +1,45 @@
+From: qa.inspection@badlands-components.com
+To: procurement@kaya-iit-tower.com
+Cc: sitesage-alerts@kaya-iit-tower.com; pm.superstructure@kaya-iit-tower.com
+Subject: RE: Pre-dispatch inspection status — PO-2133 Cement (Structural) — ACTION REQUIRED
+Date: 2026-06-26 09:14 IST
+
+Dear Kaya IIT Procurement Team,
+
+This email concerns Purchase Order PO-2133 for Cement (Structural specification) placed with Badlands Components LLC.
+
+PO details (aligned to procurement register):
+- PO Number: PO-2133
+- Material: Cement (Structural specification)
+- Vendor: Badlands Components LLC
+- Project phase: Foundation
+- Quantity: 67 units
+- Contract value: INR 104,105.94
+- Order date: 2026-06-10
+- Promised delivery date: 2026-07-02
+- Expected ROJ date: 2026-07-11
+- Priority: Critical
+- Criticality: Critical
+- Risk level: High
+- Delay forecast: 9 days
+
+Inspection status as of 2026-06-26:
+
+1. Mill certificate review — INCOMPLETE. Third-party test report for compressive strength (Structural grade) not yet uploaded.
+2. Pre-dispatch visual inspection — SCHEDULED for 2026-06-28 at Badlands Components LLC depot.
+3. Transport booking — NOT CONFIRMED. Dispatch cannot proceed until inspection item 1 is closed.
+
+Impact note: The Superstructure structural steel package is dependent on completion of this Foundation cement pour. The linked expected ROJ date for structural steel remains 2026-07-11, but this is at risk if inspection closes after 2026-06-29.
+
+Requested actions by 2026-06-27 EOD:
+- Confirm inspection attendance for 2026-06-28
+- Provide revised dispatch plan with truck allocation
+- Upload pending mill certificate to the SiteSage document portal
+
+If inspection evidence is not received by 2026-06-29, please escalate per the Critical material protocol.
+
+Regards,
+Priya Nair
+Quality Assurance Lead
+Badlands Components LLC
+qa.inspection@badlands-components.com
