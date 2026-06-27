@@ -57,11 +57,11 @@ Load Sample Documents
 
 Say:
 
-> In a real project these would be POs, vendor contracts, delivery schedules, procurement reports, and emails. For the demo we load synthetic procurement documents.
+> In a real project these would be POs, vendor contracts, delivery schedules, procurement reports, and emails. For the demo we load procurement documents aligned to our processed dataset.
 
 Expected result:
 
-- Sample documents are indexed.
+- `sample_purchase_order.txt` and `sample_vendor_contract.txt` are indexed.
 - Table shows document names and chunk counts.
 
 ### 3. Ask AI Agent
@@ -76,8 +76,9 @@ What is the expected ROJ date for steel?
 
 Expected answer should include:
 
-- `2026-06-24`
-- A citation like `[sample_purchase_order.txt#c0]`
+- `2026-07-11` (linked structural steel ROJ, dependent on PO-2133)
+- Reference to PO-2133 or structural cement from Badlands Components LLC
+- A citation like `[sample_purchase_order.txt#c1]`
 
 Say:
 
@@ -89,27 +90,35 @@ Optional second question:
 Which vendors are high risk?
 ```
 
-Expected vendors:
+Expected vendors (from `sample_vendor_contract.txt`):
 
-- ABC Metals
-- ElectroPro Systems
-- PowerCore Equipments
+- Badlands Components LLC
+- Granite Valley Mfg
+- Zenith Alloy Solutions
+- Ironclad Assemblies
 
 ### 4. Delay Prediction
 
 Go to `Delay Prediction`.
 
-Use the default or choose:
+Say:
 
-- Material: Structural Steel
-- Vendor: ABC Metals
+> Now we score the same critical delivery the documents flagged — PO-2133 structural cement on the Foundation package.
+
+Select these values (from `procurement_master.csv` / PO-2133):
+
+- Material: Cement
+- Vendor: Badlands Components LLC
+- Quantity: 67
+- Purchase Order Date: 2026-06-10
+- Promised Delivery Date: 2026-07-02
 - Priority: Critical
-- Project Phase: Superstructure
+- Project Phase: Foundation
 
 Click:
 
 ```text
-Predict Delay Risk
+Generate Prediction Profile
 ```
 
 Say:
@@ -118,11 +127,13 @@ Say:
 
 Point out:
 
-- Risk level
+- Risk level (expect High or Medium)
 - Risk score
 - Expected delay days
-- Expected ROJ date
+- Expected ROJ date (should be near `2026-07-11`, matching the document register)
 - Recommendation
+
+**Presenter shortcut:** The form also loads with app defaults (Cement, Canyon Fabricators LLC, Critical priority). Either path works; PO-2133 is preferred because it matches the RAG story.
 
 ### 5. Vendor Risk
 
@@ -132,7 +143,12 @@ Say:
 
 > SiteSage ranks vendors using on-time rate, average delay, open risky orders, communication score, and quality issues.
 
-Point out high-risk vendors and recommended actions.
+Point out high-risk vendors and recommended actions. Names to highlight:
+
+- Badlands Components LLC (escalation target; PO-2133, PO-2008, PO-2473)
+- Granite Valley Mfg (15 high-risk open orders)
+- Zenith Alloy Solutions
+- Ironclad Assemblies
 
 ### 6. Alerts
 
@@ -144,10 +160,10 @@ Say:
 
 Point out:
 
-- Critical schedule impact alerts.
-- Delivery risk alerts.
-- Vendor escalation alerts.
-- Follow-up actions.
+- Critical schedule impact alerts (Foundation / Superstructure materials).
+- Delivery risk alerts for PO-2133, PO-2179, PO-2006.
+- Vendor escalation alerts for Badlands Components LLC and other high-risk vendors.
+- Follow-up actions for POs due before 2026-07-04.
 
 ## Demo Questions
 
@@ -161,6 +177,35 @@ What materials are delayed?
 What is the expected ROJ date for steel?
 Which critical materials may affect the project schedule?
 ```
+
+## Expected RAG Answers (Grounded in Sample Documents)
+
+All answers below must come from indexed `docs/sample_purchase_order.txt` and `docs/sample_vendor_contract.txt`. If Ollama is off, the fallback extractive answer should still include these facts.
+
+| Question | Expected grounded content | Source document |
+| --- | --- | --- |
+| Which deliveries are at risk this month? | High-risk deliveries this month: **10**; multiple orders with **Risk level: High** and **Status: At Risk** | `sample_purchase_order.txt` |
+| Which vendors are high risk? | **Badlands Components LLC**, **Granite Valley Mfg**, **Zenith Alloy Solutions**, **Ironclad Assemblies** (and other vendors under HIGH-RISK VENDORS) | `sample_vendor_contract.txt` |
+| What purchase orders need follow-up? | **PO-2133**, **PO-2179**, **PO-2125**, **PO-2008** (follow-up before 2026-07-04) | `sample_purchase_order.txt` |
+| What materials are delayed? | **Cement (Structural)** on PO-2133, **Cement (Thermal Management)** on PO-2179, **Formwork (Mechanical)** on PO-2006, **Formwork (Optical)** on PO-2017 | `sample_purchase_order.txt` |
+| What is the expected ROJ date for steel? | **2026-07-11** (structural steel ROJ linked to PO-2133) | `sample_purchase_order.txt` |
+| Which critical materials may affect the project schedule? | **PO-2133**, **PO-2006**, **PO-2017**, **PO-2473** | `sample_purchase_order.txt` |
+
+## Key Reference Data (Processed Dataset)
+
+Register date in sample documents: **2026-06-27**
+
+| PO | Material | Vendor | Promised delivery | Expected ROJ | Risk |
+| --- | --- | --- | --- | --- | --- |
+| PO-2133 | Cement (Structural) | Badlands Components LLC | 2026-07-02 | 2026-07-11 | High |
+| PO-2179 | Cement (Thermal Management) | Eagle Ridge Components | 2026-07-02 | 2026-07-13 | High |
+| PO-2125 | Formwork (Mechanical) | Lowland Metal Works | 2026-07-02 | 2026-07-10 | High |
+| PO-2008 | Cement (Electrical) | Badlands Components LLC | 2026-07-03 | 2026-07-10 | High |
+| PO-2006 | Formwork (Mechanical) | Cascade Tooling Solutions | 2026-07-13 | 2026-07-22 | High |
+| PO-2017 | Formwork (Optical) | Vega Electronics Ltd | 2026-07-09 | 2026-07-17 | High |
+| PO-2473 | Formwork (Optical) | Badlands Components LLC | 2026-07-06 | 2026-07-16 | High |
+
+Materials in the processed dataset: **Cement**, **Formwork** (with category specifications such as Structural, Electrical, Mechanical, Optical).
 
 ## Expected Story For Judges
 
