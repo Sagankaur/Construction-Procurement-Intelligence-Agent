@@ -44,6 +44,32 @@ communication_score
 historical_on_time_rate
 ```
 
+### Scheduling field semantics
+
+See `doc_for_team/procurement_scheduling_glossary.md` for full definitions. Short reference:
+
+| Column | Meaning |
+| --- | --- |
+| `order_date` | Date the purchase order was placed |
+| `promised_delivery_date` | Vendor-committed delivery date to the project delivery point |
+| `expected_roj_date` | Forecast date material will be on site after delay (`promised + delay`). In processed loads, synthesized from `actual_delay_days` labels |
+| `actual_delivery_date` | Date material was actually received (empty for open orders) |
+
+Derived at runtime (not required in CSV):
+
+- `expected_delay_days` — ML forecast from `delay_model.py`
+- `observed_delay_days` — overdue days for open orders plus actual delay for closed orders
+- Schedule impact status — from `schedule_impact.py` float comparison
+
+Supporting columns for modeling:
+
+```text
+lead_time
+days_until_promised_delivery
+actual_delay_days
+risk_level
+```
+
 ## Modeling Handoff
 
 The data owner should produce:

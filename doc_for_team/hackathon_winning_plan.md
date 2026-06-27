@@ -102,28 +102,27 @@ Priority:
 
 - Must build.
 
-### 3. Add Schedule Impact Mapping
+### 3. Schedule Impact Mapping
 
-Current state:
+Current state (implemented):
 
-- Alerts say critical materials may affect schedule.
-- Delay prediction gives expected ROJ date.
+- `src/schedule_impact.py` maps dataset delay days to per-phase float budgets (On Track / Float Consumed / Critical Path Blocked).
+- Overview displays schedule impact summary chart.
+- Alerts include a **Schedule Impact** type for critical At Risk / Delayed materials.
+- Delay prediction gives **expected ROJ date** (`promised + expected_delay_days`).
 
-What to improve:
+Terminology: see `procurement_scheduling_glossary.md`.
 
-- Add a simple schedule dependency table:
+What to improve next:
+
+- Add a schedule dependency table with explicit fields:
   - Material.
   - Project phase.
   - Dependent site activity.
-  - Required-on-site date.
+  - Required-on-site date (from lookahead / CPM).
   - Float days.
   - Impact if late.
-- Compare expected ROJ date against required-on-site date.
-- Show schedule impact:
-  - No impact.
-  - Consumes float.
-  - Blocks activity.
-  - Critical path risk.
+- Compare **forecast ROJ** against **schedule-required ROJ** (not yet in prototype).
 - Add a chart showing impacted activities by phase.
 
 Why it helps win:

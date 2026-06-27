@@ -77,7 +77,9 @@ Build these before fancy extras:
    - relevance score
 
 4. **Schedule Impact Mapping**  
-   Add simple table:
+   **Implemented (prototype):** `src/schedule_impact.py` compares dataset delay days to per-phase float budgets (On Track / Float Consumed / Critical Path Blocked). See `procurement_scheduling_glossary.md`.
+
+   **Future enhancement:** tie to schedule activities:
 
 ```text
 material, project_phase, required_on_site_date, dependent_activity, float_days

@@ -103,7 +103,7 @@ Mitigation:
 - Add user accounts and project workspaces.
 - Add alert assignment and resolution status.
 - Add trend analysis across vendors and projects.
-- Add schedule impact mapping to project activities.
+- Integrate schedule impact mapping with project activities (Primavera, MS Project, lookahead schedules) and explicit required-on-site dates.
 
 ## Future Architecture
 
