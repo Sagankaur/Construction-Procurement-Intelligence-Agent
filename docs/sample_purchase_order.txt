@@ -2,13 +2,50 @@ SiteSage Demo Purchase Order Register
 
 Project: Kaya IIT Construction Tower
 Reporting month: June 2026
+Register date: 2026-06-27
+Data source: procurement_master.csv (processed procurement dataset)
 
-PO-1001 covers Structural Steel from ABC Metals. The promised delivery date is 2026-06-20 and the expected ROJ date for structural steel is 2026-06-24. The order is marked At Risk because mill dispatch confirmation is pending and ABC Metals has missed two prior milestone updates. This critical material may affect the Superstructure schedule.
+This register reflects open and at-risk purchase orders tracked in the SiteSage procurement system. Materials are classified as Cement or Formwork with engineering category specifications (Structural, Electrical, Mechanical, Optical, Hydraulic, Thermal Management).
 
-PO-1004 covers MEP Copper Cables from ElectroPro Systems. The promised delivery date is 2026-06-18 and the expected ROJ date is 2026-06-19. The order needs follow-up because factory acceptance testing is not complete and the vendor communication score is low.
+URGENT — DELIVERIES DUE WITHIN 7 DAYS (follow-up required by 2026-07-04)
 
-PO-1006 covers Fire Rated Doors from SafeEntry Doors. The promised delivery date was 2026-06-10 and the expected ROJ date is 2026-06-14. The order needs follow-up because the delivery is not confirmed.
+PO-2133 covers Cement (Structural specification) from Badlands Components LLC for the Foundation phase. Quantity: 67 units. Contract value: INR 104,105.94. Order date: 2026-06-10. Promised delivery date: 2026-07-02. Expected ROJ date: 2026-07-11. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 9 days. Structural steel erection on the Superstructure package cannot proceed until this structural cement pour is complete; the linked expected ROJ date for structural steel is 2026-07-11.
 
-PO-1012 covers a Diesel Generator from PowerCore Equipments. The promised delivery date is 2026-06-25 and the expected ROJ date is 2026-07-02. The item is At Risk because alternator inspection is pending. This critical material may affect commissioning.
+PO-2179 covers Cement (Thermal Management specification) from Eagle Ridge Components for the Superstructure phase. Quantity: 9 units. Contract value: INR 40,271.04. Order date: 2026-04-27. Promised delivery date: 2026-07-02. Expected ROJ date: 2026-07-13. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 11 days. HVAC thermal insulation cementitious materials are pending factory release inspection.
 
-Materials delayed in the current procurement register include TMT Rebar from NorthSpan Steel and Waterproofing Membrane from AquaShield Materials. Both deliveries arrived after their promised dates.
+PO-2125 covers Formwork (Mechanical specification) from Lowland Metal Works for the Superstructure phase. Quantity: 36 units. Contract value: INR 47,512.44. Order date: 2026-06-01. Promised delivery date: 2026-07-02. Expected ROJ date: 2026-07-10. Priority: Medium. Risk level: High. Status: At Risk. Actual delay forecast: 8 days. Mechanical formwork panels for MEP penetrations need dispatch confirmation.
+
+PO-2008 covers Cement (Electrical specification) from Badlands Components LLC for the Superstructure phase. Quantity: 49 units. Contract value: INR 330,689.73. Order date: 2026-05-11. Promised delivery date: 2026-07-03. Expected ROJ date: 2026-07-10. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 7 days. Electrical duct-bank bedding cement is at risk because mill dispatch documents are pending.
+
+HIGH-RISK OPEN ORDERS — JULY 2026
+
+PO-2006 covers Formwork (Mechanical specification) from Cascade Tooling Solutions for the MEP Fitouts phase. Quantity: 15 units. Contract value: INR 35,832.30. Order date: 2026-04-09. Promised delivery date: 2026-07-13. Expected ROJ date: 2026-07-22. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 9 days. MEP rough-in formwork is critical path for fitout sequencing.
+
+PO-2017 covers Formwork (Optical specification) from Vega Electronics Ltd for the Superstructure phase. Quantity: 74 units. Contract value: INR 736,398.42. Order date: 2026-05-30. Promised delivery date: 2026-07-09. Expected ROJ date: 2026-07-17. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 8 days. Precision optical-alignment formwork panels require pre-dispatch dimensional inspection.
+
+PO-2012 covers Cement (Electrical specification) from Badlands Components LLC for the Superstructure phase. Quantity: 8 units. Contract value: INR 119,214.56. Order date: 2026-06-13. Promised delivery date: 2026-07-12. Expected ROJ date: 2026-07-20. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 8 days.
+
+PO-2473 covers Formwork (Optical specification) from Badlands Components LLC for the Foundation phase. Quantity: 45 units. Contract value: INR 1,373,411.25. Order date: 2026-04-23. Promised delivery date: 2026-07-06. Expected ROJ date: 2026-07-16. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 10 days. This is the highest-value open formwork order in the register.
+
+PO-2000 covers Cement (Electrical specification) from Granite Valley Mfg for the Superstructure phase. Quantity: 4 units. Contract value: INR 32,623.64. Order date: 2026-04-09. Promised delivery date: 2026-08-01. Expected ROJ date: 2026-08-08. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 7 days.
+
+MEDIUM-RISK ORDERS REQUIRING ROUTINE FOLLOW-UP
+
+PO-2013 covers Formwork (Mechanical specification) from Riverton Manufacturing for the Superstructure phase. Quantity: 6 units. Contract value: INR 8,674.44. Order date: 2026-04-14. Promised delivery date: 2026-07-04. Expected ROJ date: 2026-07-08. Priority: Critical. Criticality: Critical. Risk level: Medium. Status: On Track. Actual delay forecast: 4 days.
+
+PO-2018 covers Formwork (Optical specification) from Trident Industrial Parts for the Superstructure phase. Quantity: 3 units. Contract value: INR 146,289.99. Order date: 2026-05-25. Promised delivery date: 2026-08-06. Expected ROJ date: 2026-08-13. Priority: Critical. Criticality: Critical. Risk level: High. Status: At Risk. Actual delay forecast: 7 days.
+
+MATERIALS WITH DELAY FORECASTS ABOVE 6 DAYS (procurement register)
+
+Delayed or at-risk materials in the current register include Cement (Structural) from Badlands Components LLC on PO-2133, Cement (Thermal Management) from Eagle Ridge Components on PO-2179, Formwork (Mechanical) from Cascade Tooling Solutions on PO-2006, and Formwork (Optical) from Vega Electronics Ltd on PO-2017. All have actual delay forecasts of 7 days or more and may affect the project schedule.
+
+CRITICAL MATERIALS AFFECTING PROJECT SCHEDULE
+
+Critical materials that may affect the project schedule include PO-2133 structural cement (Foundation), PO-2006 mechanical formwork (MEP Fitouts), PO-2017 optical formwork (Superstructure), and PO-2473 optical formwork (Foundation). Each is marked Critical priority with High delay risk.
+
+SUMMARY METRICS (June 2026)
+
+Total open purchase orders in register excerpt: 12
+High-risk deliveries this month: 10
+Purchase orders needing follow-up before 2026-07-04: PO-2133, PO-2179, PO-2125, PO-2008
+Expected ROJ date for structural steel (Superstructure package): 2026-07-11 (dependent on PO-2133)

@@ -37,8 +37,11 @@ Backend
   -> src/delay_model.py      scikit-learn delay risk model
   -> src/vendor_risk.py      vendor reliability scoring
   -> src/alerts.py           procurement alert generation
+  -> src/schedule_impact.py  phase float / critical-path heuristic
   -> src/database.py         SQLite setup and helpers
 ```
+
+Scheduling terms (promised delivery, ROJ, expected delay, schedule impact): see `doc_for_team/procurement_scheduling_glossary.md`.
 
 ## Tech Stack
 

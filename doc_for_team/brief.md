@@ -43,7 +43,10 @@ The app is not just a generic chatbot. It is shaped around construction procurem
 - Scikit-learn delay risk model trained from synthetic sample data.
 - Vendor risk scoring from delivery, communication, and quality signals.
 - Alert generation for critical materials, delivery risk, and vendor escalation.
-- Backend tests covering RAG, unsupported questions, delay prediction, vendor risk, and alerts.
+- Phase-level schedule impact mapping (float consumption / critical path blocked heuristic).
+- Backend tests covering RAG, unsupported questions, delay prediction, vendor risk, alerts, and schedule impact.
+
+Scheduling terminology is defined in `doc_for_team/procurement_scheduling_glossary.md`.
 
 ## Demo Data
 
