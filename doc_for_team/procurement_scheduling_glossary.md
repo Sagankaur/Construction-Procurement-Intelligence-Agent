@@ -147,7 +147,7 @@ Parallel track:
 
 1. **No schedule integration** — ROJ is forecast arrival, not Primavera/MSP required date.
 2. **Multiple delay fields** — ML expected delay vs dataset delay used in schedule impact mapping.
-3. **Phase name gaps** — `MEP Rough-In` exists in float config but processed data uses `MEP Fitouts` (falls back to default 4-day float).
+3. **Phase name gaps** — `MEP Rough-In` and `MEP Fitouts` are both mapped to a 2-day float in `PHASE_FLOAT` to prevent fallback to the default 4-day float.
 4. **UI label variance** — “Est. Delivery” / “Predicted Delivery” / “expected ROJ” refer to the same backend field in most flows.
 
 These limitations are acceptable for the hackathon prototype and are called out in `roadmap_risks.md` for production next steps.
