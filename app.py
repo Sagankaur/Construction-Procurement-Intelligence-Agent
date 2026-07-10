@@ -52,35 +52,17 @@ if "page" in query_params:
 else:
     selection = "Overview"
 
-# Handle theme parameter and store in session state
-if "theme" in query_params:
-    st.session_state.theme = query_params["theme"]
-elif "theme" not in st.session_state:
-    st.session_state.theme = "light"
+# Set theme strictly to light mode (day theme)
+st.session_state.theme = "light"
 
-# Define theme colors based on current state
-if st.session_state.theme == "dark":
-    bg_color = "#081B33"       # Brand navy background
-    text_color = "#F8FAFC"     # Off-white text
-    card_bg = "#102B4C"        # Navy card background
-    border_color = "#334155"   # Dark border
-    navbar_bg = "#FFFFFF"      # Keep image logo clear
-    navbar_text = "#94A3B8"    # Slate text for inactive links
-    navbar_border = "#E5EAF2"  # Light navbar border
-    shadow_color = "rgba(0, 0, 0, 0.25)"
-    theme_emoji = "☀️"         # Show sun emoji to toggle to light mode
-    next_theme = "light"
-else:
-    bg_color = BRAND_BG        # Clean SaaS background
-    text_color = BRAND_NAVY    # Brand navy primary text
-    card_bg = "#FFFFFF"        # White card background
-    border_color = "#E5EAF2"   # Light thin border
-    navbar_bg = "#FFFFFF"      # White navbar background
-    navbar_text = BRAND_SLATE  # Grey text for inactive links
-    navbar_border = "#E5EAF2"  # Light navbar border
-    shadow_color = "rgba(0, 0, 0, 0.02)"
-    theme_emoji = "🌙"         # Show moon emoji to toggle to dark mode
-    next_theme = "dark"
+bg_color = BRAND_BG        # Clean SaaS background
+text_color = BRAND_NAVY    # Brand navy primary text
+card_bg = "#FFFFFF"        # White card background
+border_color = "#E5EAF2"   # Light thin border
+navbar_bg = "#FFFFFF"      # White navbar background
+navbar_text = BRAND_SLATE  # Grey text for inactive links
+navbar_border = "#E5EAF2"  # Light navbar border
+shadow_color = "rgba(0, 0, 0, 0.02)"
 
 # ---------------------------------------------------------------------------
 # Global Design & Navbar Styling
@@ -103,10 +85,33 @@ st.markdown(
     }}
 
     /* Global Body and Font Settings */
-    .stApp {{
+    .stApp, [data-testid="stAppViewContainer"], [data-testid="stAppViewBlockContainer"], [data-testid="stAppViewBlockContainer"] > div {{
         background-color: var(--bg-color) !important;
-        color: var(--text-color);
+        color: var(--text-color) !important;
         font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }}
+
+    /* Force all child paragraphs, spans, labels, and markdown to respect text color */
+    .stMarkdown, .stMarkdown p, .stMarkdown li, .stMarkdown span, .stText, p, li, label, div[data-testid="stMarkdownContainer"] p {{
+        color: var(--text-color) !important;
+    }}
+
+    /* Streamlit metrics text styling */
+    [data-testid="stMetricValue"], [data-testid="stMetricValue"] * {{
+        color: var(--text-color) !important;
+    }}
+    [data-testid="stMetricLabel"], [data-testid="stMetricLabel"] * {{
+        color: var(--text-color) !important;
+    }}
+
+    /* Widget Labels (selectbox, inputs, etc.) */
+    label[data-testid="stWidgetLabel"] p, label[data-testid="stWidgetLabel"] span {{
+        color: var(--text-color) !important;
+    }}
+
+    /* Streamlit tabs text styling */
+    button[data-baseweb="tab"] > div, button[data-baseweb="tab"] * {{
+        color: var(--text-color) !important;
     }}
 
     /* Hide Streamlit default native navigation and sidebar */
@@ -143,6 +148,27 @@ st.markdown(
         background: {BRAND_NAVY};
         border-color: {BRAND_NAVY};
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }}
+
+    /* Premium Hover & Elevation Effects for Cards & Banners */
+    .stat-card, .fact-card, .vendor-card, .exec-summary-card, .recom-card, .recom-box, .trend-insight-box-new, .alert-box, .source-card {{
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }}
+    .stat-card:hover, .fact-card:hover, .vendor-card:hover, .exec-summary-card:hover, .recom-card:hover, .recom-box:hover, .trend-insight-box-new:hover, .alert-box:hover, .source-card:hover {{
+        transform: translateY(-4px) !important;
+        box-shadow: 0 12px 24px rgba(7, 49, 95, 0.08) !important;
+        border-color: {BRAND_ORANGE} !important;
+    }}
+    
+    /* Navigation Link Hover & Transition effects */
+    div a[target="_self"] {{
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    }}
+    div a[target="_self"]:hover {{
+        color: {BRAND_ORANGE} !important;
+        opacity: 1 !important;
+        border-bottom-color: {BRAND_ORANGE} !important;
+        transform: translateY(-1px) !important;
     }}
 
     /* Typography Hierarchy styling */
@@ -218,15 +244,14 @@ navbar_html = f"""
      {logo_html}
   </div>
   <div style="display: flex; gap: 1.5rem; height: 100%; align-items: center;">
-     <a href="?page=Overview&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Overview' else navbar_text}; font-weight: {'700' if selection == 'Overview' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Overview' else 'transparent'}; transition: all 0.2s;">Overview</a>
-     <a href="?page=Upload Documents&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Upload Documents' else navbar_text}; font-weight: {'700' if selection == 'Upload Documents' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Upload Documents' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Upload Documents</a>
-     <a href="?page=Ask AI Agent&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Ask AI Agent' else navbar_text}; font-weight: {'700' if selection == 'Ask AI Agent' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Ask AI Agent' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Ask AI Agent</a>
-     <a href="?page=Delay Prediction&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Delay Prediction' else navbar_text}; font-weight: {'700' if selection == 'Delay Prediction' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Delay Prediction' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Delay Prediction</a>
-     <a href="?page=Vendor Risk&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Vendor Risk' else navbar_text}; font-weight: {'700' if selection == 'Vendor Risk' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Vendor Risk' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Vendor Risk</a>
-     <a href="?page=Alerts&theme={st.session_state.theme}" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Alerts' else navbar_text}; font-weight: {'700' if selection == 'Alerts' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Alerts' else 'transparent'}; transition: all 0.2;">Alerts</a>
+     <a href="?page=Overview" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Overview' else navbar_text}; font-weight: {'700' if selection == 'Overview' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Overview' else 'transparent'}; transition: all 0.2s;">Overview</a>
+     <a href="?page=Upload Documents" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Upload Documents' else navbar_text}; font-weight: {'700' if selection == 'Upload Documents' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Upload Documents' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Upload Documents</a>
+     <a href="?page=Ask AI Agent" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Ask AI Agent' else navbar_text}; font-weight: {'700' if selection == 'Ask AI Agent' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Ask AI Agent' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Ask AI Agent</a>
+     <a href="?page=Delay Prediction" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Delay Prediction' else navbar_text}; font-weight: {'700' if selection == 'Delay Prediction' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Delay Prediction' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Delay Prediction</a>
+     <a href="?page=Vendor Risk" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Vendor Risk' else navbar_text}; font-weight: {'700' if selection == 'Vendor Risk' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Vendor Risk' else 'transparent'}; transition: all 0.2; whitespace: nowrap;">Vendor Risk</a>
+     <a href="?page=Alerts" target="_self" style="text-decoration: none; color: {BRAND_ORANGE if selection == 'Alerts' else navbar_text}; font-weight: {'700' if selection == 'Alerts' else '500'}; font-size: 0.9rem; padding: 0.5rem 0.2rem; border-bottom: 2px solid {BRAND_ORANGE if selection == 'Alerts' else 'transparent'}; transition: all 0.2;">Alerts</a>
   </div>
-  <div style="display: flex; align-items: center; gap: 1rem;">
-     <a href="?page={selection}&theme={next_theme}" target="_self" style="text-decoration: none; font-size: 1.1rem; cursor: pointer;">{theme_emoji}</a>
+  <div style="display: flex; align-items: center; gap: 1rem; width: 230px; min-width: 230px; justify-content: flex-end;">
   </div>
 </div>
 """

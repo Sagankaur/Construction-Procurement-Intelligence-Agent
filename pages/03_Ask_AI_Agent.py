@@ -8,13 +8,12 @@ from src.rag_engine import RAGResponse, get_answer
 COPILOT_CSS = """
 <style>
 .copilot-banner {
-    background: linear-gradient(135deg, #0F172A, #1E293B);
-    color: #ffffff;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 1px solid #FFCC80;
     border-radius: 14px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.05);
 }
 .copilot-title {
     font-size: 1.3rem;
@@ -23,10 +22,11 @@ COPILOT_CSS = """
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: #07315F !important;
 }
 .copilot-sub {
     font-size: 0.88rem;
-    color: #94a3b8;
+    color: #4A5568 !important;
 }
 
 /* Chat bubble styling */
@@ -264,7 +264,6 @@ Chunk #{card.chunk_idx} • Score: {card.score:.4f} ({score_pct:.1f}%)
 
 
 def main():
-    st.title("Ask AI Agent")
     st.markdown(COPILOT_CSS, unsafe_allow_html=True)
 
     # ---------------------------------------------------------------------------

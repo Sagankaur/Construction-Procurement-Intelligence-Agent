@@ -9,21 +9,22 @@ from src.document_loader import seed_sample_documents, store_document
 UPLOAD_DOCS_CSS = """
 <style>
 .doc-intel-banner {
-    background: linear-gradient(135deg, #0F172A, #1E293B);
-    color: #ffffff;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 1px solid #FFCC80;
     border-radius: 14px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.05);
 }
 .doc-intel-title {
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 0.3rem;
+    color: #07315F !important;
 }
 .doc-intel-sub {
     font-size: 0.88rem;
-    opacity: 0.9;
+    color: #4A5568 !important;
 }
 
 .stats-grid {
@@ -159,7 +160,6 @@ def _render_facts_cards(facts: list[dict]) -> None:
 
 
 def main():
-    st.title("Document Intelligence Center")
     st.markdown(UPLOAD_DOCS_CSS, unsafe_allow_html=True)
 
     # ---------------------------------------------------------------------------

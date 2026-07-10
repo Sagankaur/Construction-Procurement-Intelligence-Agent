@@ -8,22 +8,22 @@ from src.vendor_risk import get_vendor_risk_table
 ALERTS_CSS = """
 <style>
 .alerts-banner {
-    background: linear-gradient(135deg, #0F172A, #1E293B);
-    color: #ffffff;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 1px solid #FFCC80;
     border-radius: 14px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.05);
 }
 .alerts-banner-title {
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 0.3rem;
+    color: #07315F !important;
 }
 .alerts-banner-sub {
     font-size: 0.88rem;
-    color: #94a3b8;
+    color: #4A5568 !important;
 }
 
 /* Alert boxes */
@@ -111,7 +111,6 @@ def _cached_vendor_risk():
 
 
 def main():
-    st.title("Procurement Alerts")
     st.markdown(ALERTS_CSS, unsafe_allow_html=True)
 
     # ---------------------------------------------------------------------------
