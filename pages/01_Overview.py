@@ -127,21 +127,25 @@ def main():
         """
         <style>
         .overview-title-container {
-            margin-bottom: 2rem;
-            width: 100%;
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border: 1px solid #FFCC80;
+            border-radius: 14px;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.05);
         }
         .overview-title {
-            font-size: 2rem !important;
+            font-size: 1.3rem !important;
             font-weight: 800 !important;
-            color: var(--primary-navy) !important;
-            margin: 0 !important;
+            color: #07315F !important;
+            margin: 0 0 0.3rem 0 !important;
             line-height: 1.2 !important;
         }
         .overview-subtitle {
-            font-size: 0.95rem !important;
-            color: var(--text-color) !important;
-            opacity: 0.8 !important;
-            margin: 0.25rem 0 0 0 !important;
+            font-size: 0.88rem !important;
+            color: #4A5568 !important;
+            opacity: 0.95 !important;
+            margin: 0 !important;
         }
 
         /* Executive Summary Card */
@@ -1316,7 +1320,7 @@ def main():
                     visible=False
                 ),
             )
-            st.plotly_chart(fig_vendor_trend, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(fig_vendor_trend, use_container_width=True, theme=None, config={'displayModeBar': False})
             st.markdown(
                 """
                 <div class="trend-insight-box-new">
@@ -1386,7 +1390,7 @@ def main():
                 ),
                 barcornerradius=8,
             )
-            st.plotly_chart(fig_schedule, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(fig_schedule, use_container_width=True, theme=None, config={'displayModeBar': False})
             st.markdown(
                 """
                 <div class="trend-insight-box-new">
@@ -1452,7 +1456,7 @@ def main():
                     visible=False
                 ),
             )
-            st.plotly_chart(fig_perf_trend, use_container_width=True, config={'displayModeBar': False})
+            st.plotly_chart(fig_perf_trend, use_container_width=True, theme=None, config={'displayModeBar': False})
             st.markdown(
                 """
                 <div class="trend-insight-box-new">

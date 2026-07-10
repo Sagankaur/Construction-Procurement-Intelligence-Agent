@@ -16,21 +16,22 @@ from src.delay_model import (
 COCKPIT_CSS = """
 <style>
 .cockpit-banner {
-    background: linear-gradient(135deg, #0F172A, #1E293B);
-    color: #ffffff;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 1px solid #FFCC80;
     border-radius: 14px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.05);
 }
 .cockpit-title {
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 0.3rem;
+    color: #07315F !important;
 }
 .cockpit-sub {
     font-size: 0.88rem;
-    opacity: 0.9;
+    color: #4A5568 !important;
 }
 
 /* Result panel custom styling */
@@ -133,7 +134,6 @@ def _cached_delivery_risk():
 
 
 def main():
-    st.title("Delay Prediction Cockpit")
     st.markdown(COCKPIT_CSS, unsafe_allow_html=True)
 
     data = _cached_procurement_data()
@@ -256,7 +256,7 @@ Run predictive machine learning models to identify future material lead time del
                 margin=dict(l=10, r=10, t=10, b=10),
                 paper_bgcolor="rgba(0,0,0,0)",
             )
-            st.plotly_chart(fig_conf, use_container_width=True)
+            st.plotly_chart(fig_conf, use_container_width=True, theme=None)
             
             st.metric("Expected Lead-Time Delay", f"{expected_delay} days")
 
@@ -329,7 +329,7 @@ Est. Delivery
             yaxis=dict(showgrid=True, gridcolor=grid_color),
             font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
         )
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, use_container_width=True, theme=None)
         
         st.dataframe(
             risk_table[[

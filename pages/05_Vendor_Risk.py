@@ -13,22 +13,22 @@ from src.vendor_risk import (
 VENDOR_360_CSS = """
 <style>
 .vendor-banner {
-    background: linear-gradient(135deg, #0F172A, #1E293B);
-    color: #ffffff;
+    background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+    border: 1px solid #FFCC80;
     border-radius: 14px;
     padding: 1.5rem 1.8rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 12px rgba(255, 152, 0, 0.05);
 }
 .vendor-banner-title {
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 0.3rem;
+    color: #07315F !important;
 }
 .vendor-banner-sub {
     font-size: 0.88rem;
-    color: #94a3b8;
+    color: #4A5568 !important;
 }
 
 .vendor-card {
@@ -123,7 +123,7 @@ def render_overview_tab(table):
         yaxis=dict(showgrid=True, gridcolor=grid_color),
         font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
     )
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, use_container_width=True, theme=None)
 
     st.dataframe(
         table.rename(
@@ -223,7 +223,7 @@ def render_drilldown_tab(table):
                 paper_bgcolor="rgba(0,0,0,0)",
                 font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
             )
-            st.plotly_chart(fig_pie, use_container_width=True)
+            st.plotly_chart(fig_pie, use_container_width=True, theme=None)
         else:
             st.info("No status data available.")
 
@@ -275,7 +275,7 @@ def render_drilldown_tab(table):
             font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
             template=plotly_template,
         )
-        st.plotly_chart(fig_trend, use_container_width=True)
+        st.plotly_chart(fig_trend, use_container_width=True, theme=None)
     else:
         st.info("No trend data available.")
 
@@ -354,7 +354,7 @@ def render_comparison_tab(table):
         yaxis=dict(showgrid=True, gridcolor=grid_color),
         font=dict(family="Plus Jakarta Sans", size=11, color=chart_font_color),
     )
-    st.plotly_chart(fig_comp, use_container_width=True)
+    st.plotly_chart(fig_comp, use_container_width=True, theme=None)
 
     # 2. Side-by-side Table
     st.markdown("<h4>Key Statistics Breakdown</h4>", unsafe_allow_html=True)
@@ -394,7 +394,6 @@ def render_comparison_tab(table):
 
 
 def main():
-    st.title("Vendor 360 View")
     st.markdown(VENDOR_360_CSS, unsafe_allow_html=True)
 
     # ---------------------------------------------------------------------------
