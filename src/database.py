@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
@@ -10,6 +11,9 @@ def get_project_root() -> Path:
 
 
 def get_db_path() -> Path:
+    configured_path = os.getenv("SITESAGE_DB_PATH")
+    if configured_path:
+        return Path(configured_path).expanduser().resolve()
     return (Path(__file__).parent / DB_NAME).resolve()
 
 

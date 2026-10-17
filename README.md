@@ -1,120 +1,134 @@
 # SiteSage AI
 
-SiteSage AI is a local construction procurement intelligence prototype for the Kaya AI IIT India Hackathon 2026. It helps project managers detect material delays, vendor reliability risks, purchase order follow-ups, and schedule-impacting procurement bottlenecks.
+<p align="center">
+  <img src="logo.jpeg" alt="SiteSage AI logo" width="88" />
+  &nbsp;&nbsp;
+  <img src="name.jpeg" alt="SiteSage AI wordmark" width="260" />
+</p>
 
-## Problem Statement
+<p align="center">
+  A local-first construction procurement intelligence prototype built for the Kaya AI IIT India Hackathon 2026.
+</p>
 
-Construction teams often track hundreds of purchase orders across emails, contracts, spreadsheets, and vendor calls. A delayed critical material such as structural steel, MEP cable, or a generator package can block site progress before the project team has a clear warning.
+SiteSage brings document search, delivery-risk prediction, vendor scoring, and operational alerts into one Streamlit application. It is designed as a demonstrable prototype: the repository includes synthetic procurement records and sample documents, and its core walkthrough works without an API key or hosted model.
 
-## Solution
+## What it does
 
-SiteSage AI combines document upload, cited retrieval, delay prediction, vendor scoring, and alert generation in one Streamlit dashboard. It is intentionally lightweight so it can run locally on a Windows laptop during a hackathon demo.
+- Ingests PDF, TXT, Markdown, CSV, and Excel procurement documents.
+- Chunks documents and retrieves relevant passages with a hashing vectorizer and FAISS.
+- Produces source-linked extractive answers by default, with optional local Ollama generation.
+- Estimates delivery delay risk from the included synthetic procurement history.
+- Ranks vendors using delivery, quality, and communication signals.
+- Converts delivery and vendor signals into prioritized procurement alerts.
+- Relates delivery risk to phase float and critical-path heuristics.
 
-## Features
+## Try the included demo
 
-- Upload PDF, TXT, CSV, Markdown, and Excel procurement documents.
-- Ask procurement questions using a RAG flow with cited document chunks.
-- Fall back to deterministic cited answers if Ollama is unavailable.
-- Predict delivery delay risk with scikit-learn and synthetic procurement history.
-- Score vendor reliability from delivery, quality, and communication signals.
-- Generate alerts for high-risk deliveries, vendor escalation, and schedule impact.
-- Display charts and actionable tables in a Streamlit dashboard.
+### Local Python
+
+Python 3.11 is recommended.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+SITESAGE_USE_OLLAMA=0 python -m streamlit run app.py
+```
+
+On Windows PowerShell, activate with `.venv\Scripts\Activate.ps1` and set `$env:SITESAGE_USE_OLLAMA="0"` before running Streamlit. Open <http://localhost:8501>.
+
+### Docker
+
+The container intentionally uses the deterministic, no-LLM fallback. Ollama is not installed inside the image.
+
+```bash
+docker build -t sitesage-ai .
+docker volume create sitesage-data
+docker run --rm --name sitesage -p 8501:8501 \
+  --mount type=volume,source=sitesage-data,target=/data \
+  sitesage-ai
+```
+
+Open <http://localhost:8501>. The named volume preserves indexed documents and predictions between runs.
+
+## Demo workflow
+
+1. Review the **Overview** dashboard.
+2. Open **Upload Documents** and index the bundled sample documents.
+3. Ask: “Which deliveries are at risk this month?”
+4. Score a structural-steel order in **Delay Prediction**.
+5. Compare vendor signals in **Vendor Risk**.
+6. Review the actions generated in **Alerts**.
+
+Other useful questions include “Which vendors are high risk?” and “Which critical materials may affect the project schedule?”
 
 ## Architecture
 
 ```text
-Streamlit UI
-  -> pages/01_Overview.py
-  -> pages/02_Upload_Documents.py
-  -> pages/03_Ask_AI_Agent.py
-  -> pages/04_Delay_Prediction.py
-  -> pages/05_Vendor_Risk.py
-  -> pages/06_Alerts.py
-
-Backend
-  -> src/document_loader.py  SQLite chunks + FAISS retrieval
-  -> src/rag_engine.py       Ollama prompt + cited fallback answers
-  -> src/delay_model.py      scikit-learn delay risk model
-  -> src/vendor_risk.py      vendor reliability scoring
-  -> src/alerts.py           procurement alert generation
-  -> src/schedule_impact.py  phase float / critical-path heuristic
-  -> src/database.py         SQLite setup and helpers
+Browser
+  |
+  v
+Streamlit multi-page UI
+  |-- document upload ----------> text extraction -> chunking
+  |                                      |             |
+  |                                      v             v
+  |                                  SQLite <---- FAISS retrieval
+  |                                      |             |
+  |                                      +---- cited answer
+  |                                            (optional Ollama)
+  |
+  |-- procurement form --------> scikit-learn delay model
+  |                                      |
+  |                                      +--> schedule-impact heuristic
+  |
+  +-- sample procurement data -> vendor scoring -> prioritized alerts
 ```
 
-Scheduling terms (promised delivery, ROJ, expected delay, schedule impact): see `doc_for_team/procurement_scheduling_glossary.md`.
+| Area | Implementation |
+| --- | --- |
+| Interface | `app.py` and `pages/` |
+| Document ingestion and retrieval | `src/document_loader.py` |
+| Answer generation and citations | `src/rag_engine.py` |
+| Delay prediction | `src/delay_model.py` |
+| Vendor and schedule signals | `src/vendor_risk.py`, `src/schedule_impact.py` |
+| Alerts | `src/alerts.py` |
+| Persistence | `src/database.py` and SQLite |
 
-## Tech Stack
+## Optional local LLM
 
-- Python
-- Streamlit
-- Pandas and NumPy
-- Scikit-learn
-- FAISS CPU
-- SQLite
-- Plotly
-- Ollama for optional local LLM inference
+The retrieval and citation flow does not require Ollama. To add local generation, install Ollama on the host, pull a compatible model, and run the app outside the supplied container:
 
-Recommended local models:
-
-- `qwen2.5:7b`
-- `gemma3:4b`
-- `llama3.1:8b` if performance allows
-
-## Setup
-
-```powershell
-python -m venv ..\.venv
-..\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-Optional Ollama setup for local LLM inference:
-
-```powershell
-ollama serve
+```bash
 ollama pull qwen2.5:7b
-$env:OLLAMA_MODEL="qwen2.5:7b"
-$env:SITESAGE_USE_OLLAMA="1"
+export OLLAMA_MODEL=qwen2.5:7b
+export SITESAGE_USE_OLLAMA=1
+python -m streamlit run app.py
 ```
 
-If Ollama is not installed or not running, SiteSage still returns cited extractive answers from indexed documents.
+See [docs/ollama_setup.md](docs/ollama_setup.md) for Windows instructions and alternative models.
 
-See [docs/ollama_setup.md](docs/ollama_setup.md) for the full local setup flow and presentation notes.
+## Data and privacy
 
-## Run Locally
-
-```powershell
-..\.venv\Scripts\python.exe -m streamlit run app.py
-```
-
-Open `http://localhost:8501`.
-
-## Demo Workflow
-
-1. Open the app and review the Overview dashboard.
-2. Go to Upload Documents and click `Load Sample Documents`.
-3. Ask one of the demo questions in Ask AI Agent.
-4. Open Delay Prediction and score a structural steel delivery.
-5. Review Vendor Risk for high-risk vendors such as ABC Metals.
-6. Open Alerts to show critical procurement actions.
-
-Demo questions:
-
-- Which deliveries are at risk this month?
-- Which vendors are high risk?
-- What purchase orders need follow-up?
-- What materials are delayed?
-- What is the expected ROJ date for steel?
-- Which critical materials may affect the project schedule?
-
-## Kaya AI Hackathon Alignment
-
-Kaya's Amber concept learns project context and helps teams make decisions. SiteSage follows that pattern for procurement: it learns from uploaded project documents, retrieves cited context, predicts delivery risk, ranks vendors, and turns risk into project-manager-ready alerts.
+- Files are processed locally and stored in a local SQLite database.
+- The default answer path does not send document text to an external API.
+- The included CSV and documents are synthetic demo material.
+- Delete the SQLite file (or Docker volume) to remove indexed demo state.
 
 ## Verification
 
-```powershell
-$env:PYTHONDONTWRITEBYTECODE="1"
-..\.venv\Scripts\python.exe -B -m unittest discover -s tests -v
-..\.venv\Scripts\python.exe -m streamlit run app.py --server.headless=true
+```bash
+PYTHONDONTWRITEBYTECODE=1 python -B -m unittest discover -s tests -v
+SITESAGE_USE_OLLAMA=0 python -m streamlit run app.py --server.headless=true
 ```
+
+The second command starts a server and is intended for a manual smoke test.
+
+## Limitations
+
+- This is a hackathon prototype, not a production procurement or scheduling system.
+- The included model is trained on synthetic data; its score is a demonstration signal, not a calibrated operational forecast.
+- Hashing-vector retrieval is lightweight and deterministic but less semantic than a learned embedding model.
+- SQLite and the single-process UI are intended for local demos rather than multi-user deployment.
+- Schedule impact is heuristic and does not replace a maintained CPM schedule.
+- Ollama output quality and latency depend on the locally selected model and available hardware.
