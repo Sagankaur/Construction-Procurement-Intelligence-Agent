@@ -12,6 +12,8 @@
 
 SiteSage brings document search, delivery-risk prediction, vendor scoring, and operational alerts into one Streamlit application. It is designed as a demonstrable prototype: the repository includes synthetic procurement records and sample documents, and its core walkthrough works without an API key or hosted model.
 
+![Runtime screenshot of the SiteSage Streamlit overview](docs/screenshots/runtime-overview.png)
+
 ## What it does
 
 - Ingests PDF, TXT, Markdown, CSV, and Excel procurement documents.
